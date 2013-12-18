@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
         concat: {
             dist: {
-                src: ['js/ajax.js', 'js/main.js'],
+                src: ['js/*.js'],
                 dest: 'js/build/script.js'
             }
         },
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            
+
             options: {
                 livereload: true
             },
@@ -80,6 +80,13 @@ module.exports = function(grunt) {
             css: {
                 files: ['css/*.scss'],
                 tasks: ['sass', 'autoprefixer', 'csso'],
+                options: {
+                    spawn: false
+                }
+            },
+
+            html: {
+                files: ['*.html'],
                 options: {
                     spawn: false
                 }

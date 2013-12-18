@@ -1,2 +1,1 @@
-var a = "wow";
-var b = "ahax lol";
+// ajax goes here lol

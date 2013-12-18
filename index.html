@@ -2,10 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>WEBSCRP</title>
+	<title>webscrp</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<link rel="stylesheet" href="css/build/style.min.css">
 </head>
 <body>
+	
+	<header>
+		<h1>Company Name</h1>
+		<div class="search">
+			<input type="text" name="query">
+			<button type="submit">
+				<i class="fa fa-search"></i>
+			</button>
+		</div>
+		<div class="bits">
+			<input type="radio" name="display-option" value="0" id="grid-display-option">
+			<label style="display:none;" for="grid-display-option"><i class="fa fa-th-large"></i></label>
+			
+			<input type="radio" name="display-option" value="1" id="list-display-option">
+			<label for="list-display-option"><i class="fa fa-th-list"></i></label>
+			
+			<a href="#" class="checkout"><i class="fa fa-shopping-cart"></i><span class="item-amount">99+</span></a>
+		</div>
+	</header>
+
 	<script src="js/build/script.min.js"></script>
 </body>
 </html>
