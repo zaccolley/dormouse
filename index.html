@@ -7,23 +7,21 @@
 	<link rel="stylesheet" href="css/build/style.min.css">
 </head>
 <body>
-	
+
 	<header>
 		<h1>Company Name</h1>
 		<div class="search">
-			<input type="text" name="query">
-			<button type="submit">
-				<i class="fa fa-search"></i>
-			</button>
+			<input type="text" name="query" class="search-query">
+			<button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
 		</div>
 		<div class="bits">
 			<input type="radio" name="display-option" value="0" id="grid-display-option">
-			<label style="display:none;" for="grid-display-option"><i class="fa fa-th-large"></i></label>
+			<label for="grid-display-option"><i class="fa fa-th-large"></i></label>
 			
 			<input type="radio" name="display-option" value="1" id="list-display-option">
-			<label for="list-display-option"><i class="fa fa-th-list"></i></label>
+			<label style="display:none;" for="list-display-option"><i class="fa fa-th-list"></i></label>
 			
-			<a href="#" class="checkout"><i class="fa fa-shopping-cart"></i><span class="item-amount">99+</span></a>
+			<a href="#" class="checkout"><div class="checkout-icon"><i class="fa fa-shopping-cart"></i></div><div class="checkout-item-amount">99+</div></a>
 		</div>
 	</header>
 
