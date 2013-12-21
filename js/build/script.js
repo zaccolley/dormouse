@@ -1,6 +1,7 @@
 // ajax goes here lol
 (function(){
 	iconSwap();
+	displayOptionInit();
 })()
 
 
@@ -34,5 +35,31 @@ function iconSwap(){
 
 	}
 
+}
+
+function displayOptionInit(){
+	var displayOptions = document.querySelectorAll('.bits label');
+	console.log(displayOptions);
+
+	// hide the first display option
+	displayOptions[0].style.display = 'none';
+
+	for(var i in displayOptions){
+		var displayOption = displayOptions[i];
+
+		if(displayOption.hasOwnProperty('innerHTML')){
+			displayOption.addEventListener('click', displayOptionToggle, false);
+		}
+	}
+
+}
+
+function displayOptionToggle(){
+	var displayOptions = document.querySelectorAll('.bits label');
+	
+	displayOptions[0].style.display = '';
+	displayOptions[1].style.display = '';
+
+	this.style.display = 'none';
 }
 	
