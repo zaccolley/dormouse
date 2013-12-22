@@ -60,7 +60,7 @@ function basketToggle(){
 
 // for setting up the buttons for switching the display of the items
 function displayOptionInit(){
-	var displayOptions = document.querySelectorAll('.bits label');
+	var displayOptions = document.querySelectorAll('.display-option');
 
 	// hide the first display option
 	displayOptions[0].style.display = 'none';
@@ -77,7 +77,7 @@ function displayOptionInit(){
 
 // toggle the display options buttons
 function displayOptionToggle(){
-	var displayOptions = document.querySelectorAll('.bits label');
+	var displayOptions = document.querySelectorAll('.display-option');
 
 	for(var i in displayOptions){
 		var displayOption = displayOptions[i];

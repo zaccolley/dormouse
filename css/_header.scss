@@ -14,10 +14,6 @@ header{ overflow: hidden; }
 	font-weight: 500;
 }
 
-.search-submit, .display-option, .checkout{
-	font-size: 17px;
-}
-
 .search-submit:hover, .display-option:hover, .checkout:hover{
 	opacity: .85;
 	cursor: pointer;
@@ -28,8 +24,10 @@ header{ overflow: hidden; }
 .logo a{
 	display: inline-block;
 	margin-top: .25rem;
+	width: 100%;
 	color: inherit;
 	text-decoration: none;
+	text-align: center;
  }
 
 .search{ width: 50%; }
@@ -39,7 +37,7 @@ header{ overflow: hidden; }
 .search-query{
 	margin-top: .5rem;
 	padding: 0 .5em;
-	background: lighten($white, 50%);
+	background: transparentize($white, .95);
 	border: 2px solid $black;
 	border-radius: 1.25em;
 	width: 85%;
@@ -51,6 +49,7 @@ header{ overflow: hidden; }
 	border: none;
 	height: auto;
 	width: 15%;
+	color: inherit;
 }
 
 .bits{
@@ -71,7 +70,7 @@ header{ overflow: hidden; }
 .checkout{
 	width: 50%;
 	text-decoration: none;
-	color: $black;
+	color: inherit;
 }
 
 .checkout div{
