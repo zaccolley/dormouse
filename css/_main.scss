@@ -1,0 +1,99 @@
+/* _main.scss */
+
+main{
+	padding: 1em 0;
+	float: left;
+	height: 1000px;
+	width: 75%;
+}
+
+.item-grid{
+	width: (100%/6);
+	float: left;
+	padding: 0 1em 1em 0;
+}
+
+.item-grid section{
+	height: 150px;
+	background: rgba(255, 255, 255, 0.85);
+	background-position: center;
+	background-size: cover;
+	border: 2px solid $dullBlack;
+	position: relative;
+}
+
+.item-grid .details{
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	padding: 0 .5em;
+	background: $dullBlack;
+	color: $dirtyWhite;
+	opacity: 0;
+	transition: opacity .15s;
+}
+
+.item-grid .details:hover{
+	opacity: .9;
+	cursor: pointer;
+}
+
+.item-grid .details a{
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px dashed transparent;
+}
+
+.item-grid .details a:hover{
+	border-bottom-color: $dirtyWhite;
+}
+
+.item-grid .details-title{
+	padding: .75em 0 .25em;
+	font-weight: 600;
+	font-size: .85em;
+	line-height: 1.3em;
+}
+
+.item-grid .details-desc{
+	padding: .25em 0;
+	font-weight: 500;
+	font-size: .75em;
+}
+
+.item-grid .details-price{
+	position: absolute;
+	bottom: 0; left: 0; right: 0;
+	font-weight: 700;
+	font-size: 1.5em;
+	padding: .5em;
+}
+
+// loop this in sass yo
+
+@media all and (max-width: 1200px){
+	.item-grid{ width: (100%/5); }
+}
+
+@media all and (max-width: 1000px){
+	.item-grid{ width: (100%/4); }
+}
+
+@media all and (max-width: 800px){
+	.item-grid{ width: (100%/3); }
+}
+
+@media all and (max-width: 600px){
+	main{ width: 100%; }
+	.item-grid{ width: (100%/3); }
+}
+
+@media all and (max-width: 500px){
+	.item-grid{ width: (100%/2); }
+}
+
+@media all and (max-width: 400px){
+	.item-grid{ width: (100%/1); }
+}
+
+
+

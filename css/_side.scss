@@ -1,0 +1,14 @@
+/* _side.scss */
+
+aside{
+	padding: 1em 0;
+	float: left;
+	width: 25%;
+}
+
+@media all and (max-width: 600px){
+	aside{
+		float: none;
+		width: 100%;
+	}
+}

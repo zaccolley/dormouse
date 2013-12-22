@@ -1,8 +1,7 @@
+/* all.scss */
+
 @import 'reset';
-
 @import 'fonts';
-
-/* main.scss */
 
 /* -- colours -- */
 
@@ -13,13 +12,14 @@ $dullBlack: #020202;
 
 $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 
-*{
-	box-sizing: border-box;
-}
+*{ box-sizing: border-box; }
 
 body{
+	padding: 0 .5em;
 	background: $dirtyWhite;
 	font-family: $openSans;
 }
 
 @import 'header';
+@import 'main';
+@import 'side';
