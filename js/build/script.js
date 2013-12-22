@@ -3,7 +3,7 @@
 	iconSwap();
 	displayOptionInit();
 	basketInit();
-})()
+})();
 
 
 // to swap any text with dirty icons
@@ -66,8 +66,8 @@ function displayOptionInit(){
 	// hide the first display option
 	displayOptions[0].style.display = 'none';
 
-	for(var i in displayOptions){
-		var displayOption = displayOptions[i];
+	for(var j in displayOptions){
+		var displayOption = displayOptions[j];
 
 		if(displayOption.hasOwnProperty('innerHTML')){
 			displayOption.addEventListener('click', displayOptionToggle, false);
@@ -79,17 +79,30 @@ function displayOptionInit(){
 // toggle the display options buttons
 function displayOptionToggle(){
 	var displayOptions = document.querySelectorAll('.display-option');
+	var items = document.querySelectorAll('.items li');
+	var displayOptionType = 'grid';
 
-	for(var i in displayOptions){
-		var displayOption = displayOptions[i];
+	for(var k in displayOptions){
+		var displayOption = displayOptions[k];
 
 		if(displayOption.hasOwnProperty('innerHTML')){
 			if(displayOption.style.display === ''){
 				displayOption.style.display = 'none';
+				displayOptionType = 'list';
 			}else{
+				displayOptionType = 'grid';
 				displayOption.style.display = '';
 			}
 		}
 	}
+
+	for(var l in items){
+		var item = items[l];
+
+		if(item.hasOwnProperty('innerHTML')){
+			item.className = 'item-'+displayOptionType;
+		}
+	}
+
 }
 	

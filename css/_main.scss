@@ -6,6 +6,15 @@ main{
 	width: 75%;
 }
 
+.items li .details a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.items li .details-title{ font-weight: 600; }
+.items li .details-desc{ font-weight: 500; }
+.items li .details-price{ font-weight: 700; }
+
 .item-grid{
 	width: (100%/6);
 	float: left;
@@ -37,30 +46,60 @@ main{
 	cursor: pointer;
 }
 
-.item-grid .details a{
-	color: inherit;
-	text-decoration: none;
-}
-
 .item-grid .details-title{
 	padding: .75em 0 .25em;
-	font-weight: 600;
 	font-size: .85em;
 	line-height: 1.3em;
 }
 
 .item-grid .details-desc{
 	padding: .25em 0;
-	font-weight: 500;
 	font-size: .75em;
 }
 
 .item-grid .details-price{
 	position: absolute;
 	bottom: 0; left: 0; right: 0;
-	font-weight: 700;
 	font-size: 1.5em;
 	padding: .5em;
+}
+
+.item-list{
+	overflow: hidden;
+	border-bottom: 2px solid $black;
+	padding: 1em 0;
+}
+
+.item-list section{
+	overflow: hidden;
+	background: no-repeat left center;
+	background-size: 5em;
+	padding-left: 6em;
+}
+
+.item-list:first-child{ padding-top: 0; }
+
+.item-list .details-title, .item-list .details-desc{
+	float: left;
+	width: 80%;
+}
+
+.item-list .details-price{
+	float: right;
+	width: 20%;
+	text-align: center;
+}
+
+.item-list .details-price a{
+	text-decoration: none;
+	color: inherit;
+	font-weight: 700;
+	font-size: 1.25em;
+	border-bottom: 1px dashed transparent;
+}
+
+.item-list .details-price a:hover{
+	border-color: $black;
 }
 
 // loop this in sass yo
@@ -89,6 +128,3 @@ main{
 @media all and (max-width: 400px){
 	.item-grid{ width: (100%/1); }
 }
-
-
-
