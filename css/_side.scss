@@ -1,10 +1,37 @@
 /* _side.scss */
 
 aside{
-	padding: 1em 0;
+	padding: 1em;
 	float: left;
 	width: 25%;
 }
+
+.filter{
+	border: 2px solid $black;
+	background: none;
+	width: 100%;	
+	border-radius: 2px;
+	padding: .5em 0;
+}
+
+.filter:hover{ background: lighten(black, 90%); }
+
+.categories{
+	padding-left: 2px;
+	list-style: none;
+}
+
+.categories li a{
+	display: block;
+	padding: .5em 0;
+	color: inherit;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 600;
+	transition: opacity .15s;
+}
+
+.categories li a:hover{ opacity: .6; }
 
 @media all and (max-width: 600px){
 	aside{

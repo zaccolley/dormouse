@@ -7,7 +7,7 @@ header{ overflow: hidden; }
 	float: left;
 }
 
-.logo, .search-query, .search-submit,
+.search-query, .search-submit,
 .display-option, .checkout{
 	padding: .5rem;
 	font-size: 1rem;
@@ -22,12 +22,15 @@ header{ overflow: hidden; }
 .logo{ width: 25%; }
 
 .logo a{
+	padding: 0 1rem;
+	margin-top: .75rem;
+	font-weight: 700;
+	font-size: 1.25rem;
 	display: inline-block;
-	margin-top: .25rem;
 	width: 100%;
 	color: inherit;
 	text-decoration: none;
-	text-align: center;
+	text-transform: uppercase;
  }
 
 .search{ width: 50%; }
@@ -42,6 +45,14 @@ header{ overflow: hidden; }
 	border-radius: 1.25em;
 	width: 85%;
 	font-size: inherit;
+}
+
+.search-query:hover{ background: lighten(black, 90%); }
+
+.search-query:focus{
+	color: $white;
+	border-color: $black;
+	background: $black;
 }
 
 .search-submit{
