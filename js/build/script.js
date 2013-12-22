@@ -2,6 +2,7 @@
 (function(){
 	iconSwap();
 	displayOptionInit();
+	basketInit();
 })()
 
 
@@ -35,6 +36,27 @@ function iconSwap(){
 
 	}
 
+}
+
+function basketInit(){
+	var checkoutLink = document.querySelector('.checkout');
+	checkoutLink.addEventListener('click', basketToggle, false);
+
+	var basket = document.querySelector('.basket');
+	basket.style.height = '0';
+}
+
+function basketToggle(){
+	var checkoutLink = document.querySelector('.checkout');
+	var basket = document.querySelector('.basket');
+
+	if(basket.style.height === '0px'){
+		basket.style.height = '100px';
+		checkoutLink.className = 'checkout checkout-alt';
+	}else{
+		checkoutLink.className = 'checkout';
+		basket.style.height = '0';
+	}
 }
 
 // for setting up the buttons for switching the display of the items

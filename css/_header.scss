@@ -1,9 +1,6 @@
 /* _header.scss */
 
-header{
-	overflow: hidden;
-	padding: 1em 0;
-}
+header{ overflow: hidden; }
 
 .logo, .search, .bits{
 	overflow: hidden;
@@ -11,17 +8,17 @@ header{
 }
 
 .logo, .search-query, .search-submit,
-.bits label, .bits .checkout{
+.display-option, .checkout{
 	padding: .5rem;
 	font-size: 1rem;
 	font-weight: 500;
 }
 
-.search-submit, .bits label, .bits .checkout{
+.search-submit, .display-option, .checkout{
 	font-size: 17px;
 }
 
-.search-submit:hover, .bits label:hover, .bits .checkout:hover{
+.search-submit:hover, .display-option:hover, .checkout:hover{
 	opacity: .85;
 	cursor: pointer;
 }
@@ -29,20 +26,21 @@ header{
 .logo{ width: 25%; }
 
 .logo a{
+	display: inline-block;
+	margin-top: .25rem;
 	color: inherit;
 	text-decoration: none;
  }
 
 .search{ width: 50%; }
 
-.search-query, .search-submit{
-	float: left;
-}
+.search-query, .search-submit{ float: left; }
 
 .search-query{
-	padding: .5rem 1em;
-	background: rgba(255, 255, 255, 0.85);
-	border: 2px solid $dullBlack;
+	margin-top: .5rem;
+	padding: 0 .5em;
+	background: lighten($white, 50%);
+	border: 2px solid $black;
 	border-radius: 1.25em;
 	width: 85%;
 	font-size: inherit;
@@ -60,37 +58,45 @@ header{
 	user-select: none;
 }
 
-.search-submit, .bits label, .bits .checkout{
+.search-submit, .display-option, .bits .checkout{
 	float: left;
 	text-align: center;
 	font-weight: 800;
 }
 
-.bits label, .checkout{
-	width: 50%;
-}
+.display-option, .checkout{ width: 50%; }
 
-.bits input{ display: none; }
+#list-display-option, #grid-display-option{ display: none; }
 
-.bits .checkout{
+.checkout{
 	width: 50%;
 	text-decoration: none;
-	color: $dullBlack;
+	color: $black;
 }
 
-.bits .checkout div{
+.checkout div{
 	float: left;
 	width: 50%;
 }
 
-.bits .checkout .checkout-item-amount{
+.checkout-item-amount{
 	padding: .25em;
-	border: 1px solid lighten($dullBlack, 50%);
-	color: lighten($dullBlack, 25%);
+	border: 1px solid lighten($black, 50%);
+	color: lighten($black, 25%);
 	border-radius: 2.5px;
 	font-size: .65em;
 	font-weight: 500;
 	text-align: center;
+}
+
+.checkout-alt{
+	background: $black;
+	color: $white;
+}
+
+.checkout-alt .checkout-item-amount{
+	border-color: lighten($black, 70%);
+	color: $white;
 }
 
 @media all and (max-width: 600px){

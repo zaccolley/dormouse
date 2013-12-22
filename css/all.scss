@@ -5,8 +5,8 @@
 
 /* -- colours -- */
 
-$dirtyWhite: #f4f4f4;
-$dullBlack: #020202;
+$white: #f4f4f4;
+$black: #020202;
 
 /* -- fonts -- */
 
@@ -15,11 +15,11 @@ $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 *{ box-sizing: border-box; }
 
 body{
-	padding: 0 .5em;
-	background: $dirtyWhite;
+	background: $white;
 	font-family: $openSans;
 }
 
+@import 'basket';
 @import 'header';
 @import 'main';
 @import 'side';
