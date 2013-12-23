@@ -2,8 +2,16 @@
 	iconSwap();
 	displayOptionInit();
 	basketInit();
-})();
 
+	var title = document.querySelector('.logo a');
+	ajax({ url: 'data/config.php' }, function(data){
+		console.log(data);
+
+		title.innerHTML = data.name;
+		document.title = data.title + " " + data.desc;
+	});
+
+})();
 
 // to swap any text with dirty icons
 function iconSwap(){
