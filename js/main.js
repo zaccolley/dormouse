@@ -5,10 +5,42 @@
 
 	var title = document.querySelector('.logo a');
 	ajax({ url: 'data/config.php' }, function(data){
-		console.log(data);
-
 		title.innerHTML = data.name;
 		document.title = data.title + " " + data.desc;
+	});
+
+	var catList = document.querySelector('.categories');
+	ajax({ url: 'data/categories.json' }, function(data){
+		data.categories.forEach(function(category){
+			catList.innerHTML += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
+		});
+
+	});
+
+	var itemList = document.querySelector('.items');
+	ajax({ url: 'data/items.json' }, function(data){
+		console.log(data);
+
+		for(var i in data.items){
+			var item = data.items[i];
+			
+			itemList.innerHTML +=  
+			"<li class='item-grid'>" +
+				"<section style='background-image: url("+item.image+");'>" +
+					"<div class='details'>" +
+						"<h1 class='details-title'>" +
+							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.title+"</a>" +
+						"</h1>" +
+						"<p class='details-desc'>"+item.desc+"</p>" +
+						"<p class='details-price'>" +
+							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.price+"</a>" +
+						"</p>" +
+					"</div>" +
+				"</section>" +
+			"</li>";
+
+		}
+
 	});
 
 })();

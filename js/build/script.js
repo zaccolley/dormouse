@@ -1,8 +1,29 @@
-// ajax wow
+// ajax: jackie chan hax
+
+/*
+
+	inputOptions
+
+		theres some options you can input
+
+		{
+			request: GET, POST, HEAD etc..
+			url: the URL to request (required)
+			async: is it asynchronous?
+			dataType: what type is the data sent back
+			data: any data to be sent
+
+		}
+
+		see below for defaults set
+
+	callback
+
+		the function to callback on
+
+*/
 
 var ajax = function(inputOptions, callback){
-
-	console.log('AJAX START');
 
 	var xhr,
 	options = {
@@ -31,6 +52,11 @@ var ajax = function(inputOptions, callback){
 
 	}
 
+	if(!options.url){
+		console.log('ajax() requires a URL');
+		return false;
+	}
+
 	if(window.XMLHttpRequest){ // Mozilla, Safari, ...
 		xhr = new XMLHttpRequest();
 	}else if(window.ActiveXObject){ // IE
@@ -42,7 +68,7 @@ var ajax = function(inputOptions, callback){
 		return false;
 	}else{
 
-		console.log('XMLHttpRequest created')
+		console.log('XMLHttpRequest created');
 
 		xhr.open(options.request, options.url, options.async);
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -54,20 +80,20 @@ var ajax = function(inputOptions, callback){
 		xhr.onreadystatechange = function(){
 
 			var states = ['Uninitialised', 'Loading',
-						  'Loaded', 'Interactive', 'Complete'];
+						'Loaded', 'Interactive', 'Complete'];
 
 			console.log('State:', states[xhr.readyState], xhr.readyState);
 
 			// OK and ready
 			if(xhr.readyState == 4){
-				console.log('Status:', xhr.status, '('+xhr.statusText+')', 'at "'+options.url+'"');		
+				console.log('Status:', xhr.status, '('+xhr.statusText+')', 'at "'+options.url+'"');     
 				if(xhr.status == 200){
 					console.log('Success');
 					callback(xhr.response);
 				}
 			}
 
-		}
+		};
 
 	}
 
@@ -80,10 +106,42 @@ var ajax = function(inputOptions, callback){
 
 	var title = document.querySelector('.logo a');
 	ajax({ url: 'data/config.php' }, function(data){
-		console.log(data);
-
 		title.innerHTML = data.name;
 		document.title = data.title + " " + data.desc;
+	});
+
+	var catList = document.querySelector('.categories');
+	ajax({ url: 'data/categories.json' }, function(data){
+		data.categories.forEach(function(category){
+			catList.innerHTML += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
+		});
+
+	});
+
+	var itemList = document.querySelector('.items');
+	ajax({ url: 'data/items.json' }, function(data){
+		console.log(data);
+
+		for(var i in data.items){
+			var item = data.items[i];
+			
+			itemList.innerHTML +=  
+			"<li class='item-grid'>" +
+				"<section style='background-image: url("+item.image+");'>" +
+					"<div class='details'>" +
+						"<h1 class='details-title'>" +
+							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.title+"</a>" +
+						"</h1>" +
+						"<p class='details-desc'>"+item.desc+"</p>" +
+						"<p class='details-price'>" +
+							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.price+"</a>" +
+						"</p>" +
+					"</div>" +
+				"</section>" +
+			"</li>";
+
+		}
+
 	});
 
 })();
