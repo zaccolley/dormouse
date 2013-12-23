@@ -19,7 +19,6 @@
 
 	var itemList = document.querySelector('.items');
 	ajax({ url: 'data/items.json' }, function(data){
-		console.log(data);
 
 		for(var i in data.items){
 			var item = data.items[i];

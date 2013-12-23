@@ -12,6 +12,7 @@
 			async: is it asynchronous?
 			dataType: what type is the data sent back
 			data: any data to be sent
+			debug: shows console.logs
 
 		}
 
@@ -32,7 +33,8 @@ var ajax = function(inputOptions, callback){
 		url: null,
 		async: 'true',
 		dataType: 'json',
-		data: null
+		data: null,
+		debug: false
 	};
 
 
@@ -47,13 +49,13 @@ var ajax = function(inputOptions, callback){
 			case 'async': options.async = optionValue; break;
 			case 'dataType': options.dataType = optionValue; break;
 			case 'data': options.data = optionValue; break;
-			default: console.log('Invalid option');
+			default: options.debug && console.log('Invalid option supplied');
 		}
 
 	}
 
 	if(!options.url){
-		console.log('ajax() requires a URL');
+		options.debug && console.log('ajax() requires a URL');
 		return false;
 	}
 
@@ -64,11 +66,11 @@ var ajax = function(inputOptions, callback){
 	}
 
 	if(!xhr){
-		console.log('XMLHttpRequest could not be created. :¬(');
+		options.debug && console.log('XMLHttpRequest could not be created. :¬(');
 		return false;
 	}else{
 
-		console.log('XMLHttpRequest created');
+		options.debug && console.log('XMLHttpRequest created');
 
 		xhr.open(options.request, options.url, options.async);
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -82,13 +84,13 @@ var ajax = function(inputOptions, callback){
 			var states = ['Uninitialised', 'Loading',
 						'Loaded', 'Interactive', 'Complete'];
 
-			console.log('State:', states[xhr.readyState], xhr.readyState);
+			options.debug && console.log('State:', states[xhr.readyState], xhr.readyState);
 
 			// OK and ready
 			if(xhr.readyState == 4){
-				console.log('Status:', xhr.status, '('+xhr.statusText+')', 'at "'+options.url+'"');     
+				options.debug && console.log('Status:', xhr.status, '('+xhr.statusText+')', 'at "'+options.url+'"');     
 				if(xhr.status == 200){
-					console.log('Success');
+					options.debug && console.log('Success');
 					callback(xhr.response);
 				}
 			}
