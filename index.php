@@ -1,23 +1,32 @@
+<?php require('data/dormouse.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>webscrp</title>
+	<meta name="description" content="<?php echo $dormouse[description]; ?>">
+	<meta name="keywords" content="<?php echo $dormouse[keywords]; ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title><?php echo $dormouse[title]; ?></title>
 	<link rel="stylesheet" href="css/build/style.min.css">
+
 </head>
 <body>
 
 	<section class="basket"></section>
 
 	<header>
-		<h1 class="logo"><a href="#">Company Name</a></h1>
+		<h1 class="logo"><a href="#"><?php echo $dormouse[title]; ?></a></h1>
 		<div class="search">
 			<input type="text" name="query" class="search-query">
 			<button type="submit" class="search-submit icon-swap" title="Search some terms">Search</button>
 		</div>
 		<div class="bits">
 			
-			<a href="#" class="checkout"><div class="checkout-icon icon-swap" title="Checkout your items!">Checkout</div><div class="checkout-item-amount" title="There's nothing here!">0</div></a>
+			<a href="#" class="checkout">
+				<div class="checkout-icon icon-swap" title="Checkout your items!">Checkout</div>
+				<div class="checkout-item-amount" title="There's nothing here!">0</div>
+			</a>
 
 			<input type="radio" name="display-option" id="list-display-option">
 			<label for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>
@@ -36,12 +45,18 @@
 			<option value="price-des">Price descending</option>
 		</select>
 
-		<ul class="categories"></ul>
+		<ul class="categories">			
+			<!-- Categories are added here -->
+		</ul>
 
 	</aside>
 
-	<main><ul class="items"></ul></main>
+	<main>
+		<ul class="items">
+			<!-- Items are added here -->
+		</ul>
+	</main>
 
-	<script src="js/build/webscrp.min.js"></script>
+	<script src="js/build/script.min.js"></script>
 </body>
 </html>

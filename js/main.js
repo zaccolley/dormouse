@@ -3,12 +3,6 @@
 	displayOptionInit();
 	basketInit();
 
-	var title = document.querySelector('.logo a');
-	ajax({ url: 'data/config.php' }, function(data){
-		title.innerHTML = data.name;
-		document.title = data.title + " " + data.desc;
-	});
-
 	var catList = document.querySelector('.categories');
 	ajax({ url: 'data/categories.json' }, function(data){
 		data.categories.forEach(function(category){

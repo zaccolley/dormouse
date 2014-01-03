@@ -2,14 +2,14 @@
 	
 	header('Content-type: application/json');
 
-	// Config
+	// DATA
 
-	$config = array(
+	$data = array(
 		'title' => "Zac's Fun Shop - WOWEEE!",
 		'name' => "Zac's Fun Shop",
 		'desc' => "Where you can buy things"
 	);
 
-	echo json_encode($config);
+	echo json_encode($data);
 
 ?>
