@@ -246,4 +246,21 @@ function displayOptionToggle(){
 	}
 
 }
+
+function changeCheckoutItemAmount(amount){
+	var checkoutItemAmount = document.querySelector('.checkout-item-amount');
+
+	if(amount > 0){
+		checkoutItemAmount.innerHTML = amount;
+		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
+	}else{
+		checkoutItemAmount.innerHTML = 0;
+		checkoutItemAmount.title = "There's nothing here!";
+	}
+
+	if(amount >= 1000){
+		checkoutItemAmount.innerHTML = '999+';
+		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
+	}
+}
 	
