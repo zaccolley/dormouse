@@ -6,14 +6,20 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: ['js/*.js'],
-                dest: 'js/build/script.js'
+                dest: 'js/build/<%= pkg.name %>.js'
             }
         },
 
         uglify: {
             build: {
-                src:  'js/build/script.js',
-                dest: 'js/build/script.min.js'
+                src:  'js/build/<%= pkg.name %>.js',
+                dest: 'js/build/<%= pkg.name %>.min.js',
+                options: {
+                    sourceMap: 'js/build/<%= pkg.name %>.map.js',
+                    sourceMapPrefix: 2,
+                    sourceMappingURL: '<%= pkg.name %>.map.js',
+                    banner: '/*! <%= pkg.name %> ~ UP665219 ~ <%= grunt.template.today("yyyy-mm-dd") %> */'
+                }
             }
         },
 
@@ -57,7 +63,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'images/',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['*.{png,jpg,gif}'],
                     dest: 'images/build/'
                 }]
             }   
