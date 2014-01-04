@@ -3,7 +3,7 @@
 	// dormouse config
 
 	$dormouse = array(
-		'title' => "Zac's Fun Shop",
+		'title' => "YEAAAAAAAAAAAH BOOOOOOOOOOY",
 		'description' => "Where you can buy things",
 		'keywords' => "shop, fun, wow, this, should, be, an, array"
 	);

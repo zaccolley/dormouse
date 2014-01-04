@@ -119,9 +119,34 @@ var ajax = function(inputOptions, callback){
 
 		for(var i in data.items){
 			var item = data.items[i];
-			
+
 			itemList.innerHTML +=  
 			"<li class='item-grid'>" +
+				"<section style='background-image: url("+item.image+");'>" +
+					"<div class='details'>" +
+						"<h1 class='details-title'>" +
+							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.title+"</a>" +
+						"</h1>" +
+						"<p class='details-desc'>"+item.desc+"</p>" +
+						"<p class='details-price'>" +
+							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.price+"</a>" +
+						"</p>" +
+					"</div>" +
+				"</section>" +
+			"</li>";
+
+		}
+
+	});
+
+	var basket = document.querySelector('.basket-items');
+	ajax({ url: 'data/basket.json' }, function(data){
+
+		for(var i in data.items){
+			var item = data.items[i];
+
+			basket.innerHTML +=  
+			"<li class='item-list'>" +
 				"<section style='background-image: url("+item.image+");'>" +
 					"<div class='details'>" +
 						"<h1 class='details-title'>" +
@@ -176,21 +201,18 @@ function iconSwap(){
 function basketInit(){
 	var checkoutLink = document.querySelector('.checkout');
 	checkoutLink.addEventListener('click', basketToggle, false);
-
-	var basket = document.querySelector('.basket');
-	basket.style.height = '0';
 }
 
 function basketToggle(){
 	var checkoutLink = document.querySelector('.checkout');
 	var basket = document.querySelector('.basket');
 
-	if(basket.style.height === '0px'){
-		basket.style.height = '100px';
+	if(basket.className.indexOf('closed') != -1){
 		checkoutLink.className = 'checkout checkout-alt';
+		basket.className = 'basket';
 	}else{
 		checkoutLink.className = 'checkout';
-		basket.style.height = '0';
+		basket.className = 'basket basket-closed';
 	}
 }
 

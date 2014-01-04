@@ -92,13 +92,13 @@ module.exports = function(grunt) {
             },
 
             html: {
-                files: ['*.html'],
+                files: ['*.html', '*.php'],
                 options: {
                     spawn: false
                 }
             },
 
-            data: { files: ['*.php', 'data/*.php',  'data/*.json'] },
+            data: { files: ['data/*.php',  'data/*.json'] },
 
             images: {
                 files: ['images/*.{png,jpg,gif}'],

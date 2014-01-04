@@ -13,7 +13,12 @@
 </head>
 <body>
 
-	<section class="basket"></section>
+	<section class="basket basket-closed">
+		<h1 class="basket-title">Basket</h1>
+		<ul class="basket-items">
+			<!-- Basket items go here -->
+		</ul>
+	</section>
 
 	<header>
 		<h1 class="logo"><a href="#"><?php echo $dormouse[title]; ?></a></h1>
