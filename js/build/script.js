@@ -106,28 +106,27 @@ var ajax = function(inputOptions, callback){
 
 	var catList = document.querySelector('.categories');
 	ajax({ url: 'data/categories.php' }, function(data){
-		data.forEach(function(category){
+		data.categories.forEach(function(category){
 			catList.innerHTML += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
 		});
-
 	});
 
 	var itemList = document.querySelector('.items');
-	ajax({ url: 'data/items.json' }, function(data){
+	ajax({ url: 'data/items.php' }, function(data){
 
 		for(var i in data.items){
 			var item = data.items[i];
 
 			itemList.innerHTML +=  
 			"<li class='item-grid'>" +
-				"<section style='background-image: url("+item.image+");'>" +
+				"<section style='background-image: url(images/build/"+item.id+".jpg);'>" +
 					"<div class='details'>" +
 						"<h1 class='details-title'>" +
-							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.title+"</a>" +
+							"<a href='#"+item.name+"'' name='More details on "+item.name+"?''>"+item.name+"</a>" +
 						"</h1>" +
 						"<p class='details-desc'>"+item.desc+"</p>" +
 						"<p class='details-price'>" +
-							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.price+"</a>" +
+							"<a href='#"+item.name+"'' name='More details on "+item.name+"?''>"+item.price+"</a>" +
 						"</p>" +
 					"</div>" +
 				"</section>" +

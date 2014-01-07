@@ -1,7 +1,4 @@
 <?php
-	
-	error_reporting(E_ALL);
-	ini_set("display_errors", 1);
 
 	// databases
 
@@ -15,13 +12,5 @@
 		echo "Error: ". $e->getMessage();
 		die();
 	}
-
-	$results = $dbh->query("SELECT * FROM category");
-
-	foreach($results as $result){
-		echo "<p>".$result['cat_id']." | ".$result['cat_name']."</p>";
-	}
-
-	$dbh = null;
 
 ?>

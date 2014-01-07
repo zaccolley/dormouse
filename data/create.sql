@@ -49,3 +49,19 @@ INSERT INTO category VALUES (28, "Stationery &amp; Office Supplies");
 INSERT INTO category VALUES (29, "Toys &amp; Games");
 INSERT INTO category VALUES (30, "VHS");
 INSERT INTO category VALUES (31, "Watches");
+
+-- DROP TABLE items;
+
+CREATE TABLE items(
+	item_id INT PRIMARY KEY,
+	item_name VARCHAR(50) NOT NULL,
+	item_desc VARCHAR(255),
+	item_price VARCHAR(5) NOT NULL,
+	cat_id INT NOT NULL,
+	FOREIGN KEY (cat_id) REFERENCES category(cat_id)
+);
+
+INSERT INTO items VALUES (0, "Sausage Dog", "It's pretty sick. It's a dog.", "50", 3);
+INSERT INTO items VALUES (1, "West Highland Terrier", "This is our family's dog and it's really annoying.", "75", 5);
+INSERT INTO items VALUES (2, "Ocelot", "Salvidor Dali had one these cuties&hellip;", "7500", 7);
+INSERT INTO items VALUES (3, "Adobe Dreamweaver CS6", "Where dreams are weaved!", "-Life", 9);

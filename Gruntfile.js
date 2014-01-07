@@ -98,7 +98,7 @@ module.exports = function(grunt) {
                 }
             },
 
-            data: { files: ['data/*.php',  'data/*.json'] },
+            data: { files: ['data/**/*.php',  'data/*.json'] },
 
             images: {
                 files: ['images/*.{png,jpg,gif}'],
