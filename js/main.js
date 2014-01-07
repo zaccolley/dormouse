@@ -4,8 +4,8 @@
 	basketInit();
 
 	var catList = document.querySelector('.categories');
-	ajax({ url: 'data/categories.json' }, function(data){
-		data.categories.forEach(function(category){
+	ajax({ url: 'data/categories.php' }, function(data){
+		data.forEach(function(category){
 			catList.innerHTML += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
 		});
 

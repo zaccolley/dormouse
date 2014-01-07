@@ -12,8 +12,8 @@
 			async: is it asynchronous?
 			dataType: what type is the data sent back
 			data: any data to be sent
+			callbacks: functions to callback (load, progress)
 			debug: shows console.logs
-
 		}
 
 		see below for defaults set
@@ -35,7 +35,7 @@ var ajax = function(inputOptions, callback){
 		dataType: 'json',
 		data: null,
 		debug: false
-	};
+	}
 
 
 	// sort through input object
@@ -77,9 +77,7 @@ var ajax = function(inputOptions, callback){
 		xhr.responseType = options.dataType;
 		xhr.send(options.data);
 
-		var count = 0;
-
-		xhr.onreadystatechange = function(){
+		xhr.addEventListener("readystatechange", function(){
 
 			var states = ['Uninitialised', 'Loading',
 						'Loaded', 'Interactive', 'Complete'];
@@ -95,7 +93,7 @@ var ajax = function(inputOptions, callback){
 				}
 			}
 
-		};
+		});
 
 	}
 
@@ -107,8 +105,8 @@ var ajax = function(inputOptions, callback){
 	basketInit();
 
 	var catList = document.querySelector('.categories');
-	ajax({ url: 'data/categories.json' }, function(data){
-		data.categories.forEach(function(category){
+	ajax({ url: 'data/categories.php' }, function(data){
+		data.forEach(function(category){
 			catList.innerHTML += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
 		});
 

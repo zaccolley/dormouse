@@ -1,13 +1,13 @@
-<?php require('data/dormouse.php'); ?>
+<?php require('data/config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="<?php echo $dormouse[description]; ?>">
-	<meta name="keywords" content="<?php echo $dormouse[keywords]; ?>">
+	<meta name="description" content="<?php echo $meta['description']; ?>">
+	<meta name="keywords" content="<?php echo $meta['keywords']; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<title><?php echo $dormouse[title]; ?></title>
+	<title><?php echo $meta['title']; ?></title>
 	<link rel="stylesheet" href="css/build/style.min.css">
 
 </head>
@@ -21,7 +21,7 @@
 	</section>
 
 	<header>
-		<h1 class="logo"><a href="#"><?php echo $dormouse[title]; ?></a></h1>
+		<h1 class="logo"><a href="#"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
 			<input type="text" name="query" class="search-query">
 			<button type="submit" class="search-submit icon-swap" title="Search some terms">Search</button>
