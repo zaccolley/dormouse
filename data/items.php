@@ -4,7 +4,7 @@
 
 	require('db.php');
 
-	$rows = $dbh->query("SELECT * FROM item");
+	$rows = $dbh->query("SELECT * FROM item, category WHERE item.cat_id = category.cat_id");
 	$dbh = null;
 
 	$items = array("items" => array());
@@ -15,13 +15,11 @@
 			"name" => $row['item_name'],
 			"desc" => $row['item_desc'],
 			"price" => $meta["currency"].$row['item_price'],
-			"cat" => $row['cat_id']
+			"cat" => $row['cat_name']
 		);
 
 		array_push($items["items"], $item);
 	}
-
-	
 
 	echo json_encode($items, JSON_PRETTY_PRINT);
 
