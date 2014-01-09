@@ -4,7 +4,7 @@
 
 	require('db.php');
 
-	$rows = $dbh->query("SELECT * FROM items");
+	$rows = $dbh->query("SELECT * FROM item");
 	$dbh = null;
 
 	$items = array("items" => array());
