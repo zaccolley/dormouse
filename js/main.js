@@ -141,9 +141,9 @@ function displayOptionToggle(){
 		if(displayOption.hasOwnProperty('innerHTML')){
 			if(displayOption.style.display === ''){
 				displayOption.style.display = 'none';
-				displayOptionType = 'list';
-			}else{
 				displayOptionType = 'grid';
+			}else{
+				displayOptionType = 'list';
 				displayOption.style.display = '';
 			}
 		}
