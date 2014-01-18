@@ -8,7 +8,7 @@
 	// meta & config
 
 	$meta = array(
-		'title' => "Zac's Amazing Shop",
+		'title' => "Zac's gr8 Shop",
 		'description' => "Where you can buy things",
 		'keywords' => "shop, fun, wow, this, should, be, an, array",
 		'currency' => "£"

@@ -1,14 +1,22 @@
 /* _basket.scss */
 
 .basket{
+	z-index: 1337;
+	position: absolute;
 	overflow: hidden;
 	width: 100%;
 	background: $black;
 	color: $white;
-	transition: max-height 2s, height .5s linear;
+	opacity: .99;
+	max-height: 2000px;
+	transition: transform .25s, opacity .25s;
+	transform-origin: top right;
 }
 
-.basket-closed{ height: 0; }
+.basket-closed{
+	opacity: 0;
+	transform: scaleX(0) skew(90deg);
+}
 
 .basket-title{
 	padding: .75em;

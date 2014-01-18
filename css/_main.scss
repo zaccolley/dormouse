@@ -1,6 +1,7 @@
 /* _main.scss */
 
 main{
+	overflow: hidden;
 	padding: 1em 0;
 	float: left;
 	width: 75%;
@@ -33,7 +34,6 @@ main{
 	background: $black;
 	color: $white;
 	opacity: 0;
-	transition: opacity .15s;
 }
 
 .item-grid .details:hover{

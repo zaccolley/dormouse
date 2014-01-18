@@ -13,13 +13,6 @@
 </head>
 <body>
 
-	<section class="basket basket-closed">
-		<h1 class="basket-title">Basket</h1>
-		<ul class="basket-items">
-			<!-- Basket items go here -->
-		</ul>
-	</section>
-
 	<header>
 		<h1 class="logo"><a href="#"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
@@ -28,10 +21,6 @@
 		</div>
 		<div class="bits">
 			
-			<a href="#" class="checkout">
-				<div class="checkout-icon icon-swap" title="Checkout your items!">Checkout</div>
-				<div class="checkout-item-amount" title="There's nothing here!">0</div>
-			</a>
 
 			<input type="radio" name="display-option" id="grid-display-option">
 			<label for="grid-display-option" title="Display items in a grid" class="display-option icon-swap">Grid</label>
@@ -39,8 +28,20 @@
 			<input type="radio" name="display-option" id="list-display-option">
 			<label for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>
 
+			<a href="#" class="checkout">
+				<div class="checkout-icon icon-swap" title="Checkout your items!">Checkout</div>
+				<div class="checkout-item-amount" title="There's nothing here!">0</div>
+			</a>
+
 		</div>
 	</header>
+		
+	<section class="basket basket-closed">
+		<h1 class="basket-title">Basket</h1>
+		<ul class="basket-items">
+			<!-- Basket items go here -->
+		</ul>
+	</section>
 
 	<aside>
 		

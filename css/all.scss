@@ -19,6 +19,7 @@ button, input, select{ outline: none; }
 a{ text-decoration: none; color: inherit; }
 
 body{
+	transform: translateY(0);
 	color: $black;
 	background: $white;
 	font-family: $openSans;

@@ -31,12 +31,11 @@ var ajax = function(inputOptions, callback){
 		// defaults
 		request: 'GET',
 		url: null,
-		async: 'true',
+		async: true,
 		dataType: 'json',
 		data: null,
 		debug: false
 	}
-
 
 	// sort through input object
 
@@ -49,6 +48,7 @@ var ajax = function(inputOptions, callback){
 			case 'async': options.async = optionValue; break;
 			case 'dataType': options.dataType = optionValue; break;
 			case 'data': options.data = optionValue; break;
+			case 'debug': options.debug = optionValue; break;
 			default: options.debug && console.log('Invalid option supplied');
 		}
 
@@ -74,8 +74,13 @@ var ajax = function(inputOptions, callback){
 
 		xhr.open(options.request, options.url, options.async);
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-		xhr.responseType = options.dataType;
+
+		if(options.dataType){
+			xhr.responseType = options.dataType;
+		}
+
 		xhr.send(options.data);
+		options.debug && console.log('Data sent: ', options.data);
 
 		xhr.addEventListener("readystatechange", function(){
 
