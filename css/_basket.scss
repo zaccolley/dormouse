@@ -20,7 +20,7 @@
 
 .basket-title{
 	padding: .75em;
-	border-bottom: 2px solid transparentize($white, .9);
+	border-bottom: $lineThickness solid transparentize($white, .9);
 	font-size: 1.25em;
 	font-weight: 700;
 }
