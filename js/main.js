@@ -17,15 +17,15 @@
 			var item = data.items[i];
 
 			itemList.innerHTML +=  
-			"<li class='item-grid'>" +
+			"<li class='item-list'>" +
 				"<section style='background-image: url(images/build/"+item.id+".jpg);'>" +
 					"<div class='details'>" +
 						"<h1 class='details-title'>" +
-							"<a href='#"+item.name+"'' name='More details on "+item.name+"?''>"+item.name+"</a>" +
+							"<a href='#"+item.name+"' title='More details on "+item.name+"?''>"+item.name+"</a>" +
 						"</h1>" +
 						"<p class='details-desc'>"+item.desc+"</p>" +
 						"<p class='details-price'>" +
-							"<a href='#"+item.name+"'' name='More details on "+item.name+"?''>"+item.price+"</a>" +
+							"<a href='#"+item.name+"'' title='More details on "+item.name+"?''>"+item.price+"</a>" +
 						"</p>" +
 					"</div>" +
 				"</section>" +
@@ -117,7 +117,7 @@ function displayOptionInit(){
 	var displayOptions = document.querySelectorAll('.display-option');
 
 	// hide the first display option
-	displayOptions[0].style.display = 'none';
+	document.getElementById('list-display-option-label').style.display = 'none';
 
 	for(var j in displayOptions){
 		var displayOption = displayOptions[j];
@@ -133,7 +133,7 @@ function displayOptionInit(){
 function displayOptionToggle(){
 	var displayOptions = document.querySelectorAll('.display-option');
 	var items = document.querySelectorAll('.items li');
-	var displayOptionType = 'grid';
+	var displayOptionType = 'list';
 
 	for(var k in displayOptions){
 		var displayOption = displayOptions[k];
@@ -141,9 +141,9 @@ function displayOptionToggle(){
 		if(displayOption.hasOwnProperty('innerHTML')){
 			if(displayOption.style.display === ''){
 				displayOption.style.display = 'none';
-				displayOptionType = 'list';
-			}else{
 				displayOptionType = 'grid';
+			}else{
+				displayOptionType = 'list';
 				displayOption.style.display = '';
 			}
 		}

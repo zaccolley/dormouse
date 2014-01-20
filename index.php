@@ -21,12 +21,11 @@
 		</div>
 		<div class="bits">
 			
+			<input type="radio" name="display-option" id="list-display-option">
+			<label id="list-display-option-label" for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>
 
 			<input type="radio" name="display-option" id="grid-display-option">
-			<label for="grid-display-option" title="Display items in a grid" class="display-option icon-swap">Grid</label>
-			
-			<input type="radio" name="display-option" id="list-display-option">
-			<label for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>
+			<label id="grid-display-option-label" for="grid-display-option" title="Display items in a grid" class="display-option icon-swap">Grid</label>
 
 			<a href="#" class="checkout">
 				<div class="checkout-icon icon-swap" title="Checkout your items!">Checkout</div>
@@ -43,6 +42,12 @@
 		</ul>
 	</section>
 
+	<main>
+		<ul class="items">
+			<!-- Items are added here -->
+		</ul>
+	</main>
+
 	<aside>
 		
 		<select class="filter" name="filter">
@@ -56,12 +61,6 @@
 		</ul>
 
 	</aside>
-
-	<main>
-		<ul class="items">
-			<!-- Items are added here -->
-		</ul>
-	</main>
 
 	<script src="js/build/script.min.js"></script>
 </body>
