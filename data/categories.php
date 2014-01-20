@@ -13,6 +13,6 @@
 		array_push($categories["categories"], $row['cat_name']);
 	}
 
-	echo json_encode($categories, JSON_PRETTY_PRINT);
+	echo json_encode($categories);
 
 ?>

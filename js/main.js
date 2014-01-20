@@ -1,15 +1,42 @@
 (function(){
 	iconSwap();
+
 	displayOptionInit();
 	basketInit();
 
+	updateAll();
+})();
+
+function updateAll(){
+	updateCategories();
+	updateItems();
+	updateBasket();
+}
+
+function addCategories(categories){
+	var preparedData = JSON.stringify({ category: categories });
+
+	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
+		updateCategories();
+	});	
+}
+
+function updateCategories(){
 	var catList = document.querySelector('.categories');
+
 	ajax({ url: 'data/categories.php' }, function(data){
+		var cats = '';
+		
 		data.categories.forEach(function(category){
-			catList.innerHTML += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
+			cats += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
 		});
+
+		catList.innerHTML = cats;
 	});
 
+}
+
+function updateItems(){
 	var itemList = document.querySelector('.items');
 	ajax({ url: 'data/items.php' }, function(data){
 
@@ -33,7 +60,9 @@
 		}
 
 	});
+}
 
+function updateBasket(){			
 	var basket = document.querySelector('.basket-items');
 	ajax({ url: 'data/basket.json' }, function(data){
 
@@ -57,8 +86,7 @@
 		}
 
 	});
-
-})();
+}
 
 // to swap any text with dirty icons
 function iconSwap(){

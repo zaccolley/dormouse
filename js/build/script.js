@@ -73,14 +73,13 @@ var ajax = function(inputOptions, callback){
 		options.debug && console.log('XMLHttpRequest created');
 
 		xhr.open(options.request, options.url, options.async);
+
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
 		if(options.dataType){
 			xhr.responseType = options.dataType;
 		}
-
-		xhr.send(options.data);
-		options.debug && console.log('Data sent: ', options.data);
 
 		xhr.addEventListener("readystatechange", function(){
 
@@ -94,11 +93,16 @@ var ajax = function(inputOptions, callback){
 				options.debug && console.log('Status:', xhr.status, '('+xhr.statusText+')', 'at "'+options.url+'"');     
 				if(xhr.status == 200){
 					options.debug && console.log('Success');
-					callback(xhr.response);
+					var response = xhr.response;
+
+					callback(response);
 				}
 			}
 
 		});
+
+		xhr.send("data="+options.data);
+		options.debug && console.log('Data sent: ', options.data);
 
 	}
 
@@ -106,16 +110,43 @@ var ajax = function(inputOptions, callback){
 
 (function(){
 	iconSwap();
+
 	displayOptionInit();
 	basketInit();
 
+	updateAll();
+})();
+
+function updateAll(){
+	updateCategories();
+	updateItems();
+	updateBasket();
+}
+
+function addCategories(categories){
+	var preparedData = JSON.stringify({ category: categories });
+
+	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
+		updateCategories();
+	});	
+}
+
+function updateCategories(){
 	var catList = document.querySelector('.categories');
+
 	ajax({ url: 'data/categories.php' }, function(data){
+		var cats = '';
+		
 		data.categories.forEach(function(category){
-			catList.innerHTML += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
+			cats += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
 		});
+
+		catList.innerHTML = cats;
 	});
 
+}
+
+function updateItems(){
 	var itemList = document.querySelector('.items');
 	ajax({ url: 'data/items.php' }, function(data){
 
@@ -139,7 +170,9 @@ var ajax = function(inputOptions, callback){
 		}
 
 	});
+}
 
+function updateBasket(){			
 	var basket = document.querySelector('.basket-items');
 	ajax({ url: 'data/basket.json' }, function(data){
 
@@ -163,8 +196,7 @@ var ajax = function(inputOptions, callback){
 		}
 
 	});
-
-})();
+}
 
 // to swap any text with dirty icons
 function iconSwap(){

@@ -21,6 +21,6 @@
 		array_push($items["items"], $item);
 	}
 
-	echo json_encode($items, JSON_PRETTY_PRINT);
+	echo json_encode($items);
 
 ?>

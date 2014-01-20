@@ -73,14 +73,13 @@ var ajax = function(inputOptions, callback){
 		options.debug && console.log('XMLHttpRequest created');
 
 		xhr.open(options.request, options.url, options.async);
+
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
 		if(options.dataType){
 			xhr.responseType = options.dataType;
 		}
-
-		xhr.send(options.data);
-		options.debug && console.log('Data sent: ', options.data);
 
 		xhr.addEventListener("readystatechange", function(){
 
@@ -94,11 +93,16 @@ var ajax = function(inputOptions, callback){
 				options.debug && console.log('Status:', xhr.status, '('+xhr.statusText+')', 'at "'+options.url+'"');     
 				if(xhr.status == 200){
 					options.debug && console.log('Success');
-					callback(xhr.response);
+					var response = xhr.response;
+
+					callback(response);
 				}
 			}
 
 		});
+
+		xhr.send("data="+options.data);
+		options.debug && console.log('Data sent: ', options.data);
 
 	}
 
