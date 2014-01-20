@@ -11,34 +11,42 @@ main{
 .items li .details-desc{ font-weight: 500; }
 .items li .details-price{ font-weight: 700; }
 
+.items li:hover{
+	opacity: .9;
+	cursor: pointer;
+}
+
+.items li:hover img{
+	-webkit-filter: grayscale(1); 
+			filter: grayscale(1);
+}
+
 .item-grid{
+	position: relative;
 	width: (100%/6);
 	float: left;
 	padding: 0 1em 1em 0;
 }
 
-.item-grid section{
+.item-grid img{
+	display: block;
+	width: 100%;
 	height: 150px;
 	background: rgba(255, 255, 255, 0.85);
-	background-position: center;
-	background-size: cover;
 	border: $lineThickness solid $black;
-	border-radius: $lineThickness;
+	border-top-left-radius: $lineThickness;
+	border-top-right-radius: $lineThickness;
 	position: relative;
 }
 
 .item-grid .details{
-	position: absolute;
-	top: 0; right: 0; bottom: 0; left: 0;
+	overflow: hidden;
+	width: 100%;
 	padding: 0 .5em;
 	background: $black;
-	color: $white;
-	opacity: 0;
-}
-
-.item-grid .details:hover{
-	opacity: .9;
-	cursor: pointer;
+	color: $white;	
+	border-bottom-left-radius: $lineThickness;
+	border-bottom-right-radius: $lineThickness;
 }
 
 .item-grid .details-title{
@@ -53,16 +61,16 @@ main{
 }
 
 .item-grid .details-price{
-	position: absolute;
-	bottom: 0; left: 0; right: 0;
 	font-size: 1.5em;
-	padding: .5em;
+	padding: .5em 0;
+	text-align: right;
 }
 
 .item-list{
 	overflow: hidden;
+	margin-bottom: 1em;
 	border-bottom: $lineThickness solid $black;
-	padding: 1em;
+	border-radius: $lineThickness
 }
 
 .item-list:hover{
@@ -70,11 +78,15 @@ main{
 	background: transparentize($black, .9);
 }
 
-.item-list section{
-	overflow: hidden;
-	background: no-repeat left center;
-	background-size: 5em;
-	padding-left: 6em;
+.item-list img{
+	float: left;
+	width: 20%;
+}
+
+.item-list .details{
+	float: left;
+	width: 80%;
+	padding: .5em 1em;
 }
 
 .item-list .details-title, .item-list .details-desc{

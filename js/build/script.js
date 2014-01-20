@@ -124,17 +124,16 @@ var ajax = function(inputOptions, callback){
 
 			itemList.innerHTML +=  
 			"<li class='item-list'>" +
-				"<section style='background-image: url(images/build/"+item.id+".jpg);'>" +
-					"<div class='details'>" +
-						"<h1 class='details-title'>" +
-							"<a href='#"+item.name+"' title='More details on "+item.name+"?''>"+item.name+"</a>" +
-						"</h1>" +
-						"<p class='details-desc'>"+item.desc+"</p>" +
-						"<p class='details-price'>" +
-							"<a href='#"+item.name+"'' title='More details on "+item.name+"?''>"+item.price+"</a>" +
-						"</p>" +
-					"</div>" +
-				"</section>" +
+				"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				"<div class='details'>" +
+					"<h1 class='details-title'>" +
+						"<a href='#"+item.name+"' title='More details on "+item.name+"?''>"+item.name+"</a>" +
+					"</h1>" +
+					"<p class='details-desc'>"+item.desc+"</p>" +
+					"<p class='details-price'>" +
+						"<a href='#"+item.name+"'' title='More details on "+item.name+"?''>"+item.price+"</a>" +
+					"</p>" +
+				"</div>" +
 			"</li>";
 
 		}
@@ -149,17 +148,16 @@ var ajax = function(inputOptions, callback){
 
 			basket.innerHTML +=  
 			"<li class='item-list'>" +
-				"<section style='background-image: url("+item.image+");'>" +
-					"<div class='details'>" +
-						"<h1 class='details-title'>" +
-							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.title+"</a>" +
-						"</h1>" +
-						"<p class='details-desc'>"+item.desc+"</p>" +
-						"<p class='details-price'>" +
-							"<a href='#"+item.title+"'' title='More details on "+item.title+"?''>"+item.price+"</a>" +
-						"</p>" +
-					"</div>" +
-				"</section>" +
+				"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				"<div class='details'>" +
+					"<h1 class='details-title'>" +
+						"<a href='#"+item.name+"' title='More details on "+item.name+"?''>"+item.name+"</a>" +
+					"</h1>" +
+					"<p class='details-desc'>"+item.desc+"</p>" +
+					"<p class='details-price'>" +
+						"<a href='#"+item.name+"'' title='More details on "+item.name+"?''>"+item.price+"</a>" +
+					"</p>" +
+				"</div>" +
 			"</li>";
 
 		}
