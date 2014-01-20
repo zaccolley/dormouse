@@ -13,6 +13,24 @@
 </head>
 <body>
 
+	<div class="window">
+		<button class="close">
+			<i class="fa fa-times"></i>
+		</button>
+		<section>			
+			<img src="images/build/0.jpg" alt="Image of Sausage Dog">
+			<div class="details">
+				<h1 class="details-title">
+					<a href="#Sausage Dog" title="More details on Sausage Dog?">Sausage Dog</a>
+				</h1>
+				<p class="details-desc">It's pretty sick. It's a dog.</p>
+				<p class="details-price">
+					<a href="#Sausage Dog" title="More details on Sausage Dog?">£50</a>
+				</p>
+			</div>
+		</section>
+	</div>
+
 	<header>
 		<h1 class="logo"><a href="#"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
