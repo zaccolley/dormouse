@@ -1,6 +1,11 @@
 /* _header.scss */
 
-header{ overflow: hidden; }
+header{
+	background: $white;
+	padding: 1em 0; 
+	overflow: hidden;
+	border-bottom: $lineThickness solid $black; 
+}
 
 .logo, .search, .bits{
 	overflow: hidden;
@@ -43,7 +48,10 @@ header{ overflow: hidden; }
 	font-size: inherit;
 }
 
-.search-query:hover{ background: lighten(black, 90%); }
+.search-query:hover{
+	cursor: text;
+	background: lighten(black, 90%);
+}
 
 .search-query:focus{
 	color: $white;
@@ -79,6 +87,8 @@ header{ overflow: hidden; }
 	text-decoration: none;
 	color: inherit;
 	transition: color .25s, background .25s;
+	border-top-left-radius: $lineThickness;
+	border-bottom-left-radius: $lineThickness;
 }
 
 .checkout-alt{
