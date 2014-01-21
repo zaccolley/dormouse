@@ -10,13 +10,12 @@ main{
 
 .error-message {
 	width: 100%;
-	padding: .5em;
+	padding: .25em;
 	background: lighten($black, 5%);
 	color: #DA5E5E;
 	display: inline-block;
-	font-size: 6em;
+	font-size: 8em;
 	font-weight: 800;
-	line-height: 1.5;
 	border-radius: $lineThickness;
 }
 
@@ -131,12 +130,12 @@ main{
 
 .item-list img{
 	float: left;
-	width: 20%;
+	width: 15%;
 }
 
 .item-list .details{
 	float: left;
-	width: 50%;
+	width: 55%;
 	padding: .5em 1em;
 }
 

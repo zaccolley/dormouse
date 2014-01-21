@@ -13,21 +13,28 @@
 </head>
 <body>
 
-	<div class="window">
-		<button class="close">
-			<i class="fa fa-times"></i>
-		</button>
+	<div class="popup">
 		<section>			
-			<img src="images/build/0.jpg" alt="Image of Sausage Dog">
+			<button class="close">
+				<i class="fa fa-times"></i>
+			</button>
 			<div class="details">
 				<h1 class="details-title">
-					<a href="#Sausage Dog" title="More details on Sausage Dog?">Sausage Dog</a>
+					<a href="#Adobe Dreamweaver CS6" title="More details on Adobe Dreamweaver CS6?">Adobe Dreamweaver CS6</a>
 				</h1>
-				<p class="details-desc">It's pretty sick. It's a dog.</p>
+				<p class="details-cat">Found in Software</p>
+				<p class="details-desc">Where dreams are weaved!</p>
 				<p class="details-price">
-					<a href="#Sausage Dog" title="More details on Sausage Dog?">£50</a>
+					<a href="#Adobe Dreamweaver CS6" title="More details on Adobe Dreamweaver CS6?">£9999</a>
 				</p>
+				<p class="details-stock">20 left</p>
+				<div class="add">
+					<h2>Add to basket</h2>
+					<input type="text" placeholder="20">
+					<input type="submit" value="Add">
+				</div>
 			</div>
+			<img src="images/build/4.jpg" alt="Image of Adobe Dreamweaver CS6">
 		</section>
 	</div>
 

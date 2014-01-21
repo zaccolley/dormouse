@@ -1,6 +1,8 @@
 /* _header.scss */
 
 header{
+	z-index: 9999;
+	opacity: .95;
 	position: fixed;
 	top: 0;
 	width: 100%;

@@ -8,7 +8,8 @@
 
 	// header height fix
 	var header = document.querySelector('header');
-	document.body.style.marginTop = header.offsetHeight+'px';
+	var headerSize = header.offsetHeight+'px';
+	document.body.style.marginTop = headerSize;
 
 })();
 

@@ -1,0 +1,116 @@
+/* _popup.scss */
+
+.popup{
+	display: none;
+	z-index: 999999;
+	position: fixed;
+	top:0; right:0; bottom:0; left:0;
+	background: rgba(0,0,0,.5);
+	background-image: radial-gradient(center center, circle cover, rgba(0,0,0,.75), rgba(0,0,0,0)); 
+}
+
+.popup section{	
+	border-top-left-radius: $lineThickness;
+	border-top-right-radius: $lineThickness;
+}
+
+.popup section{
+	position: relative;
+	width: 80%;
+	margin-top: 10%;
+	margin-left: auto;
+	padding: 1em;
+	overflow: hidden;
+	background: $white;
+}
+
+.popup .close, .popup img, .popup .details{
+	height: 50vh;
+	float: left;
+}
+
+.popup .close{
+	border-top-left-radius: $lineThickness;
+	width: 10%;
+	background: $black;
+	line-height: 5em;
+	font-size: 3em;
+	color: $white;
+	transition: transform .1s;
+	transform-origin: right;
+}
+
+.popup .close:hover{
+	opacity: .95;
+	cursor: pointer;
+}
+
+.popup img, .popup .details{
+	width: 45%;
+}
+
+.popup img{	
+	border-top-right-radius: $lineThickness;
+	border: 10px solid $black;
+}
+
+.popup .details{
+	padding: 0 1em;
+	color: $black;
+}
+
+.popup .details-title{
+	font-weight: 700;
+	font-size: 2em; 
+}
+
+.popup .details-desc{
+	padding: 1em 0;
+}
+
+.popup .details-price{
+	font-weight: 900;
+	font-size: 2em;
+	padding: .5em 0;
+}
+
+.popup .details-stock{
+	font-size: 1.25em;
+}
+
+.popup .details-cat{
+	font-style: italic;
+	padding: .5em 0;
+}
+
+.popup .add{
+	overflow: hidden;
+	margin-top: 2em;
+}
+
+.popup .add h2{
+	padding: .5em 0;
+}
+
+.popup .add input{
+	width: 45%;
+	float: left;
+}
+
+.popup .add input{
+	padding: .5em;
+	background: lighten($black, 80%);
+	border: $lineThickness solid $black;
+}
+
+.popup .add input[type="submit"]{
+	padding: .75em;
+	margin-left: 10%;
+	background: $black;
+	color: $white;
+}
+
+.popup .add input[type="submit"]:hover{
+	opacity: .9;
+	cursor: pointer;
+}
