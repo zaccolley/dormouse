@@ -13,12 +13,17 @@ aside{
 	width: 100%;
 }
 
-aside h2{ padding: .5em 0; }
+aside h2{
+	text-transform: uppercase;
+	font-weight: 700;
+	padding: .5em 0;
+}
 
 .filter-select{
 	border: $lineThickness solid $black;
-	background: none;
-	border-radius: $lineThickness;
+	border-bottom: none;
+	border-top-left-radius: $lineThickness;
+	border-top-right-radius: $lineThickness;
 }
 
 .filter-select:hover{ background: lighten(black, 90%); }
@@ -26,7 +31,6 @@ aside h2{ padding: .5em 0; }
 .categories li a{
 	display: block;
 	padding: .5em 0;
-	font-weight: 600;
 }
 
 .categories li a:hover{ opacity: .6; }

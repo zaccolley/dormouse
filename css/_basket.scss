@@ -2,7 +2,8 @@
 
 .basket{
 	z-index: 1337;
-	position: absolute;
+	position: fixed;
+	right: 0;
 	overflow: hidden;
 	width: 100%;
 	background: $black;
@@ -11,6 +12,7 @@
 	max-height: 2000px;
 	transition: transform .25s, opacity .25s;
 	transform-origin: top right;
+	border-bottom-left-radius: $lineThickness;
 }
 
 .basket-closed{
@@ -19,17 +21,25 @@
 }
 
 .basket-title{
-	padding: .75em;
-	border-bottom: $lineThickness solid transparentize($white, .9);
-	font-size: 1.25em;
+	padding: .5em;
+	font-size: 1.5em;
 	font-weight: 700;
 }
 
-.basket .item-list{	font-size: .85em; }
+.basket .item-list{
+	padding: .75em;
+	margin-bottom: 0;
+	font-size: .85em;
+	border: none;
+	border-top: $lineThickness solid transparentize($white, .9);
+}
 
 .basket .item-list:hover{ background: transparentize($white, .9); }
 
-.basket .details-title{
+.basket .item-list img{ width: 10%; }
+.basket .item-list .details{ width: 60%; }
+
+.basket .item-list .details-title{
 	padding: .25em 0;
 	font-weight: 600;
 }

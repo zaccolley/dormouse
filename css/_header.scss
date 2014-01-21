@@ -1,8 +1,11 @@
 /* _header.scss */
 
 header{
+	position: fixed;
+	top: 0;
+	width: 100%;
 	background: lighten($white, 1%);
-	padding: 1em; 
+	padding: 1em 0; 
 	overflow: hidden;
 	border-bottom: $lineThickness solid $black; 
 }
@@ -33,18 +36,22 @@ header{
 	text-transform: uppercase;
  }
 
-.search{ width: 50%; }
+.search{
+	padding-left: 1em;
+	width: 50%;
+}
 
 .search-query, .search-submit{ float: left; }
 
 .search-query{
 	height: 2em;
 	margin-top: .2rem;
-	padding: .25rem .75rem;
+	padding: .25rem .5rem;
 	background: transparentize($white, .95);
-	border: $lineThickness solid $black;
-	border-radius: 1.25em;
-	width: 85%;
+	border-bottom: $lineThickness solid $black;
+	border-top-left-radius: $lineThickness;
+	border-top-right-radius: $lineThickness;
+	width: 90%;
 	font-size: inherit;
 }
 
@@ -63,7 +70,7 @@ header{
 	background: none;
 	border: none;
 	height: auto;
-	width: 15%;
+	width: 10%;
 	color: inherit;
 }
 
@@ -84,6 +91,7 @@ header{
 
 .checkout{
 	width: 50%;
+	padding-right: 2em;
 	text-decoration: none;
 	color: inherit;
 	transition: color .25s, background .25s;
@@ -116,7 +124,17 @@ header{
 	color: $white;
 }
 
+@media all and (max-width: 1000px){
+	.checkout{ padding-right: .5em; }
+}
+
 @media all and (max-width: 600px){
-	.logo, .bits{ width: 50%; }
-	.search{ display: none; }
+
+	.logo{ width: 50%; }
+	.search{ width: 10%; }
+	.bits{ width: 40%; }
+
+	.search-query{ display: none; }
+	.search-submit{ width: 100%; }
+
 }

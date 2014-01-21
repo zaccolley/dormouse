@@ -115,6 +115,11 @@ var ajax = function(inputOptions, callback){
 	basketInit();
 
 	updateAll();
+
+	// header height fix
+	var header = document.querySelector('header');
+	document.body.style.marginTop = header.offsetHeight+'px';
+
 })();
 
 function updateAll(){
@@ -187,7 +192,7 @@ function populateItems(data){
 	var itemList = document.querySelector('.items');
 	itemList.innerHTML = '';
 
-	var its = '';
+	var output = '';
 
 	for(var i in data.items){
 		var item = data.items[i];
@@ -201,7 +206,7 @@ function populateItems(data){
 			displayType = 'grid';
 		}
 
-		its +=  
+		output +=  
 		"<li class='item-"+displayType+"'>" +
 			"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
 			"<div class='details'>" +
@@ -212,7 +217,7 @@ function populateItems(data){
 			"</div>" +
 			"<div class='more-details'>" +
 				"<p class='details-cat'>Found in "+item.cat+"</p>" +
-				"<p class='details-stock'>"+item.stock+" left!</p>" +
+				"<p class='details-stock'>"+item.stock+" left</p>" +
 				"<p class='details-price'>" +
 					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
 				"</p>" +
@@ -221,7 +226,12 @@ function populateItems(data){
 
 	}
 
-	itemList.innerHTML = its;
+	if(data.errors != ''){
+		output = "<div class='error-message'>"+data.errors+"</p></div>";
+	}
+
+	itemList.innerHTML = output;
+
 }
 
 function updateBasket(){			
@@ -239,6 +249,10 @@ function updateBasket(){
 						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
 					"</h1>" +
 					"<p class='details-desc'>"+item.desc+"</p>" +
+				"</div>" +
+				"<div class='more-details'>" +
+					"<p class='details-cat'>Found in "+item.cat+"</p>" +
+					"<p class='details-stock'>"+item.stock+" left</p>" +
 					"<p class='details-price'>" +
 						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
 					"</p>" +
@@ -246,6 +260,8 @@ function updateBasket(){
 			"</li>";
 
 		}
+
+		changeCheckoutItemAmount(data.items.length);
 
 	});
 }
@@ -352,6 +368,7 @@ function changeCheckoutItemAmount(amount){
 
 	if(amount > 0){
 		checkoutItemAmount.innerHTML = amount;
+		document.title = '('+amount+') ' + document.title;
 		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
 	}else{
 		checkoutItemAmount.innerHTML = 0;
@@ -359,6 +376,7 @@ function changeCheckoutItemAmount(amount){
 	}
 
 	if(amount >= 1000){
+		document.title = '('+amount+') ~ ' + document.title;
 		checkoutItemAmount.innerHTML = '999+';
 		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
 	}

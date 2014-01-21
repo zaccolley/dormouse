@@ -60,12 +60,6 @@
 		</ul>
 	</section>
 
-	<main>
-		<ul class="items">
-			<!-- Items are added here -->
-		</ul>
-	</main>
-
 	<aside>
 		
 		<div class="filter">
@@ -89,6 +83,12 @@
 		</ul>
 
 	</aside>
+
+	<main>
+		<ul class="items">
+			<!-- Items are added here -->
+		</ul>
+	</main>
 
 	<script src="js/build/script.min.js"></script>
 </body>

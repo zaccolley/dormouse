@@ -16,78 +16,23 @@ $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 
 *{ box-sizing: border-box; }
 
-button, input, select{ outline: none; }
+button, input, select{
+	background: none;
+	border: none;
+	outline: none;
+	font: inherit;
+}
 
 a{ text-decoration: none; color: inherit; }
 
 body{
+	overflow-y: scroll;
 	color: $black;
 	background: $white;
 	font-family: $openSans;
 }
 
-.window{
-	display: none;
-	position: fixed;
-	top:0; right:0; bottom:0; left:0;
-	background: rgba(0,0,0,.5);
-	background-image: radial-gradient(center center, circle cover, rgba(0,0,0,.75), rgba(0,0,0,.95)); 
-}
-
-.window .close{
-	float: right;
-	width: 2em;
-	padding: .5em 0;
-	font-size: 3em;
-	background: none;
-	color: $white;
-	transition: transform .1s;
-}
-
-.window .close:hover{
-	opacity: .95;
-	transform: translateY(5%);
-	cursor: pointer;
-}
-
-.window section{
-	width: 70%;
-	margin: 0 auto;
-}
-
-.window img, .window .details{
-	height: 50vh;
-}
-
-.window img{
-	width: 100%;
-	border: 10px solid $black;
-	border-top: none;
-	border-bottom-right-radius: 20px;
-	border-bottom-left-radius: 20px;
-}
-
-.window .details{
-	padding: 1em;
-	color: $white;
-}
-
-.window .details-title{
-	font-weight: 700;
-	font-size: 2em; 
-	padding: .5em 0;
-}
-
-.window .details-desc{
-	padding: 1em 0;
-}
-
-.window .details-price{
-	font-weight: 900;
-	font-size: 2em;
-	padding: 1em 0;
-}
-
+@import 'window';
 @import 'basket';
 @import 'header';
 @import 'main';

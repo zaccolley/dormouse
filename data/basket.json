@@ -5,14 +5,18 @@
 			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6e/Laika01.jpg",
 			"name": "West Highland Terrier",
 			"desc": "This is our family's dog and it's really annoying.",
-			"price": "$75"
+			"price": "$75",
+			"stock": 1,
+			"cat": "Dogs"
 		},
 		{
 			"id": 3,
 			"image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQqTmdlJAzYTrTZfifvHTYOiF4fIP7-qE47gSkGYBxrstflLEpj5g",
 			"name": "Adobe Dreamweaver CS6",
 			"desc": "Where dreams are weaved!",
-			"price": "-Life"
+			"price": "-Life",
+			"stock": 0,
+			"cat": "Software"
 		}
 	]
 }
