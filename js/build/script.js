@@ -147,19 +147,37 @@ function updateCategories(){
 }
 
 var filterList = document.querySelector('.filter-select');
+var searchBox = document.querySelector('.search-query');
 
-filterList.addEventListener('change', function(){
-	updateItems(this.value);
-});
+filterList.addEventListener('change', function(){ updateItems(); });
+searchBox.addEventListener('keyup', function(){ updateItems(); });
 
-function updateItems(filterType){
+function updateItems(){
+
+	console.log('update items');
+
+	var filterList = document.querySelector('.filter-select');
+	var searchBox = document.querySelector('.search-query');
+
+	var searchQuery = searchBox.value;
+	var filterType = filterList.value;
 
 	var options = {};
 	options.url = 'data/items.php';
 
-	if(filterType){
+	var dataToSend = {};
+
+	if(searchQuery != ''){
+		dataToSend.search = searchQuery;
+	}
+
+	if(filterType != 'none'){
+		dataToSend.filter = filterType;
+	}
+
+	if(dataToSend.search || dataToSend.filter){
 		options.request = 'POST';
-		options.data = JSON.stringify({ filter: filterType });
+		options.data = JSON.stringify(dataToSend);
 	}
 
 	ajax(options, function(data){

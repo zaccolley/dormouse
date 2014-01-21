@@ -8,6 +8,12 @@
 
 	$sql = "SELECT * FROM item, category WHERE item.cat_id = category.cat_id";
 
+	if($data && property_exists($data, "search")){
+		$search = $data->search;
+
+		$sql .= " AND (item_name LIKE '%".$search."%' OR item_desc LIKE '%".$search."%' OR cat_name LIKE '%".$search."%')";
+	}
+
 	if($data && property_exists($data, "filter")){
 		$sql .= " ORDER BY ";
 
