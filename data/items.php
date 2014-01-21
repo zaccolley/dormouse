@@ -4,7 +4,41 @@
 
 	require('db.php');
 
-	$rows = $dbh->query("SELECT * FROM item, category WHERE item.cat_id = category.cat_id");
+	$data = json_decode(isset($_REQUEST['data']) ? $_REQUEST['data'] : null);
+
+	$sql = "SELECT * FROM item, category WHERE item.cat_id = category.cat_id";
+
+	if($data && property_exists($data, "filter")){
+		$sql .= " ORDER BY ";
+
+		$filter = $data->filter;
+
+		switch($filter){
+			
+			case 'price-desc':
+				$sql .= "item_price DESC";
+				break;
+
+			case 'price-asc':
+				$sql .= "item_price ASC";
+				break;
+			
+			case 'name-desc':
+				$sql .= "item_name DESC";
+				break;
+				
+			case 'none':
+			case 'name-asc':
+				$sql .= "item_name ASC";
+				break;
+
+			default: break;
+
+		}
+
+	}
+
+	$rows = $dbh->query($sql);
 	$dbh = null;
 
 	$items = array("items" => array());

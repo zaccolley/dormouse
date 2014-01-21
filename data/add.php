@@ -2,11 +2,9 @@
 
 	require('db.php');
 
-	$data = isset($_REQUEST['data']) ? $_REQUEST['data'] : "dead";
+	$data = json_decode(isset($_REQUEST['data']) ? $_REQUEST['data'] : null);
 
-	$data = json_decode($data);
-
-	if(property_exists($data, "category")){
+	if($data && property_exists($data, "category")){
 		$categories = $data->category;
 
 		foreach($categories as $category){

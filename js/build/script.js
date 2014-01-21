@@ -146,30 +146,53 @@ function updateCategories(){
 
 }
 
-function updateItems(){
+var filterList = document.querySelector('.filter');
+
+filterList.addEventListener('change', function(){
+	updateItems(this.value);
+});
+
+function updateItems(filterType){
+
+	var options = {};
+	options.url = 'data/items.php';
+
+	if(filterType){
+		options.request = 'POST';
+		options.data = JSON.stringify({ filter: filterType });
+	}
+
+	ajax(options, function(data){
+		populateItems(data);
+	});	
+}
+
+function populateItems(data){
 	var itemList = document.querySelector('.items');
-	ajax({ url: 'data/items.php' }, function(data){
+	itemList.innerHTML = '';
 
-		for(var i in data.items){
-			var item = data.items[i];
+	var its = '';
 
-			itemList.innerHTML +=  
-			"<li class='item-list'>" +
-				"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
-				"<div class='details'>" +
-					"<h1 class='details-title'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
-					"</h1>" +
-					"<p class='details-desc'>"+item.desc+"</p>" +
-					"<p class='details-price'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
-					"</p>" +
-				"</div>" +
-			"</li>";
+	for(var i in data.items){
+		var item = data.items[i];
 
-		}
+		its +=  
+		"<li class='item-list'>" +
+			"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+			"<div class='details'>" +
+				"<h1 class='details-title'>" +
+					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
+				"</h1>" +
+				"<p class='details-desc'>"+item.desc+"</p>" +
+				"<p class='details-price'>" +
+					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
+				"</p>" +
+			"</div>" +
+		"</li>";
 
-	});
+	}
+
+	itemList.innerHTML = its;
 }
 
 function updateBasket(){			

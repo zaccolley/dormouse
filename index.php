@@ -68,10 +68,13 @@
 
 	<aside>
 		
+		<h2>Filters</h2>
+
 		<select class="filter" name="filter">
-			<option value="default">Filters</option>
+			<option value="name-asc">Name ascending</option>
+			<option value="name-desc">Name descending</option>
 			<option value="price-asc">Price ascending</option>
-			<option value="price-des">Price descending</option>
+			<option value="price-desc">Price descending</option>
 		</select>
 
 		<ul class="categories">			
