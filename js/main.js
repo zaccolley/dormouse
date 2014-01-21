@@ -44,8 +44,6 @@ searchBox.addEventListener('keyup', function(){ updateItems(); });
 
 function updateItems(){
 
-	console.log('update items');
-
 	var filterList = document.querySelector('.filter-select');
 	var searchBox = document.querySelector('.search-query');
 
@@ -61,7 +59,7 @@ function updateItems(){
 		dataToSend.search = searchQuery;
 	}
 
-	if(filterType != 'none'){
+	if(filterType != ''){
 		dataToSend.filter = filterType;
 	}
 
@@ -95,10 +93,10 @@ function populateItems(data){
 			"</div>" +
 			"<div class='more-details'>" +
 				"<p class='details-cat'>Found in "+item.cat+"</p>" +
+				"<p class='details-stock'>"+item.stock+" left!</p>" +
 				"<p class='details-price'>" +
 					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
 				"</p>" +
-				"<p class='details-stock'>"+item.stock+" left!</p>" +
 			"</div>" +
 		"</li>";
 

@@ -23,9 +23,9 @@ main{
 
 .item-grid{
 	position: relative;
-	width: (100%/6);
+	width: (100%/5);
 	float: left;
-	padding: 0 1em 1em 0;
+	padding: 0 .5em .5em 0;
 }
 
 .item-grid img{
@@ -39,31 +39,64 @@ main{
 	position: relative;
 }
 
-.item-grid .details{
+.item-grid .details, .item-grid .more-details{
 	overflow: hidden;
 	width: 100%;
 	padding: 0 .5em;
+}
+
+.item-grid .details{
 	background: $black;
-	color: $white;	
-	border-bottom-left-radius: $lineThickness;
-	border-bottom-right-radius: $lineThickness;
+	color: $white;
 }
 
 .item-grid .details-title{
 	padding: .75em 0 .25em;
-	font-size: .85em;
+	font-size: 1em;
 	line-height: 1.3em;
+	border-bottom: $lineThickness solid transparentize($white, .9);
 }
 
 .item-grid .details-desc{
-	padding: .25em 0;
-	font-size: .75em;
+	padding: .75em 0;
+	font-size: .9em;
+}
+
+.item-grid .more-details{
+	background: lighten($black, 90%);
+	background: darken($white, 10%);
+	border: $lineThickness solid $black;
+	border-bottom-left-radius: $lineThickness;
+	border-bottom-right-radius: $lineThickness;
+}
+
+.item-grid .details-stock, .item-grid .details-price{
+	float: left;
+	width: 50%;
+}
+
+.item-grid .details-stock{
+	padding: 1em 0;
 }
 
 .item-grid .details-price{
-	font-size: 1.5em;
 	padding: .5em 0;
+	font-size: 1.5em;
 	text-align: right;
+}
+
+.item-grid .details-cat{
+	opacity: 0;
+	position: absolute;
+	top: $lineThickness; left: $lineThickness;
+	padding: .5em;
+	font-size: .75em;
+	border-bottom-right-radius: $lineThickness;
+	background: transparentize($white, .5);
+}
+
+.item-grid:hover .details-cat{
+	opacity: 1;
 }
 
 .item-list{
