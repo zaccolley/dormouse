@@ -85,19 +85,27 @@ main{
 
 .item-list .details{
 	float: left;
-	width: 80%;
+	width: 50%;
 	padding: .5em 1em;
 }
 
-.item-list .details-title, .item-list .details-desc{
-	float: left;
-	width: 80%;
+.item-list .details-title{
+	padding-bottom: .25em;
 }
 
-.item-list .details-price{
-	float: right;
-	width: 20%;
+.item-list .more-details{
+	padding: .5em 1em;
+	float: left;
+	width: 30%;
+}
+
+.item-list .details-cat, .item-list .details-price, .item-list .details-stock{
 	text-align: right;
+	padding: .25em 0;
+}
+
+.item-list .details-cat{
+	font-size: .75em;
 }
 
 .item-list .details-price a{

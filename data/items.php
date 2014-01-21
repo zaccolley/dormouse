@@ -26,7 +26,7 @@
 			case 'name-desc':
 				$sql .= "item_name DESC";
 				break;
-				
+
 			case 'none':
 			case 'name-asc':
 				$sql .= "item_name ASC";
@@ -49,6 +49,7 @@
 			"name" => $row['item_name'],
 			"desc" => $row['item_desc'],
 			"price" => $meta["currency"].$row['item_price'],
+			"stock" => $row['item_stock'],
 			"cat" => $row['cat_name']
 		);
 

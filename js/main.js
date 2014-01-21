@@ -74,9 +74,13 @@ function populateItems(data){
 					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
 				"</h1>" +
 				"<p class='details-desc'>"+item.desc+"</p>" +
+			"</div>" +
+			"<div class='more-details'>" +
+				"<p class='details-cat'>Found in "+item.cat+"</p>" +
 				"<p class='details-price'>" +
 					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
 				"</p>" +
+				"<p class='details-stock'>"+item.stock+" left!</p>" +
 			"</div>" +
 		"</li>";
 
