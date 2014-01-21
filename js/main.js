@@ -82,8 +82,17 @@ function populateItems(data){
 	for(var i in data.items){
 		var item = data.items[i];
 
+		var listRadio = document.getElementById('list-display-option');
+		var gridRadio = document.getElementById('grid-display-option');		
+		
+		var displayType = 'list';
+
+		if(gridRadio.checked){
+			displayType = 'grid';
+		}
+
 		its +=  
-		"<li class='item-list'>" +
+		"<li class='item-"+displayType+"'>" +
 			"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
 			"<div class='details'>" +
 				"<h1 class='details-title'>" +

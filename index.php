@@ -39,7 +39,7 @@
 		</div>
 		<div class="bits">
 			
-			<input type="radio" name="display-option" id="list-display-option">
+			<input type="radio" name="display-option" id="list-display-option" checked>
 			<label id="list-display-option-label" for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>
 
 			<input type="radio" name="display-option" id="grid-display-option">
@@ -71,7 +71,7 @@
 		<div class="filter">
 			
 			<h2 class="filter-title">Filter items</h2>
-			
+
 			<select class="filter-select" name="filter">
 				<option value="name-asc">Name ascending</option>
 				<option value="name-desc">Name descending</option>

@@ -1,8 +1,8 @@
 /* _header.scss */
 
 header{
-	background: $white;
-	padding: 1em 0; 
+	background: lighten($white, 1%);
+	padding: 1em; 
 	overflow: hidden;
 	border-bottom: $lineThickness solid $black; 
 }

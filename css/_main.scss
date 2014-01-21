@@ -21,6 +21,8 @@ main{
 			filter: grayscale(1);
 }
 
+.items li .details-desc{ line-height: 1.3em; }
+
 .item-grid{
 	position: relative;
 	width: (100%/5);
@@ -52,14 +54,18 @@ main{
 
 .item-grid .details-title{
 	padding: .75em 0 .25em;
-	font-size: 1em;
-	line-height: 1.3em;
+	font-size: .9em;
 	border-bottom: $lineThickness solid transparentize($white, .9);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .item-grid .details-desc{
 	padding: .75em 0;
-	font-size: .9em;
+	font-size: .85em;
+	height: 4em;
+	overflow-y: auto;
 }
 
 .item-grid .more-details{
