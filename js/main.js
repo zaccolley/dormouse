@@ -36,7 +36,7 @@ function updateCategories(){
 
 }
 
-var filterList = document.querySelector('.filter');
+var filterList = document.querySelector('.filter-select');
 
 filterList.addEventListener('change', function(){
 	updateItems(this.value);

@@ -6,17 +6,22 @@ aside{
 	width: 25%;
 }
 
-.filter{
-	border: $lineThickness solid $black;
-	background: none;
-	width: 100%;	
-	border-radius: $lineThickness;
+.filter{ margin-bottom: 1.5em; }
+
+.filter-title, .filter-select{
 	padding: .5em 0;
+	width: 100%;
 }
 
-.filter:hover{ background: lighten(black, 90%); }
+aside h2{ padding: .5em 0; }
 
-.categories{ padding-left: 2px; }
+.filter-select{
+	border: $lineThickness solid $black;
+	background: none;
+	border-radius: $lineThickness;
+}
+
+.filter-select:hover{ background: lighten(black, 90%); }
 
 .categories li a{
 	display: block;
