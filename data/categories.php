@@ -4,7 +4,7 @@
 
 	require('db.php');
 
-	$rows = $dbh->query("SELECT * FROM category");
+	$rows = $dbh->query("SELECT * FROM category ORDER BY cat_name ASC");
 	$dbh = null;
 
 	$categories = array("categories" => array());
