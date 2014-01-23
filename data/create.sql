@@ -41,4 +41,5 @@ INSERT INTO item (item_name, item_desc, item_price, item_stock, cat_id) VALUES
 ("Sausage Dog", "It's pretty sick. It's a dog.", 50, 100, 1),
 ("West Highland Terrier", "This is our family's dog and it's really annoying.", 75, 250, 1),
 ("Ocelot", "Salvidor Dali had one these cuties&hellip;", 7500, 2, 2),
-("Adobe Dreamweaver CS6", "Where dreams are weaved!", 9999, 0, 3);
+("Adobe Dreamweaver CS6", "Where dreams are weaved!", 9999, 0, 3),
+("Pepper", "My cat, way too fluffy", 1000000, 1, 2);

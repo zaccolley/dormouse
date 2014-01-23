@@ -7,9 +7,14 @@
 	$data = json_decode(isset($_REQUEST['data']) ? $_REQUEST['data'] : null);
 
 	$sql = "SELECT * FROM item, category WHERE item.cat_id = category.cat_id";
+	
+	$output = array("items" => array(), "data" => array(), "errors" => array());
+
+	array_push($output["data"], $data);
 
 	if($data && property_exists($data, "category")){
 		$category = $data->category;
+
 
 		$sql .= " AND cat_name = '".$category."'";
 	}
@@ -54,8 +59,6 @@
 	$dbh = null;
 
 	$count = $rows->rowCount();
-
-	$output = array("items" => array(), "errors" => array());
 
 	if($count){
 
