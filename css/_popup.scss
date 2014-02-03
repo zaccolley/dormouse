@@ -18,12 +18,9 @@
 
 .popup section{
 	border: $lineThickness solid $black;
-	box-shadow: 1000px transparentize($white, .5);
-	border-top-left-radius: $lineThickness;
-	border-top-right-radius: $lineThickness;
-}
-
-.popup section{
+	box-shadow: 0 0 0 1000px transparentize($black, .5);
+	border-top-left-radius: $lineThickness*2;
+	border-top-right-radius: $lineThickness*2;
 	position: absolute;
 	width: 80%;
 	margin: auto;
@@ -119,12 +116,13 @@
 	margin-top: .5em;
 	font-size: .8em;
 	text-align: center;
-}
-
-.popup .add input{
-	padding: .5em;
 	background: lighten($black, 80%);
 	border: $lineThickness solid $black;
+}
+
+.popup .add input[type="text"]{
+	padding: .25em;
+	font-size: 2em;
 }
 
 .popup .add input[type="submit"]{
