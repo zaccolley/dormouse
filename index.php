@@ -13,11 +13,10 @@
 </head>
 <body>
 
-	<div class="popup">
-		<section>			
-			<button class="close">
-				<i class="fa fa-times"></i>
-			</button>
+	<div class="popup popup--hidden">
+		<section>
+			<img class="popup__img" src="images/build/4.jpg" alt="Image of Adobe Dreamweaver CS6">
+
 			<div class="details">
 				<h1 class="details-title">
 					<a href="#Adobe Dreamweaver CS6" title="More details on Adobe Dreamweaver CS6?">Adobe Dreamweaver CS6</a>
@@ -28,13 +27,18 @@
 					<a href="#Adobe Dreamweaver CS6" title="More details on Adobe Dreamweaver CS6?">£9999</a>
 				</p>
 				<p class="details-stock">20 left</p>
+			</div>
+			
+			<div class="popup_tools">
+				<button class="popup_close">
+					<i class="fa fa-times"></i>
+				</button>			
 				<div class="add">
 					<h2>Add to basket</h2>
 					<input type="text" placeholder="20">
 					<input type="submit" value="Add">
 				</div>
 			</div>
-			<img src="images/build/4.jpg" alt="Image of Adobe Dreamweaver CS6">
 		</section>
 	</div>
 

@@ -1,60 +1,81 @@
 /* _popup.scss */
 
 .popup{
-	display: none;
 	z-index: 999999;
 	position: fixed;
 	top:0; right:0; bottom:0; left:0;
-	background: rgba(0,0,0,.5);
-	background-image: radial-gradient(center center, circle cover, rgba(0,0,0,.75), rgba(0,0,0,0)); 
+	background: transparentize($black, .1);
+	background-size: cover;
+	transition: opacity .25s, transform .15s;
+	transform-origin: center;
 }
 
-.popup section{	
+.popup--hidden{
+	transform: scale(0);
+	opacity: 0;
+	background: transparent;
+}
+
+.popup section{
+	border: $lineThickness solid $black;
+	box-shadow: 1000px transparentize($white, .5);
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
 }
 
 .popup section{
-	position: relative;
+	position: absolute;
 	width: 80%;
-	margin-top: 10%;
-	margin-left: auto;
+	margin: auto;
+	top: 10%; right: 0; left: 0;
 	padding: 1em;
 	overflow: hidden;
 	background: $white;
 }
 
-.popup .close, .popup img, .popup .details{
-	height: 50vh;
+.popup .popup_tools, .popup img, .popup .details{
 	float: left;
 }
 
-.popup .close{
-	border-top-left-radius: $lineThickness;
+.popup .popup_tools{
+	float: right;
 	width: 10%;
-	background: $black;
-	line-height: 5em;
-	font-size: 3em;
-	color: $white;
-	transition: transform .1s;
-	transform-origin: right;
+	border-left: $lineThickness solid $black;
+	padding-left: 1em;
 }
 
-.popup .close:hover{
-	opacity: .95;
+.popup .popup_close, .popup .add{
+	width: 100%;
+}
+
+.popup .popup_close{
+	display: block;
+	font-size: 2em;
+	height: 2em;
+	width: 2em;
+	margin: 0 auto;
+	background: $black;
+	color: $white;
+	transition: background .15s;
+	transform-origin: center;
+	border-top-right-radius: $lineThickness;
+	border-top-left-radius: $lineThickness;
+}
+
+.popup .popup_close:hover{
+	background: transparentize($black, .1);
 	cursor: pointer;
 }
 
-.popup img, .popup .details{
-	width: 45%;
-}
-
-.popup img{	
+.popup .popup__img{	
 	border-top-right-radius: $lineThickness;
 	border: 10px solid $black;
+	max-height: 100%;
+	max-width: 45%;
 }
 
 .popup .details{
+	width: 45%;
 	padding: 0 1em;
 	color: $black;
 }
@@ -85,16 +106,19 @@
 
 .popup .add{
 	overflow: hidden;
-	margin-top: 2em;
+	margin-top: 10em;
 }
 
 .popup .add h2{
 	padding: .5em 0;
+	text-align: center;
 }
 
 .popup .add input{
-	width: 45%;
-	float: left;
+	width: 100%;
+	margin-top: .5em;
+	font-size: .8em;
+	text-align: center;
 }
 
 .popup .add input{
@@ -105,7 +129,6 @@
 
 .popup .add input[type="submit"]{
 	padding: .75em;
-	margin-left: 10%;
 	background: $black;
 	color: $white;
 }

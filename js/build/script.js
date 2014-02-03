@@ -114,6 +114,8 @@ var ajax = function(inputOptions, callback){
 	displayOptionInit();
 	basketInit();
 
+	closePopUp();
+
 	updateAll();
 
 	// header height fix
@@ -208,7 +210,7 @@ function populateItems(data){
 		}
 
 		output +=  
-		"<li class='item-"+displayType+"'>" +
+		"<li class='item-"+displayType+"' id='item-"+item.id+"'>" +
 			"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
 			"<div class='details'>" +
 				"<h1 class='details-title'>" +
@@ -233,6 +235,85 @@ function populateItems(data){
 
 	itemList.innerHTML = output;
 
+	itemListeners();
+
+}
+
+function itemListeners(){
+	var items = document.querySelector('.items');
+
+
+	items.addEventListener('click', function(e){
+
+		if(e.target != e.currentTarget){
+			var clickedElm = e.target;
+
+			while(clickedElm.id.indexOf('item-') == -1){
+        		clickedElm = clickedElm.parentNode;
+    		}
+
+    		itemId = clickedElm.id.substring(5);
+    		getPopUpData(itemId);
+
+		}	
+
+	}, false);
+	
+}
+
+function getPopUpData(itemId){
+	var options = {};
+
+	var dataToSend = { 'id': itemId };
+
+	options.url = 'data/popup.php';
+	options.request = 'POST';
+	options.data = JSON.stringify(dataToSend);
+
+	ajax(options, function(data){
+		populatePopUp(data);
+	});	
+
+	displayPopUp();
+}
+
+function populatePopUp(data){
+	var item = data.items[0];
+	
+	console.log(item, item.id);
+
+	var popup =  document.querySelector('.popup');
+	popup.style.backgroundImage = "url(images/build/"+item.id+".jpg)";
+
+	var img = document.querySelector('.popup__img');
+	img.setAttribute('src', "images/build/"+item.id+".jpg");
+	img.setAttribute('alt', "Image of '"+item.name+"'");
+
+	var details = document.querySelector('.popup .details');
+
+	details.innerHTML =
+			"<h1 class='details-title'>"+item.name+"</h1>
+			<p class='details-cat'>Found in "+item.cat+"</p>
+			<p class='details-desc'>"+item.desc+"</p>
+			<p class='details-price'>"+item.price+"</p>
+			<p class='details-stock'>"+item.stock+" left</p>"
+
+	console.log(img);
+}
+
+function displayPopUp(){
+	var popup = document.querySelector('.popup');
+	popup.className = 'popup';
+}
+
+function closePopUp(){
+	var popup = document.querySelector('.popup');
+	var close = document.querySelector('.popup_close');
+
+
+	close.addEventListener('click', function(){
+		popup.className = 'popup popup--hidden';
+	});
 }
 
 function updateBasket(){			
@@ -377,7 +458,7 @@ function changeCheckoutItemAmount(amount){
 	}
 
 	if(amount >= 1000){
-		document.title = '('+amount+') ~ ' + document.title;
+		document.title = '('+amount+') ' + document.title;
 		checkoutItemAmount.innerHTML = '999+';
 		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
 	}

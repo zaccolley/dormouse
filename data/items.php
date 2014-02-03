@@ -8,9 +8,9 @@
 
 	$sql = "SELECT * FROM item, category WHERE item.cat_id = category.cat_id";
 	
-	$output = array("items" => array(), "data" => array(), "errors" => array());
+	$output = array("items" => array(), "input" => array(), "errors" => array());
 
-	array_push($output["data"], $data);
+	array_push($output["input"], $data);
 
 	if($data && property_exists($data, "category")){
 		$category = $data->category;

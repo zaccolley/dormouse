@@ -8,10 +8,10 @@
 	// meta & config
 
 	$meta = array(
-		'title' => "Zac's gr8 Shop",
+		'title' => "generic eCommerce wow",
 		'description' => "Where you can buy things",
 		'keywords' => "shop, fun, wow, this, should, be, an, array",
-		'currency' => "£"
+		'currency' => "$"
 	);
 
 	$config = array(
