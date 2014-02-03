@@ -1,4 +1,9 @@
 (function(){
+
+	dormouse = {	
+		title: document.title
+	};
+
 	iconSwap();
 
 	displayOptionInit();
@@ -19,6 +24,14 @@ function updateAll(){
 	updateCategories();
 	updateItems();
 	updateBasket();
+}
+
+function addItems(items){
+	var preparedData = JSON.stringify({ item: items });
+
+	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
+		updateItems();xs
+	});	
 }
 
 function addCategories(categories){
@@ -193,7 +206,7 @@ function populatePopUp(data){
 
 function displayPopUp(){
 	var popup = document.querySelector('.popup');
-	popup.className = 'popup';
+	popup.classList.remove('popup--hidden');
 }
 
 function closePopUp(){
@@ -202,7 +215,7 @@ function closePopUp(){
 
 
 	close.addEventListener('click', function(){
-		popup.className = 'popup popup--hidden';
+		popup.classList.add('popup--hidden');
 	});
 }
 
@@ -279,13 +292,8 @@ function basketToggle(){
 	var checkoutLink = document.querySelector('.checkout');
 	var basket = document.querySelector('.basket');
 
-	if(basket.className.indexOf('closed') != -1){
-		checkoutLink.className = 'checkout checkout-alt';
-		basket.className = 'basket';
-	}else{
-		checkoutLink.className = 'checkout';
-		basket.className = 'basket basket-closed';
-	}
+	checkoutLink.classList.toggle('checkout-alt');
+	basket.classList.toggle('basket-closed');
 }
 
 // for setting up the buttons for switching the display of the items
@@ -340,15 +348,16 @@ function changeCheckoutItemAmount(amount){
 
 	if(amount > 0){
 		checkoutItemAmount.innerHTML = amount;
-		document.title = '('+amount+') ' + document.title;
+		document.title = '('+amount+') ' + title;
 		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
 	}else{
 		checkoutItemAmount.innerHTML = 0;
+		document.title = title;
 		checkoutItemAmount.title = "There's nothing here!";
 	}
 
 	if(amount >= 1000){
-		document.title = '('+amount+') ' + document.title;
+		document.title = '('+amount+') ' + title;
 		checkoutItemAmount.innerHTML = '999+';
 		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
 	}

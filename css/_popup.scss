@@ -11,9 +11,9 @@
 }
 
 .popup--hidden{
+	transition: opacity .25s, transform .15s .25s;
 	transform: scale(0);
 	opacity: 0;
-	background: transparent;
 }
 
 .popup section{

@@ -28,6 +28,10 @@ main{
 	cursor: pointer;
 }
 
+.items li img{
+	background: #ddd;
+}
+
 .items li:hover img{
 	-webkit-filter: grayscale(1); 
 			filter: grayscale(1);
