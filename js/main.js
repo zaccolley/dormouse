@@ -203,22 +203,18 @@ function populatePopUp(data){
 function displayPopUp(){
 	var popup = document.querySelector('.popup');
 	popup.classList.remove('popup--hidden');
+	basketClose();
 }
 
 function closePopUp(){
 	var popup = document.querySelector('.popup');
 	var close = document.querySelector('.popup_close');
 
-	popup.addEventListener('click', hidePopUp);
-	close.addEventListener('click', hidePopUp;
-
-	function hidePopUp(e){
-		var clickedElm = e.target;
-
-		if(clickedElm == e.currentTarget){
+	popup.addEventListener('click', function(e){
+		if(e.target == e.currentTarget || e.target.className == 'popup_close' || e.target.parentNode.className == 'popup_close'){
 			popup.classList.add('popup--hidden');
 		}
-	}
+	});
 }
 
 function updateBasket(){			
@@ -298,6 +294,22 @@ function basketToggle(){
 	basket.classList.toggle('basket-closed');
 }
 
+function basketClose(){
+	var checkoutLink = document.querySelector('.checkout');
+	var basket = document.querySelector('.basket');
+
+	checkoutLink.classList.remove('checkout-alt');
+	basket.classList.add('basket-closed');
+}
+
+function basketOpen(){
+	var checkoutLink = document.querySelector('.checkout');
+	var basket = document.querySelector('.basket');
+
+	checkoutLink.classList.remove('checkout-alt');
+	basket.classList.remove('basket-closed');
+}
+
 // for setting up the buttons for switching the display of the items
 function displayOptionInit(){
 	var displayOptions = document.querySelectorAll('.display-option');
@@ -350,7 +362,7 @@ function changeCheckoutItemAmount(amount){
 
 	if(amount > 0){
 		checkoutItemAmount.innerHTML = amount;
-		document.title = '('+amount+') ' + title;
+		document.title = '('+amount+') ' + dormouse.title;
 		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
 	}else{
 		checkoutItemAmount.innerHTML = 0;
@@ -359,7 +371,7 @@ function changeCheckoutItemAmount(amount){
 	}
 
 	if(amount >= 1000){
-		document.title = '('+amount+') ' + title;
+		document.title = '('+amount+') ' + dormouse.title;
 		checkoutItemAmount.innerHTML = '999+';
 		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
 	}
