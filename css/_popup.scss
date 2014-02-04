@@ -5,14 +5,15 @@
 	position: fixed;
 	top:0; right:0; bottom:0; left:0;
 	background: transparentize($black, .5);
-	transition: opacity .25s, transform .15s;
+	transition: background .5s .05s, opacity .15s, transform .15s;
 	transform-origin: center;
 }
 
 .popup--hidden{
-	transition: opacity .25s, transform .15s .25s;
-	transform: scale(0);
 	opacity: 0;
+	background: transparent;
+	transition: background .15s .15s, opacity .15s, transform .15s .15s;
+	transform: scale(0);
 }
 
 .popup section{

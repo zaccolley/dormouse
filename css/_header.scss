@@ -34,14 +34,15 @@ header{
 	display: block;
 	text-indent: -9999px;
 	background: no-repeat;
-	background-image: url('../../images/ebae.png');
+	background-image: url('../../images/logo.png');
+	// background-image: url('../../images/default.png');
 	background-size: contain;
 	background-position: left center;
-	transition: opacity .1s;
+	transition: opacity .15s;
 }
 
 .logo a:hover{
-	opacity: .9;
+	opacity: .85;
 }
 
 .search{

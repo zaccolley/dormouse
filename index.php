@@ -13,7 +13,24 @@
 </head>
 <body>
 
-	<div class="popup popup--hidden"><!-- Popup data goes here --></div>
+	<div class="popup popup--hidden">
+		<section>
+			<img class="popup__img" src="#" alt="None">
+
+			<div class="details"></div>
+			
+			<div class="popup_tools">
+				<button class="popup_close">
+					<i class="fa fa-times"></i>
+				</button>			
+				<div class="add">
+					<h2>Add to basket</h2>
+					<input type="text">
+					<input type="submit" value="Add">
+				</div>
+			</div>
+		</section>
+	</div>
 
 	<header>
 		<h1 class="logo"><a href="./" title="<?php echo $meta['title']; ?>"><?php echo $meta['title']; ?></a></h1>
