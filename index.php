@@ -13,37 +13,10 @@
 </head>
 <body>
 
-	<div class="popup popup--hidden">
-		<section>
-			<img class="popup__img" src="images/build/4.jpg" alt="Image of Adobe Dreamweaver CS6">
-
-			<div class="details">
-				<h1 class="details-title">
-					<a href="#Adobe Dreamweaver CS6" title="More details on Adobe Dreamweaver CS6?">Adobe Dreamweaver CS6</a>
-				</h1>
-				<p class="details-cat">Found in Software</p>
-				<p class="details-desc">Where dreams are weaved!</p>
-				<p class="details-price">
-					<a href="#Adobe Dreamweaver CS6" title="More details on Adobe Dreamweaver CS6?">£9999</a>
-				</p>
-				<p class="details-stock">20 left</p>
-			</div>
-			
-			<div class="popup_tools">
-				<button class="popup_close">
-					<i class="fa fa-times"></i>
-				</button>			
-				<div class="add">
-					<h2>Add to basket</h2>
-					<input type="text" placeholder="20">
-					<input type="submit" value="Add">
-				</div>
-			</div>
-		</section>
-	</div>
+	<div class="popup popup--hidden"><!-- Popup data goes here --></div>
 
 	<header>
-		<h1 class="logo"><a href="#"><?php echo $meta['title']; ?></a></h1>
+		<h1 class="logo"><a href="./" title="<?php echo $meta['title']; ?>"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
 			<input type="text" name="query" class="search-query">
 			<button type="submit" class="search-submit icon-swap" title="Search some terms">Search</button>

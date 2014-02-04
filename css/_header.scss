@@ -25,18 +25,24 @@ header{
 }
 
 .logo{
+	padding: 0 1rem;
 	width: 25%;
 }
 
 .logo a{
-	padding: 0 1rem;
-	margin-top: .75rem;
-	font-weight: 700;
-	font-size: 100%;
-	display: inline-block;
-	width: 100%;
-	text-transform: uppercase;
- }
+	height: 2em;
+	display: block;
+	text-indent: -9999px;
+	background: no-repeat;
+	background-image: url('../../images/ebae.png');
+	background-size: contain;
+	background-position: left center;
+	transition: opacity .1s;
+}
+
+.logo a:hover{
+	opacity: .9;
+}
 
 .search{
 	padding-left: 1em;
