@@ -19,10 +19,6 @@ main{
 	border-radius: $lineThickness;
 }
 
-.items li .details-title{ font-weight: 600; }
-.items li .details-desc{ font-weight: 500; }
-.items li .details-price{ font-weight: 700; }
-
 .items li:hover{
 	opacity: .9;
 	cursor: pointer;
@@ -37,7 +33,9 @@ main{
 			filter: grayscale(1);
 }
 
-.items li .details-desc{ line-height: 1.3em; }
+.items li .details-title{ font-weight: 600; }
+.items li .details-desc{ font-weight: 500; line-height: 1.3em; }
+.items li .details-price{ font-weight: 700; }
 
 .item-grid{
 	position: relative;
