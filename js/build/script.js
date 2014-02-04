@@ -140,7 +140,7 @@ function addItems(items){
 	var preparedData = JSON.stringify({ item: items });
 
 	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
-		updateItems();xs
+		updateItems();
 	});	
 }
 
@@ -292,11 +292,9 @@ function getPopUpData(itemId){
 
 function populatePopUp(data){
 	var item = data.items[0];
-	
-	console.log(item, item.id);
 
 	var popup =  document.querySelector('.popup');
-	popup.style.backgroundImage = "url(images/build/"+item.id+".jpg)";
+	// popup.style.backgroundImage = "url(images/build/"+item.id+".jpg)";
 
 	var img = document.querySelector('.popup__img');
 	img.setAttribute('src', "images/build/"+item.id+".jpg");
@@ -310,8 +308,6 @@ function populatePopUp(data){
 			<p class='details-desc'>"+item.desc+"</p>
 			<p class='details-price'>"+item.price+"</p>
 			<p class='details-stock'>"+item.stock+" left</p>"
-
-	console.log(img);
 }
 
 function displayPopUp(){
@@ -323,10 +319,16 @@ function closePopUp(){
 	var popup = document.querySelector('.popup');
 	var close = document.querySelector('.popup_close');
 
+	popup.addEventListener('click', hidePopUp);
+	close.addEventListener('click', hidePopUp);
 
-	close.addEventListener('click', function(){
-		popup.classList.add('popup--hidden');
-	});
+	function hidePopUp(e){
+		var clickedElm = e.target;
+
+		if(clickedElm == e.currentTarget){
+			popup.classList.add('popup--hidden');
+		}
+	}
 }
 
 function updateBasket(){			

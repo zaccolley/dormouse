@@ -8,7 +8,7 @@
 	// meta & config
 
 	$meta = array(
-		'title' => "generic eCommerce wow",
+		'title' => "ebae",
 		'description' => "Where you can buy things",
 		'keywords' => "shop, fun, wow, this, should, be, an, array",
 		'currency' => "$"
