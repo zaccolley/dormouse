@@ -32,6 +32,8 @@
 		</section>
 	</div>
 
+	<div class="content-container">
+
 	<header>
 		<h1 class="logo"><a href="./" title="<?php echo $meta['title']; ?>"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
@@ -90,6 +92,8 @@
 			<!-- Items are added here -->
 		</ul>
 	</main>
+
+	</div>
 
 	<script src="js/build/script.min.js"></script>
 </body>

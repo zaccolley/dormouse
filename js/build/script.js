@@ -311,8 +311,12 @@ function populatePopUp(data){
 }
 
 function displayPopUp(){
+	var content = document.querySelector('.content-container');
+	content.classList.add('blurred');
+
 	var popup = document.querySelector('.popup');
 	popup.classList.remove('popup--hidden');
+	
 	basketClose();
 }
 
@@ -323,6 +327,9 @@ function closePopUp(){
 	popup.addEventListener('click', function(e){
 		if(e.target == e.currentTarget || e.target.className == 'popup_close' || e.target.parentNode.className == 'popup_close'){
 			popup.classList.add('popup--hidden');
+
+			var content = document.querySelector('.content-container');
+			content.classList.remove('blurred');
 		}
 	});
 }

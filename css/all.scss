@@ -31,6 +31,10 @@ body{
 	font-family: $openSans;
 }
 
+.content-container.blurred{
+	filter: blur(5px);
+}
+
 @import 'popup';
 @import 'basket';
 @import 'header';
