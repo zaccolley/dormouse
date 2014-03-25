@@ -23,12 +23,16 @@ button, input, select{
 	font: inherit;
 }
 
-a{ text-decoration: none; color: inherit; }
+a{
+	text-decoration: none;
+	color: inherit;
+}
 
 body{
-	color: $black;
-	background: $white;
 	font-family: $openSans;
+	color: $black;
+	
+	background: $white;
 }
 
 .content-container.blurred{

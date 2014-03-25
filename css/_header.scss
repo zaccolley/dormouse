@@ -6,21 +6,24 @@ header{
 	position: fixed;
 	top: 0;
 	width: 100%;
-	background: lighten($white, 1%);
 	padding: 1em 0; 
-	overflow: hidden;
+	overflow: hidden; /* clearfix */
+	
+	background: lighten($white, 1%);
 	border-bottom: $lineThickness solid $black; 
 }
 
 .logo, .search, .bits{
-	overflow: hidden;
+	overflow: hidden; /* clearfix */
 	float: left;
 }
 
 .search-query, .search-submit, .display-option, .checkout{
 	padding: .5rem;
+	
 	font-size: 1.25rem;
 	font-weight: 500;
+	
 	cursor: pointer;
 }
 
@@ -61,44 +64,52 @@ header{
 
 .search-query{
 	height: 2em;
+	width: 90%;
 	margin-top: .2rem;
 	padding: .25rem .5rem;
+	
+	font-size: inherit;
+	
 	background: transparentize($white, .95);
 	border-bottom: $lineThickness solid $black;
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
-	width: 90%;
-	font-size: inherit;
 }
 
 .search-query:hover{
-	cursor: text;
 	background: lighten(black, 90%);
+	
+	cursor: text;
 }
 
 .search-query:focus{
 	color: $white;
-	border-color: $black;
+	
 	background: $black;
+	border-color: $black;
 }
 
 .search-submit{
+	width: 10%;
+	height: auto;
+	
+	color: inherit;
+	
 	background: none;
 	border: none;
-	height: auto;
-	width: 10%;
-	color: inherit;
 }
 
 .bits{
 	width: 25%;
+	
 	user-select: none;
 }
 
 .search-submit, .display-option, .bits .checkout{
 	float: left;
-	text-align: center;
+	
 	font-weight: 800;
+	text-align: center;
 }
 
 .display-option, .checkout{ width: 50%; }
@@ -108,16 +119,20 @@ header{
 .checkout{
 	width: 50%;
 	padding-right: 2em;
+	
 	text-decoration: none;
 	color: inherit;
-	transition: color .25s, background .25s;
+	
 	border-top-left-radius: $lineThickness;
 	border-bottom-left-radius: $lineThickness;
+	
+	transition: color .25s, background .25s;
 }
 
 .checkout-alt{
-	background: $black;
 	color: $white;
+	
+	background: $black;
 }
 
 .checkout div{
@@ -127,17 +142,20 @@ header{
 
 .checkout-item-amount{
 	padding: .25em;
-	border: 1px solid lighten($black, 50%);
-	color: lighten($black, 25%);
-	border-radius: 2.5px;
+	
 	font-size: .65em;
 	font-weight: 500;
 	text-align: center;
+	color: lighten($black, 25%);
+	
+	border: 1px solid lighten($black, 50%);
+	border-radius: 2.5px;
 }
 
 .checkout-alt .checkout-item-amount{
-	border-color: lighten($black, 70%);
 	color: $white;
+	
+	border-color: lighten($black, 70%);
 }
 
 @media all and (max-width: 1000px){

@@ -1,7 +1,7 @@
 /* _main.scss */
 
 main{
-	overflow: hidden;
+	overflow: hidden; /* clearfix */
 	padding: 1em 0;
 	padding-left: 1em;
 	float: left;
@@ -9,13 +9,15 @@ main{
 }
 
 .error-message {
+	display: inline-block;
 	width: 100%;
 	padding: .25em;
-	background: lighten($black, 5%);
-	color: #DA5E5E;
-	display: inline-block;
+	
 	font-size: 7em;
 	font-weight: 800;
+	color: #DA5E5E;
+
+	background: lighten($black, 5%);
 	border-radius: $lineThickness;
 }
 
@@ -23,17 +25,21 @@ main{
 
 .error-message a{
 	display: inline-block;
-	border-bottom: 5px dashed;
+	
 	font-weight: 500;
+	
+	border-bottom: 5px dashed;
 }
 
 .error-message a:hover{
+	border-color: transparent;
+	
 	opacity: .8;
-	border-color: transparent
 }
 
 .items li:hover{
 	opacity: .9;
+	
 	cursor: pointer;
 }
 
@@ -59,40 +65,45 @@ main{
 
 .item-grid img{
 	display: block;
+	position: relative;
 	width: 100%;
 	height: 150px;
+	
 	background: rgba(255, 255, 255, 0.85);
 	border: $lineThickness solid $black;
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
-	position: relative;
 }
 
 .item-grid .details, .item-grid .more-details{
-	overflow: hidden;
+	overflow: hidden; /* clearfix */
 	width: 100%;
 	padding: 0 .5em;
 }
 
 .item-grid .details{
-	background: $black;
 	color: $white;
+
+	background: $black;
 }
 
 .item-grid .details-title{
 	padding: .75em 0 .5em;
+	overflow: hidden; /* clearfix */
+
 	font-size: .9em;
-	border-bottom: $lineThickness solid transparentize($white, .9);
 	white-space: nowrap;
-	overflow: hidden;
 	text-overflow: ellipsis;
+	
+	border-bottom: $lineThickness solid transparentize($white, .9);
 }
 
 .item-grid .details-desc{
-	padding: .75em 0;
-	font-size: .85em;
 	height: 4em;
+	padding: .75em 0;
 	overflow-y: auto;
+	
+	font-size: .85em;
 }
 
 .item-grid .more-details{
@@ -106,24 +117,26 @@ main{
 	width: 50%;
 }
 
-.item-grid .details-stock{
-	padding: 1em 0;
-}
+.item-grid .details-stock{ padding: 1em 0; }
 
 .item-grid .details-price{
 	padding: .5em 0;
+	
 	font-size: 1.5em;
 	text-align: right;
 }
 
 .item-grid .details-cat{
-	opacity: 0;
 	position: absolute;
 	top: $lineThickness; left: $lineThickness;
 	padding: .5em;
+	
 	font-size: .75em;
+
 	border-bottom-right-radius: $lineThickness;
 	background: transparentize($white, .5);
+
+	opacity: 0;
 }
 
 .item-grid:hover .details-cat{
@@ -131,16 +144,18 @@ main{
 }
 
 .item-list{
-	overflow: hidden;
+	overflow: hidden; /* clearfix */
 	margin-bottom: 1em;
+
 	border-bottom: $lineThickness solid $black;
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
 }
 
 .item-list:hover{
-	cursor: pointer;
 	background: transparentize($black, .9);
+
+	cursor: pointer;
 }
 
 .item-list img{
@@ -176,6 +191,7 @@ main{
 .item-list .details-price a{
 	font-weight: 700;
 	font-size: 1.25em;
+
 	border-bottom: 1px dashed transparent;
 }
 

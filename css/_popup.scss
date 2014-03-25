@@ -4,28 +4,33 @@
 	z-index: 999999;
 	position: fixed;
 	top:0; right:0; bottom:0; left:0;
+	
 	background: transparentize($black, .5);
+	
 	transition: background .15s, opacity .15s;
 	transform-origin: center;
 }
 
 .popup--hidden{
-	opacity: 0;
 	background: transparent;
+	
+	opacity: 0;
+	
 	transform: scale(0);
 }
 
 .popup section{
+	position: absolute;
+	top: 10%; right: 0; left: 0;
+	width: 80%;
+	padding: 1em;
+	margin: auto;
+	overflow: hidden; /* clearfix */
+	
+	background: $white;
 	border: $lineThickness solid $black;
 	border-top-left-radius: $lineThickness*2;
 	border-top-right-radius: $lineThickness*2;
-	position: absolute;
-	width: 80%;
-	margin: auto;
-	top: 10%; right: 0; left: 0;
-	padding: 1em;
-	overflow: hidden;
-	background: $white;
 }
 
 .popup .popup_tools, .popup img, .popup .details{
@@ -35,8 +40,9 @@
 .popup .popup_tools{
 	float: right;
 	width: 10%;
-	border-left: $lineThickness solid $black;
 	padding-left: 1em;
+
+	border-left: $lineThickness solid $black;
 }
 
 .popup .popup_close, .popup .add{
@@ -45,33 +51,39 @@
 
 .popup .popup_close{
 	display: block;
-	font-size: 2em;
 	height: 2em;
 	width: 2em;
 	margin: 0 auto;
-	background: $black;
+
+	font-size: 2em;
 	color: $white;
-	transition: background .15s;
-	transform-origin: center;
+
+	background: $black;
 	border-top-right-radius: $lineThickness;
 	border-top-left-radius: $lineThickness;
+
+	transition: background .15s;
+	transform-origin: center;
 }
 
 .popup .popup_close:hover{
 	background: transparentize($black, .1);
+
 	cursor: pointer;
 }
 
 .popup .popup__img{	
-	border-top-right-radius: $lineThickness;
-	border: 10px solid $black;
 	max-height: 100%;
 	max-width: 45%;
+
+	border: 10px solid $black;
+	border-top-right-radius: $lineThickness;
 }
 
 .popup .details{
 	width: 45%;
 	padding: 0 1em;
+
 	color: $black;
 }
 
@@ -85,9 +97,10 @@
 }
 
 .popup .details-price{
+	padding: .5em 0;
+
 	font-weight: 900;
 	font-size: 2em;
-	padding: .5em 0;
 }
 
 .popup .details-stock{
@@ -95,41 +108,49 @@
 }
 
 .popup .details-cat{
-	font-style: italic;
 	padding: .5em 0;
+
+	font-style: italic;
 }
 
 .popup .add{
-	overflow: hidden;
+	overflow: hidden; /* clearfix */
 	margin-top: 10em;
 }
 
 .popup .add h2{
 	padding: .5em 0;
+
 	text-align: center;
 }
 
 .popup .add input{
 	width: 100%;
 	margin-top: .5em;
+
 	font-size: .8em;
 	text-align: center;
+
 	background: lighten($black, 80%);
 	border: $lineThickness solid $black;
 }
 
 .popup .add input[type="text"]{
 	padding: .25em;
+
 	font-size: 2em;
 }
 
 .popup .add input[type="submit"]{
 	padding: .75em;
-	background: $black;
+
 	color: $white;
+
+	background: $black;
 }
 
 .popup .add input[type="submit"]:hover{
 	opacity: .9;
+
 	cursor: pointer;
 }
