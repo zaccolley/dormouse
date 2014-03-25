@@ -14,9 +14,22 @@ main{
 	background: lighten($black, 5%);
 	color: #DA5E5E;
 	display: inline-block;
-	font-size: 8em;
+	font-size: 7em;
 	font-weight: 800;
 	border-radius: $lineThickness;
+}
+
+.error-message em{ font-style: italic; }
+
+.error-message a{
+	display: inline-block;
+	border-bottom: 5px dashed;
+	font-weight: 500;
+}
+
+.error-message a:hover{
+	opacity: .8;
+	border-color: transparent
 }
 
 .items li:hover{

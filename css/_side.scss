@@ -33,6 +33,12 @@ aside h2{
 	padding: .5em 0;
 }
 
+.categories li em{ font-style: italic; }
+
+.categories li .no-cats-action{
+	font-weight: 700;
+}
+
 .categories li a:hover{ opacity: .6; }
 
 @media all and (max-width: 600px){

@@ -48,9 +48,20 @@ function updateCategories(){
 	ajax({ url: 'data/categories.php' }, function(data){
 		var cats = '';
 		
-		data.categories.forEach(function(category){
-			cats += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
-		});
+		// if we have some data
+		if(data && data != ''){
+		
+			data.categories.forEach(function(category){
+				cats += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
+			});
+
+			if(data.errors != ''){
+				output += "<div class='error-message'>"+data.errors+"</p></div>";
+			}
+
+		}else{
+			cats += "<li><em>Oops&hellip; Can't find any categories!</em> <a href='./' class='no-cats-action'>Try refreshing?</a></li>";
+		}
 
 		catList.innerHTML = cats;
 	});
@@ -100,40 +111,49 @@ function populateItems(data){
 
 	var output = '';
 
-	for(var i in data.items){
-		var item = data.items[i];
 
-		var listRadio = document.getElementById('list-display-option');
-		var gridRadio = document.getElementById('grid-display-option');		
-		
-		var displayType = 'list';
+	// if we have some data
+	if(data && data != ''){
+	
 
-		if(gridRadio.checked){
-			displayType = 'grid';
+		for(var i in data.items){
+			var item = data.items[i];
+
+			var listRadio = document.getElementById('list-display-option');
+			var gridRadio = document.getElementById('grid-display-option');		
+			
+			var displayType = 'list';
+
+			if(gridRadio.checked){
+				displayType = 'grid';
+			}
+
+			output +=  
+			"<li class='item-"+displayType+"' id='item-"+item.id+"'>" +
+				"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				"<div class='details'>" +
+					"<h1 class='details-title'>" +
+						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
+					"</h1>" +
+					"<p class='details-desc'>"+item.desc+"</p>" +
+				"</div>" +
+				"<div class='more-details'>" +
+					"<p class='details-cat'>Found in "+item.cat+"</p>" +
+					"<p class='details-stock'>"+item.stock+" left</p>" +
+					"<p class='details-price'>" +
+						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
+					"</p>" +
+				"</div>" +
+			"</li>";
+
 		}
 
-		output +=  
-		"<li class='item-"+displayType+"' id='item-"+item.id+"'>" +
-			"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
-			"<div class='details'>" +
-				"<h1 class='details-title'>" +
-					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
-				"</h1>" +
-				"<p class='details-desc'>"+item.desc+"</p>" +
-			"</div>" +
-			"<div class='more-details'>" +
-				"<p class='details-cat'>Found in "+item.cat+"</p>" +
-				"<p class='details-stock'>"+item.stock+" left</p>" +
-				"<p class='details-price'>" +
-					"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
-				"</p>" +
-			"</div>" +
-		"</li>";
-
-	}
-
-	if(data.errors != ''){
-		output = "<div class='error-message'>"+data.errors+"</p></div>";
+		if(data.errors != ''){
+			output += "<div class='error-message'>"+data.errors+"</p></div>";
+		}
+	
+	}else{
+		output += "<div class='error-message'><em>Oops&hellip; Can't find any items!</em> <a href='./'>Try refreshing?</a></div>";
 	}
 
 	itemList.innerHTML = output;
