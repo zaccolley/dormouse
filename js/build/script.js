@@ -428,6 +428,9 @@ function iconSwap(){
 function basketInit(){
 	var checkoutLink = document.querySelector('.checkout');
 	checkoutLink.addEventListener('click', basketToggle, false);
+	
+	var basketCloseButton = document.querySelector('.basket-close');
+	basketCloseButton.addEventListener('click', basketClose, false);
 }
 
 function basketToggle(){

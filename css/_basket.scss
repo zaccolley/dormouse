@@ -3,7 +3,9 @@
 .basket{
 	z-index: 1337;
 	position: fixed;
+	margin-top: 20px;
 	right: 0;
+	height: 100%;
 	width: 50%;
 	max-height: 2000px;
 	overflow: hidden; /* clearfix */
@@ -11,7 +13,7 @@
 	color: $white;
 	
 	background: $black;
-	border-bottom-left-radius: $lineThickness;
+	border-top-left-radius: 5px;
 	
 	opacity: .99;
 
@@ -19,17 +21,48 @@
 	transform-origin: top right;
 }
 
+@media all and (max-width:600px){
+	.basket{ width: 80%; }
+}
+
 .basket-closed{
 	opacity: 0;
+	transform: translateX(100%);
+}
 
-	transform: scaleX(0) skew(90deg);
+.basket-top{
+	overflow: hidden; /* overflow */
+	padding: 1em .5em;
 }
 
 .basket-title{
-	padding: .5em;
+	float: left;
+	width: 80%;
 
-	font-size: 1.5em;
+	font-size: 2em;
 	font-weight: 700;
+}
+
+.basket-close{
+	float: right;
+	width: 20%;
+	padding: .5em .25em;
+
+	font-size: .9em;
+	color: $white;
+
+	border: $lineThickness solid $white;
+	border-radius: $lineThickness;
+
+	transition: background .15s, color .15s;
+}
+
+.basket-close:hover{
+	color: $black;
+	
+	background: $white;
+
+	cursor: pointer;
 }
 
 .basket .item-list{

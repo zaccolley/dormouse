@@ -57,7 +57,10 @@
 	</header>
 		
 	<section class="basket basket-closed">
-		<h1 class="basket-title">Basket</h1>
+		<div class="basket-top">
+			<h1 class="basket-title">Basket</h1>
+			<button class="basket-close">Close</button>
+		</div>
 		<ul class="basket-items">
 			<!-- Basket items go here -->
 		</ul>
