@@ -43,13 +43,19 @@ main{
 	cursor: pointer;
 }
 
-.items li img{
+.items li img,
+.items li .details-placeholder-img{
 	background: #ddd;
 }
 
+.items li .details-placeholder-img{
+	padding: .5em 1em;
+	font-size: 1.5em;
+	text-align: center;
+}
+
 .items li:hover img{
-	-webkit-filter: grayscale(1); 
-			filter: grayscale(1);
+	filter: grayscale(1);
 }
 
 .items li .details-title{ font-weight: 600; }
@@ -63,7 +69,8 @@ main{
 	padding: 0 .5em .5em 0;
 }
 
-.item-grid img{
+.item-grid img,
+.item-grid .details-placeholder-img{
 	display: block;
 	position: relative;
 	width: 100%;
@@ -158,10 +165,13 @@ main{
 	cursor: pointer;
 }
 
-.item-list img{
+.item-list img,
+.item-list .details-placeholder-img{
 	float: left;
 	width: 15%;
 }
+
+.item-list .details-placeholder-img{ height: 100px; }
 
 .item-list .details{
 	float: left;

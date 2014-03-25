@@ -7,7 +7,7 @@
 	
 	background: transparentize($black, .5);
 	
-	transition: background .15s, opacity .15s;
+	transition: transform .25s, opacity .25s, background .25s .25s;
 	transform-origin: center;
 }
 
@@ -16,7 +16,8 @@
 	
 	opacity: 0;
 	
-	transform: scale(0);
+	transition: transform 0 .25s, opacity .25s, background .25s;
+	transform: translateX(100%);
 }
 
 .popup section{

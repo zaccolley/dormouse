@@ -128,23 +128,30 @@ function populateItems(data){
 				displayType = 'grid';
 			}
 
-			output +=  
-			"<li class='item-"+displayType+"' id='item-"+item.id+"'>" +
-				"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
-				"<div class='details'>" +
-					"<h1 class='details-title'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
-					"</h1>" +
-					"<p class='details-desc'>"+item.desc+"</p>" +
-				"</div>" +
-				"<div class='more-details'>" +
-					"<p class='details-cat'>Found in "+item.cat+"</p>" +
-					"<p class='details-stock'>"+item.stock+" left</p>" +
-					"<p class='details-price'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
-					"</p>" +
-				"</div>" +
-			"</li>";
+			output += "<li class='item-"+displayType+"' id='item-"+item.id+"'>";
+
+			// if the item has an img
+			if(item.img != 0){
+				output += "<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>";
+			}else{
+				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'>Upload an image silly</div>";
+			}
+			
+			output +=   "<div class='details'>" +
+							"<h1 class='details-title'>" +
+								"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
+							"</h1>" +
+							"<p class='details-desc'>"+item.desc+"</p>" +
+						"</div>" +
+						"<div class='more-details'>" +
+							"<p class='details-cat'>Found in "+item.cat+"</p>" +
+							"<p class='details-stock'>"+item.stock+" left</p>" +
+							"<p class='details-price'>" +
+								"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
+							"</p>" +
+						"</div>";
+
+			output += "</li>";
 
 		}
 

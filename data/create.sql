@@ -1,8 +1,11 @@
--- create database
+-- reset
 
 DROP DATABASE hedgerows;
-CREATE DATABASE hedgerows;
+DROP USER 'dormouse'@'localhost';
 
+-- create database
+
+CREATE DATABASE hedgerows;
 USE hedgerows;
 
 -- create user
@@ -10,11 +13,6 @@ USE hedgerows;
 CREATE USER 'dormouse'@'localhost' IDENTIFIED BY 'hazel';
 GRANT ALL PRIVILEGES ON * . * TO 'dormouse'@'localhost';
 FLUSH PRIVILEGES;
-
--- drop tables
-
-DROP TABLE item;
-DROP TABLE category;
 
 -- create tables
 
@@ -30,6 +28,7 @@ CREATE TABLE item(
 	item_desc VARCHAR(255),
 	item_price INT NOT NULL,
 	item_stock INT,
+	item_img BOOLEAN,
 	cat_id INT NOT NULL,
 	PRIMARY KEY (item_id),
 	FOREIGN KEY (cat_id) REFERENCES category(cat_id)
@@ -37,12 +36,12 @@ CREATE TABLE item(
 
 -- insert values
 
-INSERT INTO category (cat_name) VALUES
-("Dogs"), ("Cats"), ("Software");
+INSERT INTO category (cat_name) VALUES ("Dogs");
+INSERT INTO category (cat_name) VALUES ("Cats");
+INSERT INTO category (cat_name) VALUES ("Software");
 
-INSERT INTO item (item_name, item_desc, item_price, item_stock, cat_id) VALUES
-("Sausage Dog", "It's pretty sick. It's a dog.", 50, 100, 1),
-("West Highland Terrier", "This is our family's dog and it's really annoying.", 75, 250, 1),
-("Ocelot", "Salvidor Dali had one these cuties&hellip;", 7500, 2, 2),
-("Adobe Dreamweaver CS6", "Where dreams are weaved!", 9999, 0, 3),
-("Pepper", "My cat, way too fluffy", 1000000, 1, 2);
+INSERT INTO item (item_name, item_desc, item_price, item_stock, item_img, cat_id) VALUES ("Sausage Dog", "It's pretty sick. It's a dog.", 50, 100, true, 1);
+INSERT INTO item (item_name, item_desc, item_price, item_stock, item_img, cat_id) VALUES ("West Highland Terrier", "This is our family's dog and it's really annoying.", 75, 250, true, 1);
+INSERT INTO item (item_name, item_desc, item_price, item_stock, item_img, cat_id) VALUES ("Ocelot", "Salvidor Dali had one these cuties&hellip;", 7500, 2, true, 2);
+INSERT INTO item (item_name, item_desc, item_price, item_stock, item_img, cat_id) VALUES ("Pepper", "My cat, way too fluffy", 1000000, 1, false, 2);
+INSERT INTO item (item_name, item_desc, item_price, item_stock, item_img, cat_id) VALUES ("Adobe Dreamweaver CS6", "Where dreams are weaved!", 9999, 0, false, 3);

@@ -69,6 +69,7 @@
 				"desc" => $row['item_desc'],
 				"price" => $meta["currency"].$row['item_price'],
 				"stock" => $row['item_stock'],
+				"img" => $row['item_img'],
 				"cat" => $row['cat_name']
 			);
 
