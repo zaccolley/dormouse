@@ -1,6 +1,9 @@
 -- create database
 
+DROP DATABASE hedgerows;
 CREATE DATABASE hedgerows;
+
+USE hedgerows;
 
 -- create user
 
