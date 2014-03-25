@@ -10,9 +10,9 @@
 	max-height: 2000px;
 	overflow: hidden; /* clearfix */
 	
-	color: $white;
+	color: $contrast-colour;
 	
-	background: $black;
+	background: $default-colour;
 	border-top-left-radius: 5px;
 	
 	opacity: .99;
@@ -49,18 +49,18 @@
 	padding: .5em .25em;
 
 	font-size: .9em;
-	color: $white;
+	color: $contrast-colour;
 
-	border: $lineThickness solid $white;
+	border: $lineThickness solid $contrast-colour;
 	border-radius: $lineThickness;
 
 	transition: background .15s, color .15s;
 }
 
 .basket-close:hover{
-	color: $black;
+	color: $default-colour;
 	
-	background: $white;
+	background: $contrast-colour;
 
 	cursor: pointer;
 }
@@ -72,10 +72,10 @@
 	font-size: .85em;
 	
 	border: none;
-	border-top: $lineThickness solid transparentize($white, .9);
+	border-top: $lineThickness solid transparentize($contrast-colour, .9);
 }
 
-.basket .item-list:hover{ background: transparentize($white, .9); }
+.basket .item-list:hover{ background: transparentize($contrast-colour, .9); }
 
 .basket .item-list img{ width: 10%; }
 .basket .item-list .details{ width: 60%; }

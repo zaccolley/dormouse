@@ -5,7 +5,7 @@
 	position: fixed;
 	top:0; right:0; bottom:0; left:0;
 	
-	background: transparentize($black, .5);
+	background: transparentize($default-colour, .5);
 	
 	transition: transform .25s, opacity .25s, background .25s .25s;
 	transform-origin: center;
@@ -28,8 +28,8 @@
 	margin: auto;
 	overflow: hidden; /* clearfix */
 	
-	background: $white;
-	border: $lineThickness solid $black;
+	background: $contrast-colour;
+	border: $lineThickness solid $default-colour;
 	border-top-left-radius: $lineThickness*2;
 	border-top-right-radius: $lineThickness*2;
 }
@@ -43,7 +43,7 @@
 	width: 10%;
 	padding-left: 1em;
 
-	border-left: $lineThickness solid $black;
+	border-left: $lineThickness solid $default-colour;
 }
 
 .popup .popup_close, .popup .add{
@@ -57,9 +57,9 @@
 	margin: 0 auto;
 
 	font-size: 2em;
-	color: $white;
+	color: $contrast-colour;
 
-	background: $black;
+	background: $default-colour;
 	border-top-right-radius: $lineThickness;
 	border-top-left-radius: $lineThickness;
 
@@ -68,7 +68,7 @@
 }
 
 .popup .popup_close:hover{
-	background: transparentize($black, .1);
+	background: transparentize($default-colour, .1);
 
 	cursor: pointer;
 }
@@ -77,7 +77,7 @@
 	max-height: 100%;
 	max-width: 45%;
 
-	border: 10px solid $black;
+	border: 10px solid $default-colour;
 	border-top-right-radius: $lineThickness;
 }
 
@@ -85,7 +85,7 @@
 	width: 45%;
 	padding: 0 1em;
 
-	color: $black;
+	color: $default-colour;
 }
 
 .popup .details-title{
@@ -132,8 +132,8 @@
 	font-size: .8em;
 	text-align: center;
 
-	background: lighten($black, 80%);
-	border: $lineThickness solid $black;
+	background: lighten($default-colour, 80%);
+	border: $lineThickness solid $default-colour;
 }
 
 .popup .add input[type="text"]{
@@ -145,9 +145,9 @@
 .popup .add input[type="submit"]{
 	padding: .75em;
 
-	color: $white;
+	color: $contrast-colour;
 
-	background: $black;
+	background: $default-colour;
 }
 
 .popup .add input[type="submit"]:hover{

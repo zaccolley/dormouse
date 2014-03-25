@@ -21,13 +21,18 @@ aside h2{
 }
 
 .filter-select{
-	border: $lineThickness solid $black;
+	color: inherit;
+
+	border: $lineThickness solid $default-colour;
 	border-bottom: none;
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
 }
 
-.filter-select:hover{ background: lighten(black, 90%); }
+.filter-select:hover{
+	color: $contrast-colour;
+	background: lighten(black, 90%);
+}
 
 .categories li a{
 	display: block;

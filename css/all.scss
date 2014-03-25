@@ -5,8 +5,15 @@
 
 /* -- colours -- */
 
-$white: darken(white, 5%);
-$black: lighten(black, 8%);
+/* default */
+$contrast-colour: darken(white, 5%);
+$default-colour: lighten(black, 8%);
+
+/* alt colours */
+/*
+$default-colour: darken(white, 5%);
+$contrast-colour: lighten(black, 8%);
+*/
 
 $lineThickness: 2px;
 
@@ -28,11 +35,18 @@ a{
 	color: inherit;
 }
 
+html, body{
+	height: 100%;
+	width: 100%;
+}
+
 body{
 	font-family: $openSans;
-	color: $black;
+	color: $default-colour;
 	
-	background: $white;
+	background: $contrast-colour no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
 }
 
 .content-container{
