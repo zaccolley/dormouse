@@ -69,7 +69,7 @@ main{
 	width: 100%;
 	height: 150px;
 	
-	background: rgba(255, 255, 255, 0.85);
+	background: lighten($black, 5%);
 	border: $lineThickness solid $black;
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
