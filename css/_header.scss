@@ -23,7 +23,7 @@ header{
 	
 	font-size: 1.25rem;
 	font-weight: 500;
-	
+
 	cursor: pointer;
 }
 
@@ -57,14 +57,14 @@ header{
 
 .search{
 	padding-left: 1em;
-	width: 50%;
+	width: 45%;
 }
 
 .search-query, .search-submit{ float: left; }
 
 .search-query{
 	height: 2em;
-	width: 90%;
+	width: 70%;
 	margin-top: .2rem;
 	padding: .25rem .5rem;
 	
@@ -90,7 +90,7 @@ header{
 }
 
 .search-submit{
-	width: 10%;
+	width: 30%;
 	height: auto;
 	
 	color: inherit;
@@ -100,7 +100,7 @@ header{
 }
 
 .bits{
-	width: 25%;
+	width: 30%;
 	
 	user-select: none;
 }
@@ -108,16 +108,16 @@ header{
 .search-submit, .display-option, .bits .checkout{
 	float: left;
 	
-	font-weight: 800;
+	font-size: 1.25em;
 	text-align: center;
 }
 
-.display-option, .checkout{ width: 50%; }
+.display-option{ width: 40%; }
 
 #list-display-option, #grid-display-option{ display: none; }
 
 .checkout{
-	width: 50%;
+	width: 60%;
 	padding-right: 2em;
 	
 	text-decoration: none;
@@ -135,13 +135,14 @@ header{
 	background: $black;
 }
 
-.checkout div{
+.checkout .checkout-icon{
 	float: left;
-	width: 50%;
 }
 
 .checkout-item-amount{
+	float: left;
 	padding: .25em;
+	margin-left: 1em;
 	
 	font-size: .65em;
 	font-weight: 500;
@@ -158,17 +159,36 @@ header{
 	border-color: lighten($black, 70%);
 }
 
-@media all and (max-width: 1000px){
-	.checkout{ padding-right: .5em; }
+@media all and (max-width: 1100px){
+	.search-submit, .display-option, .bits .checkout{
+		font-size: 1em;
+	}
+}
+
+@media all and (max-width: 800px){
+
+	.search-query{ display: none; }
+	.search-submit{ width: 100%; }
+
+	.search{ width: 25%; }
+	.bits{ width: 50%; }
+
 }
 
 @media all and (max-width: 600px){
 
-	.logo{ width: 50%; }
-	.search{ width: 10%; }
-	.bits{ width: 40%; }
+	.logo{
+		width: 100%;
+	
+		text-align: center;
+	}
 
-	.search-query{ display: none; }
-	.search-submit{ width: 100%; }
+	.search-submit, .display-option, .bits .checkout{
+		text-align: left;
+		font-size: 1em;
+	}
+
+	.search{ width: 30%; }
+	.bits{ width: 70%; }
 
 }

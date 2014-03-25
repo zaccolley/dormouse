@@ -396,7 +396,7 @@ function iconSwap(){
 		'Search': 'search',
 		'Grid': 'th-large',
 		'List': 'th-list',
-		'Checkout': 'shopping-cart'
+		'Basket': 'shopping-cart'
 	};
 
 	for(var i in icons){		
@@ -407,7 +407,7 @@ function iconSwap(){
 
 			// swap the text with the icon name
 			var className = iconSwapLookup[icon.innerHTML];
-			icon.innerHTML = '<i class="fa fa-'+className+'"></i>';
+			icon.innerHTML = '<i class="fa fa-'+className+'"></i> '+icon.innerHTML;
 
 			// remove the class showing it was for swapping
 			icon.classList.remove('icon-swap');

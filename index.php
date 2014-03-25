@@ -49,7 +49,7 @@
 			<label id="grid-display-option-label" for="grid-display-option" title="Display items in a grid" class="display-option icon-swap">Grid</label>
 
 			<a href="#" class="checkout">
-				<div class="checkout-icon icon-swap" title="Checkout your items!">Checkout</div>
+				<div class="checkout-icon icon-swap" title="Checkout your items!">Basket</div>
 				<div class="checkout-item-amount" title="There's nothing here!">0</div>
 			</a>
 
