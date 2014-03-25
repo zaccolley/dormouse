@@ -46,24 +46,24 @@ function updateCategories(){
 	var catList = document.querySelector('.categories');
 
 	ajax({ url: 'data/categories.php' }, function(data){
-		var cats = '';
+		var output = '';
 		
 		// if we have some data
 		if(data && data != ''){
 		
 			data.categories.forEach(function(category){
-				cats += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
+				output += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
 			});
 
-			if(data.errors != ''){
+			if(data.errors && data.errors != ''){
 				output += "<div class='error-message'>"+data.errors+"</p></div>";
 			}
 
 		}else{
-			cats += "<li><em>Oops&hellip; Can't find any categories!</em> <a href='./' class='no-cats-action'>Try refreshing?</a></li>";
+			output += "<li><em>Oops&hellip; Can't find any categories!</em> <a href='./' class='no-cats-action'>Try refreshing?</a></li>";
 		}
 
-		catList.innerHTML = cats;
+		catList.innerHTML = output;
 	});
 
 }
