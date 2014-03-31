@@ -15,6 +15,8 @@ run `grunt dev`
 
 this watches any changes to files and automatically builds
 
+run `php -S localhost:9001` for the server
+
 
 ### data api
 
