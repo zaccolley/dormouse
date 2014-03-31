@@ -147,7 +147,7 @@ function populateItems(json){
 							"<p class='details-desc'>"+item.desc+"</p>" +
 						"</div>" +
 						"<div class='more-details'>" +
-							"<p class='details-cat'>Found in "+item.cat+"</p>" +
+							"<p class='details-cat'>Found in "+item.cat.name+"</p>" +
 							"<p class='details-stock'>"+item.stock+" left</p>" +
 							"<p class='details-price'>" +
 								"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
@@ -220,7 +220,7 @@ function populatePopUp(json){
 
 	details.innerHTML =
 			"<h1 class='details-title'>"+item.name+"</h1>
-			<p class='details-cat'>Found in "+item.cat+"</p>
+			<p class='details-cat'>Found in "+item.cat.name+"</p>
 			<p class='details-desc'>"+item.desc+"</p>
 			<p class='details-price'>"+item.price+"</p>
 			<p class='details-stock'>"+item.stock+" left</p>"
@@ -267,7 +267,7 @@ function updateBasket(){
 					"<p class='details-desc'>"+item.desc+"</p>" +
 				"</div>" +
 				"<div class='more-details'>" +
-					"<p class='details-cat'>Found in "+item.cat+"</p>" +
+					"<p class='details-cat'>Found in "+item.cat.name+"</p>" +
 					"<p class='details-stock'>"+item.stock+" left</p>" +
 					"<p class='details-price'>" +
 						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +

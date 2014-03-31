@@ -18,11 +18,15 @@
 	$output["request"]["uri"] = $uri;
 	$output["request"]["method"] = $method;
 
+	// remove trailing
+	$uriParts = rtrim($uri, "/");
 
+	// remove the ? data
+	if(strpos($uriParts, "?")){
+		$uriParts = strstr($uriParts, '?', true);
+	}
 
-
-
-	$uriParts = explode("/", rtrim($uri, "/"));
+	$uriParts = explode("/", $uriParts);
 
 	if(in_array("data", $uriParts)){
 		$uriParts = array_slice($uriParts, array_search("data", $uriParts) + 1);
@@ -43,6 +47,17 @@
 
 	);
 
+	$search = null;
+	$filter = null;
+
+	if($data && property_exists($data, "search")){
+		$search = $data->search;
+	}
+
+	if($data && property_exists($data, "filter")){
+		$filter = $data->filter;
+	}
+
 	foreach($expectedPaths as $expectedPathName => $expectedPath){
 
 		if(sizeof($uriParts) == sizeof($expectedPath)){
@@ -58,7 +73,7 @@
 			}
 
 			if($correct){
-				$output["output"] = $expectedPathName($uriParts);			
+				$output["output"] = $expectedPathName($uriParts, $search, $filter);			
 				break;
 			}
 
@@ -66,42 +81,34 @@
 		
 	}
 
-	function categoryItemSingle($uriParts){
+	function categoryItemSingle($uriParts, $search, $filter){
 		require('items.php');
-		return getItems($uriParts[1], $uriParts[3]);
+		return getItems($uriParts[1], $uriParts[3], $search, $filter);
 	}
 
-	function categoryItem($uriParts){
+	function categoryItem($uriParts, $search, $filter){
 		require('items.php');
-		return getItems(null, $uriParts[1]);
+		return getItems(null, $uriParts[1], $search, $filter);
 	}
 
-	function category($uriParts){
+	function itemSingle($uriParts, $search, $filter){
+		require('items.php');
+		return getItems($uriParts[1], $search, $filter);
+	}
+
+	function item($uriParts, $search, $filter){
+		require('items.php');
+		return getItems(null, null, $search, $filter);
+	}
+
+	function category($uriParts, $search, $filter){
 		require('categories.php');
 		return getCategories();
 	}
 
-	function categorySingle($uriParts){
+	function categorySingle($uriParts, $search, $filter){
 		require('categories.php');
 		return getCategories($uriParts[1]);
-	}
-
-	function itemSingle($uriParts){
-		require('items.php');
-		return getItems($uriParts[1]);
-	}
-
-	function item($uriParts){
-		require('items.php');
-		return getItems();
-	}
-
-	if($data && property_exists($data, "search")){
-		// there is a search
-	}
-
-	if($data && property_exists($data, "filter")){
-		// there is a filter
 	}
 
 	echo json_encode($output);

@@ -62,7 +62,7 @@
 					"price" => $meta["currency"].$row['item_price'],
 					"stock" => $row['item_stock'],
 					"img" => $row['item_img'],
-					"cat" => $row['cat_name']
+					"cat" => array('id' => $row['cat_id'], 'name' => $row['cat_name'])
 				);
 
 				array_push($output["items"], $item);
