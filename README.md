@@ -14,3 +14,16 @@ e-commerce framework for my WEBSCRP Uni unit
 run `grunt dev`
 
 this watches any changes to files and automatically builds
+
+
+### data api
+
+
+Resource | POST (Create) | GET (Read) | PUT / PATCH (Update) | DELETE (Delete)
+---------|---------------|------------|----------------------|----------------
+data/item | create new item | list items | bulk update of items | error
+data/item/001 | error | info on item | update if exists or error | delete named item
+data/category | create new category | list categories | bulk update of categories | error
+data/category/001 | error | info on category | update if exists or error | delete named category
+data/category/item | error | list items in category | update if exists or error | error
+data/category/item/001 | error | info on item | update if exists or error | delete named item
