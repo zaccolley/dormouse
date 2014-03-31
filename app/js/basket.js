@@ -9,6 +9,8 @@ function initBasket(){
 }
 
 function toggleBasket(){
+	updateBasket();
+
 	var checkoutLink = document.querySelector('.checkout');
 	var basket = document.querySelector('.basket');
 
@@ -25,6 +27,8 @@ function closeBasket(){
 }
 
 function openBasket(){
+	updateBasket();
+
 	var checkoutLink = document.querySelector('.checkout');
 	var basket = document.querySelector('.basket');
 
@@ -32,12 +36,35 @@ function openBasket(){
 	basket.classList.remove('basket-closed');
 }
 
-function updateBasket(){			
-	var basket = document.querySelector('.basket-items');
-	ajax({ url: 'data/basket.json' }, function(data){
+function updateBasket(){
+	var basketStorage = JSON.parse(localStorage.getItem('basketItems'));
 
-		for(var i in data.items){
-			var item = data.items[i];
+	var basket = document.querySelector('.basket-items');
+
+	// reset
+	basket.innerHTML = "";
+
+	var basketItems = basketStorage.item;
+
+	changeCheckoutItemAmount(basketItems.length);
+
+	for(var b in basketItems){
+		var basketItem = basketItems[b];
+
+		ajax({ url: 'data/item/'+basketItem.id }, function(json){
+			var data = json.output;
+			var item = data.items[0];
+
+			var basketAmount = getBasketItemAmount(item.id);
+			var basketPrice = item.price.substr(1) * basketAmount;
+
+			var basketPrice = item.price.substr(0, 1) + basketPrice;
+
+			if(basketAmount){
+				basketAmount = "x"+basketAmount;
+			}else{
+				basketAmount = "Oops, try refreshing?";
+			}
 
 			basket.innerHTML +=  
 			"<li class='item-list'>" +
@@ -49,19 +76,31 @@ function updateBasket(){
 					"<p class='details-desc'>"+item.desc+"</p>" +
 				"</div>" +
 				"<div class='more-details'>" +
-					"<p class='details-cat'>Found in "+item.cat.name+"</p>" +
-					"<p class='details-stock'>"+item.stock+" left</p>" +
+					"<p class='details-stock'>"+basketAmount+"</p>" +
 					"<p class='details-price'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
+						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+basketPrice+"</a>" +
 					"</p>" +
 				"</div>" +
 			"</li>";
 
+		});
+
+	}
+
+}
+
+function getBasketItemAmount(id){
+	var basketStorage = JSON.parse(localStorage.getItem('basketItems'));
+
+	for(var b in basketStorage.item){
+		var item = basketStorage.item[b];
+
+		if(item.id == id){
+			return item.amount;
 		}
+	}
 
-		changeCheckoutItemAmount(data.items.length);
-
-	});
+	return 0;
 }
 
 function changeCheckoutItemAmount(amount){
@@ -73,7 +112,7 @@ function changeCheckoutItemAmount(amount){
 		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
 	}else{
 		checkoutItemAmount.innerHTML = 0;
-		document.title = title;
+		document.title = dormouse.title;
 		checkoutItemAmount.title = "There's nothing here!";
 	}
 

@@ -6,12 +6,34 @@
 		title: document.title
 	};
 
+	var basketItems = {
+		'item': [
+			{
+				'id': 1,
+				'amount': 5,
+			},
+			{
+				'id': 2,
+				'amount': 2,
+			},
+			{
+				'id': 3,
+				'amount': 7,
+			}
+		]
+	};
+
+	// var basketItems = { 'item': [] };
+
+	localStorage.setItem('basketItems', JSON.stringify(basketItems));
+
 	closePopUp();
 
 	initAll();
 	updateAll();
 
 	headerHeightFix();
+
 })();
 
 function headerHeightFix(){
