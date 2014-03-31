@@ -1,13 +1,13 @@
-## dormouse 🐭
+# 🐭 - dormouse
 
-ecommerce app for my webscrp unit
+e-commerce framework for my WEBSCRP Uni unit
 
 ### to run:
 
-	+ run `app/create.sql` to create database
-	+ [install grunt](http://gruntjs.com/getting-started)
-	+ run `grunt` at root to build
-	+ dist/ should be created with the built project
++ run `app/create.sql` to create database
++ [install grunt](http://gruntjs.com/getting-started)
++ run `grunt` at root to build
++ dist/ should be created with the built project
 
 ### for dev:
 
