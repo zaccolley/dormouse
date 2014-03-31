@@ -132,7 +132,7 @@ function populateItems(data){
 
 			// if the item has an img
 			if(item.img != 0){
-				output += "<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>";
+				output += "<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
 			}else{
 				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'>Upload an image silly</div>";
 			}
@@ -211,10 +211,9 @@ function populatePopUp(data){
 	var item = data.items[0];
 
 	var popup =  document.querySelector('.popup');
-	// popup.style.backgroundImage = "url(images/build/"+item.id+".jpg)";
 
 	var img = document.querySelector('.popup__img');
-	img.setAttribute('src', "images/build/"+item.id+".jpg");
+	img.setAttribute('src', "images/"+item.id+".jpg");
 	img.setAttribute('alt', "Image of '"+item.name+"'");
 
 	var details = document.querySelector('.popup .details');
@@ -260,7 +259,7 @@ function updateBasket(){
 
 			basket.innerHTML +=  
 			"<li class='item-list'>" +
-				"<img src='images/build/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				"<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
 				"<div class='details'>" +
 					"<h1 class='details-title'>" +
 						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +

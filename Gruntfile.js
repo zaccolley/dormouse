@@ -5,17 +5,17 @@ module.exports = function(grunt) {
 
         concat: {
             dist: {
-                src: ['js/*.js'],
-                dest: 'js/build/script.js'
+                src: ['app/js/*.js'],
+                dest: 'dist/js/script.js'
             }
         },
 
         uglify: {
             build: {
-                src:  'js/build/script.js',
-                dest: 'js/build/script.min.js',
+                src:  'dist/js/script.js',
+                dest: 'dist/js/script.min.js',
                 options: {
-                    sourceMap: 'js/build/script.map.js',
+                    sourceMap: 'dist/js/script.map.js',
                     sourceMapPrefix: 2,
                     sourceMappingURL: 'script.map.js',
                     banner: '/*! <%= pkg.name %> ~ UP665219 ~ <%= grunt.template.today("yyyy-mm-dd") %> */'
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         },
 
         jshint: {
-            all: ['Gruntfile.js', 'js/*.js']
+            all: ['Gruntfile.js', 'app/js/**/*.js']
         },
 
         sass: {
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'css/build/style.css': 'css/all.scss'
+                    'dist/css/style.css': 'app/css/all.scss'
                 }
             } 
         },
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         autoprefixer: {
             dist: {
                 files: {
-                    'css/build/style.css': 'css/build/style.css'
+                    'dist/css/style.css': 'dist/css/style.css'
                 }
             }
         },
@@ -49,24 +49,38 @@ module.exports = function(grunt) {
         csso: {
             dist: {
                 files: {
-                    'css/build/style.min.css': 'css/build/style.css'
+                    'dist/css/style.min.css': 'dist/css/style.css'
                 }
             }
         },
 
         htmllint: {
-            all: ["*.html", "*.html"]
+            all: ["app/**/*.html"]
         },
 
         imagemin: {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'images/',
+                    cwd: 'app/images/',
                     src: ['*.{png,jpg,gif}'],
-                    dest: 'images/build/'
+                    dest: 'dist/images'
                 }]
             }   
+        },
+
+        copy: {
+            main: {
+            // index, font awesome fonts, data
+            files: 
+                [{
+                    expand: true,
+                    cwd: 'app/',
+                    src: ['index.php', 'css/font-awesome/fonts/*', 'data/*'],
+                    dest: 'dist/',
+                    filter: 'isFile'
+                }]
+            }
         },
 
         watch: {
@@ -76,7 +90,7 @@ module.exports = function(grunt) {
             },
 
             scripts: {
-                files: ['js/*.js'],
+                files: ['app/js/**/*.js'],
                 tasks: ['concat', 'uglify'],
                 options: {
                     spawn: false
@@ -84,7 +98,7 @@ module.exports = function(grunt) {
             },
 
             css: {
-                files: ['css/**/*.scss'],
+                files: ['app/css/**/*.scss'],
                 tasks: ['sass', 'autoprefixer', 'csso'],
                 options: {
                     spawn: false
@@ -92,16 +106,16 @@ module.exports = function(grunt) {
             },
 
             html: {
-                files: ['*.html', '*.php'],
+                files: ['app/**/*.html', 'app/**/*.php'],
                 options: {
                     spawn: false
                 }
             },
 
-            data: { files: ['data/**/*.php',  'data/*.json'] },
+            data: { files: ['app/data/**/*.php',  'app/data/*.json'] },
 
             images: {
-                files: ['images/*.{png,jpg,gif}'],
+                files: ['app/images/*.{png,jpg,gif}'],
                 tasks: ['imagemin'],
                 options: {
                     spawn: false
@@ -127,11 +141,14 @@ module.exports = function(grunt) {
     // image compression
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
+     // copy files
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
     // watch for changes in files
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // command line usage
-    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'csso', 'imagemin']); // 'grunt'
+    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'csso', 'imagemin', 'copy']); // 'grunt'
     grunt.registerTask('image-compress', ['imagemin']); // 'grunt image-compress'
     grunt.registerTask('lint', ['jshint', 'htmllint']); // 'grunt lint'
     grunt.registerTask('dev', ['watch']); // 'grunt dev'
