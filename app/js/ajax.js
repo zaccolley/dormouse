@@ -74,7 +74,7 @@ var ajax = function(inputOptions, callback){
 
 		xhr.open(options.request, options.url, options.async);
 
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
 		if(options.dataType && options.async){
