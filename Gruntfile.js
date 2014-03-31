@@ -76,7 +76,7 @@ module.exports = function(grunt) {
                 [{
                     expand: true,
                     cwd: 'app/',
-                    src: ['index.php', 'css/font-awesome/fonts/*', 'data/*'],
+                    src: ['index.php', 'css/font-awesome/fonts/*', 'data/*', 'data/.htaccess'],
                     dest: 'dist/',
                     filter: 'isFile'
                 }]
@@ -107,12 +107,19 @@ module.exports = function(grunt) {
 
             html: {
                 files: ['app/**/*.html', 'app/**/*.php'],
+                tasks: ['copy'],
                 options: {
                     spawn: false
                 }
             },
 
-            data: { files: ['app/data/**/*.php',  'app/data/*.json'] },
+            data: {
+                files: ['app/data/.htaccess', 'app/data/*.json'],
+                tasks: ['copy'],
+                options: {
+                    spawn: false
+                }
+            },
 
             images: {
                 files: ['app/images/*.{png,jpg,gif}'],

@@ -1,18 +1,41 @@
 <?php 
-	
-	header('Content-type: application/json');
 
-	require('db.php');
+	function getCategories($catId = null){
 
-	$rows = $dbh->query("SELECT * FROM category ORDER BY cat_name ASC");
-	$dbh = null;
+		require('db.php');
 
-	$categories = array("categories" => array());
+		$output = array("categories" => array(), "errors" => array());
 
-	foreach($rows as $row){
-		array_push($categories["categories"], $row['cat_name']);
+		$sql = "SELECT * FROM category";
+
+		if($catId){
+			$sql .= " WHERE cat_id='".$catId."'";
+		}
+
+		$sql .= " ORDER BY cat_name ASC";
+
+		$rows = $dbh->query($sql);
+		$dbh = null;
+
+		$count = $rows->rowCount();
+
+		if($count){
+
+			foreach($rows as $row){
+				$category = array(
+					"id" => $row['cat_id'],
+					"name" => $row['cat_name']
+				);
+
+				array_push($output["categories"], $category);
+			}
+
+		}else{
+			array_push($output["errors"], "No categories.");
+		}
+
+		return $output;
+
 	}
-
-	echo json_encode($categories);
 
 ?>
