@@ -49,8 +49,10 @@ main{
 }
 
 .items li .details-placeholder-img{
-	color: $contrast-colour;
+	overflow: hidden;
 	padding: .5em 1em;
+	
+	color: $contrast-colour;
 	font-size: 1.5em;
 	text-align: center;
 }
