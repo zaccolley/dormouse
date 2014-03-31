@@ -65,6 +65,16 @@
 	cursor: pointer;
 }
 
+.basket-items:empty::after {
+	display: inline-block;
+	content: 'Stop looking here... Go buy something.';
+	padding: .5em;
+
+	color: #D7FFDA;
+	font-size: 2.5em;
+	font-weight: 700;
+}
+
 .basket .item-list{
 	padding: .75em;
 	margin-bottom: 0;
