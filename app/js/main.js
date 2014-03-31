@@ -45,14 +45,16 @@ function addCategories(categories){
 function updateCategories(){
 	var catList = document.querySelector('.categories');
 
-	ajax({ url: 'data/categories.php' }, function(data){
+	ajax({ url: 'data/category' }, function(json){
+		var data = json.output;
 		var output = '';
 		
 		// if we have some data
 		if(data && data != ''){
 		
 			data.categories.forEach(function(category){
-				output += "<li><a href='#"+category.toLowerCase()+"'>"+category+"</a></li>";
+				var catName = category.name;
+				output += "<li><a href='#"+catName.toLowerCase()+"'>"+catName+"</a></li>";
 			});
 
 			if(data.errors && data.errors != ''){
@@ -83,7 +85,7 @@ function updateItems(){
 	var filterType = filterList.value;
 
 	var options = {};
-	options.url = 'data/items.php';
+	options.url = 'data/item';
 
 	var dataToSend = {};
 
@@ -105,7 +107,8 @@ function updateItems(){
 	});	
 }
 
-function populateItems(data){
+function populateItems(json){
+	var data = json.output;
 	var itemList = document.querySelector('.items');
 	itemList.innerHTML = '';
 
@@ -194,11 +197,7 @@ function itemListeners(){
 function getPopUpData(itemId){
 	var options = {};
 
-	var dataToSend = { 'id': itemId };
-
-	options.url = 'data/popup.php';
-	options.request = 'POST';
-	options.data = JSON.stringify(dataToSend);
+	options.url = 'data/item/'+itemId;
 
 	ajax(options, function(data){
 		populatePopUp(data);
@@ -207,7 +206,8 @@ function getPopUpData(itemId){
 	displayPopUp();
 }
 
-function populatePopUp(data){
+function populatePopUp(json){
+	var data = json.output;
 	var item = data.items[0];
 
 	var popup =  document.querySelector('.popup');
