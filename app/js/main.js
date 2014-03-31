@@ -1,24 +1,24 @@
+// main
+
 (function(){
 
 	dormouse = {	
 		title: document.title
 	};
 
-	iconSwap();
-
-	displayOptionInit();
-	basketInit();
-
 	closePopUp();
 
+	initAll();
 	updateAll();
 
-	// header height fix
+	headerHeightFix();
+})();
+
+function headerHeightFix(){
 	var header = document.querySelector('header');
 	var headerSize = header.offsetHeight+'px';
 	document.body.style.marginTop = headerSize;
-
-})();
+}
 
 function updateAll(){
 	updateCategories();
@@ -26,269 +26,15 @@ function updateAll(){
 	updateBasket();
 }
 
-function addItems(items){
-	var preparedData = JSON.stringify({ item: items });
-
-	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
-		updateItems();
-	});	
-}
-
-function addCategories(categories){
-	var preparedData = JSON.stringify({ category: categories });
-
-	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
-		updateCategories();
-	});	
-}
-
-function updateCategories(){
-	var catList = document.querySelector('.categories');
-
-	ajax({ url: 'data/category' }, function(json){
-		var data = json.output;
-		var output = '';
-		
-		// if we have some data
-		if(data && data != ''){
-		
-			data.categories.forEach(function(category){
-				var catName = category.name;
-				output += "<li><a href='#"+catName.toLowerCase()+"'>"+catName+"</a></li>";
-			});
-
-			if(data.errors && data.errors != ''){
-				output += "<div class='error-message'>"+data.errors+"</p></div>";
-			}
-
-		}else{
-			output += "<li><em>Oops&hellip; Can't find any categories!</em> <a href='./' class='no-cats-action'>Try refreshing?</a></li>";
-		}
-
-		catList.innerHTML = output;
-	});
-
-}
-
-var filterList = document.querySelector('.filter-select');
-var searchBox = document.querySelector('.search-query');
-
-filterList.addEventListener('change', function(){ updateItems(); });
-searchBox.addEventListener('keyup', function(){ updateItems(); });
-
-function updateItems(){
-
-	var filterList = document.querySelector('.filter-select');
-	var searchBox = document.querySelector('.search-query');
-
-	var searchQuery = searchBox.value;
-	var filterType = filterList.value;
-
-	var options = {};
-	options.url = 'data/item';
-
-	var dataToSend = {};
-
-	if(searchQuery != ''){
-		dataToSend.search = searchQuery;
-	}
-
-	if(filterType != ''){
-		dataToSend.filter = filterType;
-	}
-
-	if(dataToSend.search || dataToSend.filter){
-		options.request = 'POST';
-		options.data = JSON.stringify(dataToSend);
-	}
-
-	ajax(options, function(data){
-		populateItems(data);
-	});	
-}
-
-function populateItems(json){
-	var data = json.output;
-	var itemList = document.querySelector('.items');
-	itemList.innerHTML = '';
-
-	var output = '';
-
-
-	// if we have some data
-	if(data && data != ''){
-	
-
-		for(var i in data.items){
-			var item = data.items[i];
-
-			var listRadio = document.getElementById('list-display-option');
-			var gridRadio = document.getElementById('grid-display-option');		
-			
-			var displayType = 'list';
-
-			if(gridRadio.checked){
-				displayType = 'grid';
-			}
-
-			output += "<li class='item-"+displayType+"' id='item-"+item.id+"'>";
-
-			// if the item has an img
-			if(item.img != 0){
-				output += "<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
-			}else{
-				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'>Upload an image silly</div>";
-			}
-			
-			output +=   "<div class='details'>" +
-							"<h1 class='details-title'>" +
-								"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
-							"</h1>" +
-							"<p class='details-desc'>"+item.desc+"</p>" +
-						"</div>" +
-						"<div class='more-details'>" +
-							"<p class='details-cat'>Found in "+item.cat.name+"</p>" +
-							"<p class='details-stock'>"+item.stock+" left</p>" +
-							"<p class='details-price'>" +
-								"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
-							"</p>" +
-						"</div>";
-
-			output += "</li>";
-
-		}
-
-		if(data.errors != ''){
-			output += "<div class='error-message'>"+data.errors+"</p></div>";
-		}
-	
-	}else{
-		output += "<div class='error-message'><em>Oops&hellip; Can't find any items!</em> <a href='./'>Try refreshing?</a></div>";
-	}
-
-	itemList.innerHTML = output;
-
-	itemListeners();
-
-}
-
-function itemListeners(){
-	var items = document.querySelector('.items');
-
-
-	items.addEventListener('click', function(e){
-
-		if(e.target != e.currentTarget){
-			var clickedElm = e.target;
-
-			while(clickedElm.id.indexOf('item-') == -1){
-        		clickedElm = clickedElm.parentNode;
-    		}
-
-    		itemId = clickedElm.id.substring(5);
-    		getPopUpData(itemId);
-
-		}	
-
-	}, false);
-	
-}
-
-function getPopUpData(itemId){
-	var options = {};
-
-	options.url = 'data/item/'+itemId;
-
-	ajax(options, function(data){
-		populatePopUp(data);
-	});	
-
-	displayPopUp();
-}
-
-function populatePopUp(json){
-	var data = json.output;
-	var item = data.items[0];
-
-	var popup =  document.querySelector('.popup');
-
-	var img = document.querySelector('.popup__img');
-	if(item.img != 0){
-		img.setAttribute('src', "images/"+item.id+".jpg");
-		img.setAttribute('alt', "Image of '"+item.name+"'");
-	}else{	
-		img.setAttribute('src', "http://placekitten.com/200/200");
-		img.setAttribute('alt', "Placeholder image of '"+item.name+"'");
-	}
-
-	var details = document.querySelector('.popup .details');
-
-	details.innerHTML =
-			"<h1 class='details-title'>"+item.name+"</h1>
-			<p class='details-cat'>Found in "+item.cat.name+"</p>
-			<p class='details-desc'>"+item.desc+"</p>
-			<p class='details-price'>"+item.price+"</p>
-			<p class='details-stock'>"+item.stock+" left</p>"
-}
-
-function displayPopUp(){
-	var content = document.querySelector('.content-container');
-	content.classList.add('blurred');
-
-	var popup = document.querySelector('.popup');
-	popup.classList.remove('popup--hidden');
-	
-	basketClose();
-}
-
-function closePopUp(){
-	var popup = document.querySelector('.popup');
-	var close = document.querySelector('.popup_close');
-
-	popup.addEventListener('click', function(e){
-		if(e.target == e.currentTarget || e.target.className == 'popup_close' || e.target.parentNode.className == 'popup_close'){
-			popup.classList.add('popup--hidden');
-
-			var content = document.querySelector('.content-container');
-			content.classList.remove('blurred');
-		}
-	});
-}
-
-function updateBasket(){			
-	var basket = document.querySelector('.basket-items');
-	ajax({ url: 'data/basket.json' }, function(data){
-
-		for(var i in data.items){
-			var item = data.items[i];
-
-			basket.innerHTML +=  
-			"<li class='item-list'>" +
-				"<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
-				"<div class='details'>" +
-					"<h1 class='details-title'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
-					"</h1>" +
-					"<p class='details-desc'>"+item.desc+"</p>" +
-				"</div>" +
-				"<div class='more-details'>" +
-					"<p class='details-cat'>Found in "+item.cat.name+"</p>" +
-					"<p class='details-stock'>"+item.stock+" left</p>" +
-					"<p class='details-price'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
-					"</p>" +
-				"</div>" +
-			"</li>";
-
-		}
-
-		changeCheckoutItemAmount(data.items.length);
-
-	});
+function initAll(){
+	initDisplayOption();
+	initBasket();
+	initIconSwap();
+	initUpdateItemsListeners();
 }
 
 // to swap any text with dirty icons
-function iconSwap(){
+function initIconSwap(){
 
 	// get list of icons
 	var icons = document.querySelectorAll('.icon-swap');
@@ -319,40 +65,8 @@ function iconSwap(){
 
 }
 
-function basketInit(){
-	var checkoutLink = document.querySelector('.checkout');
-	checkoutLink.addEventListener('click', basketToggle, false);
-	
-	var basketCloseButton = document.querySelector('.basket-close');
-	basketCloseButton.addEventListener('click', basketClose, false);
-}
-
-function basketToggle(){
-	var checkoutLink = document.querySelector('.checkout');
-	var basket = document.querySelector('.basket');
-
-	checkoutLink.classList.toggle('checkout-alt');
-	basket.classList.toggle('basket-closed');
-}
-
-function basketClose(){
-	var checkoutLink = document.querySelector('.checkout');
-	var basket = document.querySelector('.basket');
-
-	checkoutLink.classList.remove('checkout-alt');
-	basket.classList.add('basket-closed');
-}
-
-function basketOpen(){
-	var checkoutLink = document.querySelector('.checkout');
-	var basket = document.querySelector('.basket');
-
-	checkoutLink.classList.remove('checkout-alt');
-	basket.classList.remove('basket-closed');
-}
-
 // for setting up the buttons for switching the display of the items
-function displayOptionInit(){
+function initDisplayOption(){
 	var displayOptions = document.querySelectorAll('.display-option');
 
 	// hide the first display option
@@ -396,25 +110,5 @@ function displayOptionToggle(){
 		}
 	}
 
-}
-
-function changeCheckoutItemAmount(amount){
-	var checkoutItemAmount = document.querySelector('.checkout-item-amount');
-
-	if(amount > 0){
-		checkoutItemAmount.innerHTML = amount;
-		document.title = '('+amount+') ' + dormouse.title;
-		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
-	}else{
-		checkoutItemAmount.innerHTML = 0;
-		document.title = title;
-		checkoutItemAmount.title = "There's nothing here!";
-	}
-
-	if(amount >= 1000){
-		document.title = '('+amount+') ' + dormouse.title;
-		checkoutItemAmount.innerHTML = '999+';
-		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
-	}
 }
 	
