@@ -213,8 +213,13 @@ function populatePopUp(json){
 	var popup =  document.querySelector('.popup');
 
 	var img = document.querySelector('.popup__img');
-	img.setAttribute('src', "images/"+item.id+".jpg");
-	img.setAttribute('alt', "Image of '"+item.name+"'");
+	if(item.img != 0){
+		img.setAttribute('src', "images/"+item.id+".jpg");
+		img.setAttribute('alt', "Image of '"+item.name+"'");
+	}else{	
+		img.setAttribute('src', "http://placekitten.com/200/200");
+		img.setAttribute('alt', "Placeholder image of '"+item.name+"'");
+	}
 
 	var details = document.querySelector('.popup .details');
 
