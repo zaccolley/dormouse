@@ -96,7 +96,8 @@ main{
 	border-top-right-radius: $lineThickness;
 }
 
-.item-grid .details, .item-grid .more-details{
+.item-grid .details,
+.item-grid .more-details{
 	overflow: hidden; /* clearfix */
 	width: 100%;
 	padding: 0 .5em;
@@ -133,17 +134,25 @@ main{
 	border: $lineThickness solid $default-colour;
 }
 
-.item-grid .details-stock, .item-grid .details-price{
+.item-grid .details-stock,
+.item-grid .details-price{
+	white-space: nowrap;
+	text-overflow: ellipsis; 
+	overflow: hidden;
+
 	float: left;
-	width: 50%;
 }
 
-.item-grid .details-stock{ padding: 1em 0; }
+.item-grid .details-stock{
+	width: 25%;
+	padding: 1em 0;
+}
 
 .item-grid .details-price{
-	padding: .5em 0;
+	width: 75%;
+	padding: .75em 0;
 	
-	font-size: 1.5em;
+	font-size: 1.25em;
 	text-align: right;
 }
 
