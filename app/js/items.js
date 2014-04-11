@@ -131,7 +131,6 @@ function populateItems(json){
 function itemListeners(){
 	var items = document.querySelector('.items');
 
-
 	items.addEventListener('click', function(e){
 
 		if(e.target != e.currentTarget){

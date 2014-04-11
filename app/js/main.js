@@ -6,6 +6,13 @@
 		title: document.title
 	};
 
+	closePopUp();
+
+	initAll();
+	updateAll();
+
+	headerHeightFix();
+
 	var basketItems = {
 		'item': [
 			{
@@ -19,24 +26,13 @@
 			{
 				'id': 3,
 				'amount': 7,
-			},
-			{
-				'id': 4,
-				'amount': 7,
 			}
 		]
 	};
 
-	// var basketItems = { 'item': [] };
-
 	localStorage.setItem('basketItems', JSON.stringify(basketItems));
 
-	closePopUp();
-
-	initAll();
-	updateAll();
-
-	headerHeightFix();
+	updateBasket();
 
 })();
 

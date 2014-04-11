@@ -1,11 +1,39 @@
 // basket
 
 function initBasket(){
+	localStorage.setItem('basketItems', JSON.stringify({ 'item': [] }));
+
+	initBasketButtonsListeners();
+	initBasketRemoveItemListener();
+}
+
+function initBasketButtonsListeners(){
 	var checkoutLink = document.querySelector('.checkout');
 	checkoutLink.addEventListener('click', toggleBasket, false);
 	
 	var basketCloseButton = document.querySelector('.basket-close');
 	basketCloseButton.addEventListener('click', closeBasket, false);
+}
+
+function initBasketRemoveItemListener(){
+	var basketPanel = document.querySelector('.basket-items');
+
+	basketPanel.addEventListener('click', function(e){
+
+		if(e.target != e.currentTarget && e.target.classList.contains('remove-item-button')){
+			console.log(true);
+			var clickedElm = e.target;
+
+			while(clickedElm.id.indexOf('item-') == -1){
+        		clickedElm = clickedElm.parentNode;
+    		}
+
+    		itemId = +clickedElm.id.substring(5);
+    		removeFromBasket(itemId);
+
+		}	
+
+	}, false);
 }
 
 function toggleBasket(){
@@ -75,7 +103,7 @@ function updateBasket(){
 			price = price.formatMoney(2);
 
 			basket.innerHTML +=  
-			"<li class='item-list'>" +
+			"<li class='item-list' id='item-"+item.id+"'>" +
 				"<span class='remove-item'><button class='remove-item-button'>x</button></span>"+
 				// "<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
 				"<img src='http://placekitten.com/48/48' alt='Image of "+item.name+"'>" +
@@ -100,6 +128,66 @@ function updateBasket(){
 	var basketAmountEl = document.querySelector('.basket-checkout .amount .value');
 	basketAmountEl.innerHTML = basketItemsAmount;
 
+}
+
+function addToBasket(items){
+	var basketItems = JSON.parse(localStorage.getItem('basketItems'));
+
+	basketItems.item.push(items);
+
+	localStorage.setItem('basketItems', JSON.stringify(basketItems));
+
+	updateBasket();
+}
+
+function changeBasketItemAmount(itemId, amount){
+	var basketItems = JSON.parse(localStorage.getItem('basketItems'));
+
+	var items = basketItems.item;
+	var newBasket = { 'item': [] };
+
+	for(var i = 0; i <= items.length; i++){
+		var item = items[i];
+
+		if(item){
+			if(item.id == itemId){
+
+				if(amount > 0){
+					var newItem = { 'id': +item.id, 'amount': +amount };
+
+					newBasket.item.push(newItem);
+				}
+
+			}else{
+				newBasket.item.push(item);
+			}
+		}
+
+	}
+
+	localStorage.setItem('basketItems', JSON.stringify(newBasket));
+
+	updateBasket();
+}
+
+function removeFromBasket(itemId){
+	var basketItems = JSON.parse(localStorage.getItem('basketItems'));
+
+	var items = basketItems.item;
+	var newBasket = { 'item': [] };
+
+	for(var i = 0; i <= items.length; i++){
+		var item = items[i];
+
+		if(item && item.id !== itemId){
+			newBasket.item.push(item);
+		}
+
+	}
+
+	localStorage.setItem('basketItems', JSON.stringify(newBasket));
+
+	updateBasket();
 }
 
 function getBasketItemAmount(id){
