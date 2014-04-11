@@ -25,6 +25,11 @@ $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 
 *::after, *::before, *{ box-sizing: border-box; }
 
+*::selection{
+	background: $default-colour;
+	color: $contrast-colour;
+}
+
 button, input, select{
 	background: none;
 	border: none;
