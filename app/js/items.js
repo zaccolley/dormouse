@@ -90,7 +90,7 @@ function populateItems(json){
 			if(item.img != 0){
 				output += "<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
 			}else{
-				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'>Upload an image silly</div>";
+				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'></div>";
 			}
 
 			var price = +item.price.value;

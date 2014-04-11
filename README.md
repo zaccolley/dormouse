@@ -32,3 +32,4 @@ data/category/item | error | list items in category | error | error
 #### references:
 
 + formatMoney: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
++ Yin-Yang background: http://lea.verou.me/css3patterns/#yin-yang

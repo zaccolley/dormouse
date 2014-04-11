@@ -49,12 +49,18 @@ main{
 }
 
 .items li .details-placeholder-img{
-	overflow: hidden;
-	padding: .5em 1em;
-	
-	color: $contrast-colour;
-	font-size: 1.5em;
-	text-align: center;
+	// yin-yang background from: http://lea.verou.me/css3patterns/#yin-yang
+	background: 
+		radial-gradient(circle at 50% 59%, $contrast-colour 3%, $default-colour 4%, $default-colour 11%, transparent 12%, transparent) 25px 0,
+		radial-gradient(circle at 50% 41%, $default-colour 3%, $contrast-colour 4%, $contrast-colour 11%, transparent 12%, transparent) 25px 0,
+		radial-gradient(circle at 50% 59%, $contrast-colour 3%, $default-colour 4%, $default-colour 11%, transparent 12%, transparent) 0 25px,
+		radial-gradient(circle at 50% 41%, $default-colour 3%, $contrast-colour 4%, $contrast-colour 11%, transparent 12%, transparent) 0 25px,
+		radial-gradient(circle at 100% 50%, $contrast-colour 16%, transparent 17%),
+		radial-gradient(circle at 0% 50%, $default-colour 16%, transparent 17%),
+		radial-gradient(circle at 100% 50%, $contrast-colour 16%, transparent 17%) 25px 25px,
+		radial-gradient(circle at 0% 50%, $default-colour 16%, transparent 17%) 25px 25px;
+	background-color: darken($contrast-colour, 20%);
+	background-size: 50px 50px;
 }
 
 .items li:hover img{
