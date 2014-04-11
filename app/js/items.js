@@ -92,6 +92,9 @@ function populateItems(json){
 			}else{
 				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'>Upload an image silly</div>";
 			}
+
+			var price = +item.price.value;
+			price = price.formatMoney(2);
 			
 			output +=   "<div class='details'>" +
 							"<h1 class='details-title'>" +
@@ -103,7 +106,7 @@ function populateItems(json){
 							"<p class='details-cat'>Found in "+item.cat.name+"</p>" +
 							"<p class='details-stock'>"+item.stock+" left</p>" +
 							"<p class='details-price'>" +
-								"<a href='#"+item.name+"' title='More details on "+item.name+"?'><span class='details-price-currency'>"+item.price.currency+"</span>"+item.price.value+"</a>" +
+								"<a href='#"+item.name+"' title='More details on "+item.name+"?'><span class='details-price-currency'>"+item.price.currency+"</span>"+price+"</a>" +
 							"</p>" +
 						"</div>";
 

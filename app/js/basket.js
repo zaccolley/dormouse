@@ -64,15 +64,18 @@ function updateBasket(){
 			var basketTotalEl = document.querySelector('.basket-checkout .total .value');
 			
 			totalPrice += basketPrice;
-			basketTotalEl.innerHTML = item.price.currency+totalPrice;
+			basketTotalEl.innerHTML = item.price.currency+totalPrice.formatMoney(2);
 
-			var basketPrice = item.price.currency + basketPrice;
+			var basketPrice = basketPrice.formatMoney(2);
 
 			if(basketAmount){
 				basketAmount = "× <span class='details-stock-amount'>"+basketAmount+"</span>";
 			}else{
 				basketAmount = "Oops, try refreshing?";
 			}
+
+			var price = +item.price.value;
+			price = price.formatMoney(2);
 
 			basket.innerHTML +=  
 			"<li class='item-list'>" +
@@ -86,9 +89,9 @@ function updateBasket(){
 					"<p class='details-desc'>"+item.desc+"</p>" +
 				"</div>" +
 				"<div class='more-details'>" +
-					"<p class='details-stock'><span class='details-price-currency'>"+item.price.currency+"</span>"+item.price.value+" "+basketAmount+"</p>" +
+					"<p class='details-stock'><span class='details-price-currency'>"+item.price.currency+"</span>"+price+" "+basketAmount+"</p>" +
 					"<p class='details-price'>" +
-						"<span href='#"+item.name+"' title='More details on "+item.name+"?'>"+basketPrice+"</span>" +
+						"<span href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price.currency+basketPrice+"</span>" +
 					"</p>" +
 				"</div>" +
 			"</li>";
