@@ -21,7 +21,7 @@ run `php -S localhost:9001` for the server
 ### data api:
 
 
-Resource | POST (Create) | GET (Read) | PUT / PATCH (Update) | DELETE (Delete)
+Resource | POST (Create) | GET (Read) | PATCH (Update) | DELETE (Delete)
 ---------|---------------|------------|----------------------|----------------
 data/item | create new item | list items | error | error
 data/item/001 | error | info on item | update if exists or error | delete named item
@@ -31,5 +31,5 @@ data/category/item | error | list items in category | error | error
 
 #### references:
 
-+ formatMoney: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
-+ Yin-Yang background: http://lea.verou.me/css3patterns/#yin-yang
++ [formatMoney: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript](http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript)
++ [Yin-Yang background: http://lea.verou.me/css3patterns/#yin-yang](http://lea.verou.me/css3patterns/#yin-yang)
