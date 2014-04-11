@@ -38,9 +38,9 @@
 		<h1 class="logo"><a href="./" title="<?php echo $meta['title']; ?>"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
 			<input type="text" name="query" class="search-query">
-			<button type="submit" class="search-submit icon-swap" title="Search some terms">Search</button>
 		</div>
 		<div class="bits">
+			<button type="submit" class="search-submit icon-swap" title="Search some terms">Search</button>
 			
 			<input type="radio" name="display-option" id="list-display-option" checked>
 			<label id="list-display-option-label" for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>

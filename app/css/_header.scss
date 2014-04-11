@@ -6,7 +6,7 @@ header{
 	position: fixed;
 	top: 0;
 	width: 100%;
-	padding: 1em 0; 
+	padding: 1em .5em; 
 	overflow: hidden; /* clearfix */
 	
 	background: lighten($contrast-colour, 1%);
@@ -18,7 +18,10 @@ header{
 	float: left;
 }
 
-.search-query, .search-submit, .display-option, .checkout{
+.search-query,
+.search-submit,
+.display-option, 
+.checkout{
 	padding: .5rem;
 	
 	font-size: 1.25rem;
@@ -33,7 +36,7 @@ header{
 }
 
 .logo a{
-	height: 2em;
+	padding: .5em 0;
 	display: block;
 	
 	font-size: 1.5em;
@@ -56,16 +59,13 @@ header{
 }
 
 .search{
+	float: left;
+	width: 20%;
 	padding-left: 1em;
-	width: 45%;
 }
 
-.search-query, .search-submit{ float: left; }
-
 .search-query{
-	height: 2em;
-	width: 70%;
-	margin-top: .2rem;
+	width: 100%;
 	padding: .25rem .5rem;
 	
 	font-size: inherit;
@@ -89,10 +89,7 @@ header{
 	border-color: $default-colour;
 }
 
-.search-submit{
-	width: 30%;
-	height: auto;
-	
+.search-submit{	
 	color: inherit;
 	
 	background: none;
@@ -100,26 +97,26 @@ header{
 }
 
 .bits{
-	width: 30%;
+	float: left;
+	width: 55%;
+	padding: .25em 0;
 	
 	user-select: none;
 }
 
-.search-submit, .display-option, .bits .checkout{
+.search-submit,
+.display-option,
+.checkout{
 	float: left;
+	width: 33.33%;
 	
 	font-size: 1.25em;
 	text-align: center;
 }
 
-.display-option{ width: 40%; }
-
 #list-display-option, #grid-display-option{ display: none; }
 
-.checkout{
-	width: 60%;
-	padding-right: 2em;
-	
+.checkout{	
 	text-decoration: none;
 	color: inherit;
 	
@@ -136,13 +133,13 @@ header{
 }
 
 .checkout .checkout-icon{
-	float: left;
+	display: inline-block;
 }
 
 .checkout-item-amount{
-	float: left;
+	display: inline-block;
 	padding: .25em;
-	margin-left: 1em;
+	margin-left: .5em;
 	
 	font-size: .65em;
 	font-weight: 500;
@@ -169,15 +166,32 @@ header{
 
 @media all and (max-width: 800px){
 
-	.search-query{ display: none; }
-	.search-submit{ width: 100%; }
+	.search{
+		position: absolute;
+		top: 0; right: 0;
+		width: 50%;
+		padding: 1em;
 
-	.search{ width: 25%; }
-	.bits{ width: 50%; }
+		background: lighten($contrast-colour, 1%);
+		box-shadow: 0 0 60px lighten($contrast-colour, 1%);
+
+		transition: transform .5s;
+	}
+
+	.search--hidden{
+		transform: translateY(-100%);
+	}
+
+	.bits{
+		width: 75%;
+		font-size: 1em;
+	}
 
 }
 
 @media all and (max-width: 600px){
+
+	header{ padding: .25em; }
 
 	.logo{
 		width: 100%;
@@ -185,12 +199,24 @@ header{
 		text-align: center;
 	}
 
-	.search-submit, .display-option, .bits .checkout{
-		text-align: left;
-		font-size: 1em;
+	.bits{
+		width: 100%;
+		font-size: .9em;
 	}
 
-	.search{ width: 30%; }
-	.bits{ width: 70%; }
+
+	.search-submit,
+	.display-option,
+	.bits .checkout{
+		padding: .5em .25em;
+	}
+
+	.search{
+		left: 0;
+		width: 100%;
+		padding: .5em;
+		
+		transition-duration: .3s;
+	}
 
 }

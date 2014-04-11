@@ -36,6 +36,33 @@
 
 })();
 
+function initSearchIconListener(){
+	var searchLabel = document.querySelector('.search-submit');
+	var searchBox = document.querySelector('.search');
+
+	// add hidden class to search
+	searchBox.classList.add('search--hidden');
+
+	searchLabel.addEventListener('click', searchToggle);
+}
+
+function searchToggle(){
+	var searchBox = document.querySelector('.search');
+	var searchQuery = document.querySelector('.search-query');
+	var searchSubmit = document.querySelector('.search-submit');
+
+	searchBox.classList.toggle('search--hidden');
+
+	if(searchBox.classList.contains('search--hidden')){
+		searchQuery.blur();
+		searchSubmit.innerHTML =  "<i class='fa fa-search'></i> Search";
+	}else{
+		searchQuery.focus();
+		searchSubmit.innerHTML =  "<i class='fa fa-times'></i>  Close";
+	}
+
+}
+
 function headerHeightFix(){
 	var header = document.querySelector('header');
 	var headerSize = header.offsetHeight+'px';
@@ -53,6 +80,7 @@ function initAll(){
 	initBasket();
 	initIconSwap();
 	initGetItemsListeners();
+	initSearchIconListener();
 }
 
 // to swap any text with dirty icons
