@@ -121,7 +121,12 @@ function changeCheckoutItemAmount(amount){
 
 	if(amount > 0){
 		checkoutItemAmount.innerHTML = amount;
-		document.title = '('+amount+') ' + dormouse.title;
+		if(amount < 20){
+			var enclosedNumbers = "⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇";
+			document.title = enclosedNumbers.charAt(amount-1) + ' ' + dormouse.title;
+		}else{
+			document.title = '('+amount+') ' + dormouse.title;
+		}
 		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
 	}else{
 		checkoutItemAmount.innerHTML = 0;
@@ -135,3 +140,4 @@ function changeCheckoutItemAmount(amount){
 		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
 	}
 }
+
