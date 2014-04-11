@@ -224,12 +224,6 @@ main{
 .item-list .details-price a{
 	font-weight: 700;
 	font-size: 1.25em;
-
-	border-bottom: 1px dashed transparent;
-}
-
-.item-list .details-price a:hover{
-	border-color: $default-colour;
 }
 
 // loop this in sass yo
