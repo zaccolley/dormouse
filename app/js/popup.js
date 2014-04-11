@@ -29,11 +29,14 @@ function populatePopUp(json){
 
 	var details = document.querySelector('.popup .details');
 
+	var price = +item.price.value;
+	price = price.formatMoney(2);
+
 	details.innerHTML =
 			"<h1 class='details-title'>"+item.name+"</h1>
 			<p class='details-cat'>Found in "+item.cat.name+"</p>
 			<p class='details-desc'>"+item.desc+"</p>
-			<p class='details-price'>"+item.price+"</p>
+			<p class='details-price'><span class='details-price-currency'>"+item.price.currency+"</span>"+price+"</p>
 			<p class='details-stock'>"+item.stock+" left</p>"
 }
 
