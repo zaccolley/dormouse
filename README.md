@@ -21,7 +21,7 @@ run `php -S localhost:9001` for the server
 ### data api:
 
 
-Resource | POST (Create) | GET (Read) | PUT / PATCH (Update) | DELETE (Delete)
+Resource | POST (Create) | GET (Read) | PATCH (Update) | DELETE (Delete)
 ---------|---------------|------------|----------------------|----------------
 data/item | create new item | list items | error | error
 data/item/001 | error | info on item | update if exists or error | delete named item
