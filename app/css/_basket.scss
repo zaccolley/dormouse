@@ -101,7 +101,7 @@ button.basket-close{
 	width: 10%;
 }
 
-.basket .item-list .details{ width: 52.5%; }
+.basket .item-list .details{ width: 50%; }
 
 .basket .item-list .details-title{
 	padding: .25em 0;
@@ -111,12 +111,13 @@ button.basket-close{
 
 .basket .item-list .details-price{
 	font-weight: 600;
+	font-size: 1.5em;
 	color: $gold;
 }
 
 .remove-item{
 	float: left;
-	width: 7.5%;
+	width: 10%;
 	padding: 1.5em 0;
 }
 
@@ -183,7 +184,6 @@ button.remove-item-button:hover{
 	
 	font-weight: 700;
 	font-size: 1.5em;
-	font-style: italic;
 	color: $gold;
 }
 
