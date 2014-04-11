@@ -212,6 +212,10 @@ main{
 	border-color: $default-colour;
 }
 
+.item-list .details-price-currency{
+	color: #315C23;
+}
+
 // loop this in sass yo
 
 @media all and (max-width: 1200px){

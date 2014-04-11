@@ -103,7 +103,7 @@ function populateItems(json){
 							"<p class='details-cat'>Found in "+item.cat.name+"</p>" +
 							"<p class='details-stock'>"+item.stock+" left</p>" +
 							"<p class='details-price'>" +
-								"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.price+"</a>" +
+								"<a href='#"+item.name+"' title='More details on "+item.name+"?'><span class='details-price-currency'>"+item.price.currency+"</span>"+item.price.value+"</a>" +
 							"</p>" +
 						"</div>";
 

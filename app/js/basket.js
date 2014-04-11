@@ -56,9 +56,9 @@ function updateBasket(){
 			var item = data.items[0];
 
 			var basketAmount = getBasketItemAmount(item.id);
-			var basketPrice = item.price.substr(1) * basketAmount;
+			var basketPrice = item.price.value * basketAmount;
 
-			var basketPrice = item.price.substr(0, 1) + basketPrice;
+			var basketPrice = item.price.currency + basketPrice;
 
 			if(basketAmount){
 				basketAmount = "x"+basketAmount;

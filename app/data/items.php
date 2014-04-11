@@ -59,7 +59,7 @@
 					"id" => $row['item_id'],
 					"name" => $row['item_name'],
 					"desc" => $row['item_desc'],
-					"price" => $meta["currency"].$row['item_price'],
+					"price" => array("currency" => $meta["currency"], "value" => $row['item_price']),
 					"stock" => $row['item_stock'],
 					"img" => $row['item_img'],
 					"cat" => array('id' => $row['cat_id'], 'name' => $row['cat_name'])
