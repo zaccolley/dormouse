@@ -9,10 +9,8 @@
 	
 	color: $contrast-colour;
 	
-	background: $default-colour;
+	background: lighten($default-colour, 1%);
 	border-top-left-radius: 5px;
-	
-	opacity: .99;
 
 	transition: transform .25s, opacity .25s;
 	transform-origin: top right;
@@ -22,9 +20,46 @@
 	.basket{ width: 80%; }
 }
 
-.basket-closed{
+.basket-closed .basket{
 	opacity: 0;
 	transform: translateX(100%);
+}
+
+aside{
+	opacity: 0;
+	transform: translateX(-100%);
+	transition: transform .25s, opacity .25s;
+}
+
+.basket-closed aside{ 
+	opacity: 1;
+	transform: translateX(0);
+}
+
+main{
+	padding-left: 0;
+	padding-right: 1em;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform .25s, width .25s, opacity .15s;
+}
+
+.basket-closed main{
+	width: 75%;
+	transform: translateX(33.33%);
+}
+
+@media (max-width: 600px){
+
+	.basket-closed main{
+		width: 100%;
+		transform: translateX(0);
+	}
+
+	main{
+		transform: translateX(-75%);
+	}
+
 }
 
 .basket-top{

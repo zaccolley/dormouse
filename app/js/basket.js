@@ -12,28 +12,25 @@ function toggleBasket(){
 	updateBasket();
 
 	var checkoutLink = document.querySelector('.checkout');
-	var basket = document.querySelector('.basket');
 
 	checkoutLink.classList.toggle('checkout-alt');
-	basket.classList.toggle('basket-closed');
+	document.body.classList.toggle('basket-closed');
 }
 
 function closeBasket(){
 	var checkoutLink = document.querySelector('.checkout');
-	var basket = document.querySelector('.basket');
 
 	checkoutLink.classList.remove('checkout-alt');
-	basket.classList.add('basket-closed');
+	document.body.classList.add('basket-closed');
 }
 
 function openBasket(){
 	updateBasket();
 
 	var checkoutLink = document.querySelector('.checkout');
-	var basket = document.querySelector('.basket');
 
 	checkoutLink.classList.remove('checkout-alt');
-	basket.classList.remove('basket-closed');
+	document.body.classList.remove('basket-closed');
 }
 
 function updateBasket(){

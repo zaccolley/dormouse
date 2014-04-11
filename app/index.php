@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/style.min.css">
 
 </head>
-<body>
+<body class="basket-closed">
 
 	<div class="popup popup--hidden">
 		<section>
@@ -56,7 +56,7 @@
 		</div>
 	</header>
 		
-	<section class="basket basket-closed">
+	<section class="basket">
 		<div class="basket-top">
 			<h1 class="basket-title">Basket</h1>
 			<button class="basket-close">Close</button>

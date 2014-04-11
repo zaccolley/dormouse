@@ -1,9 +1,19 @@
 /* _side.scss */
 
 aside{
+	z-index: 1337;
+	position: fixed;
+	left: 0; bottom: 0; top: 12.5%;
+	margin-top: 1em;
 	padding: 1em;
 	float: left;
 	width: 25%;
+	height: 100%;
+
+	color: $contrast-colour;
+	
+	background: lighten($default-colour, 1%);
+	border-top-right-radius: 5px;
 }
 
 .filter{ margin-bottom: 1.5em; }
@@ -50,14 +60,12 @@ aside h2{
 @media all and (max-width: 600px){
 
 	aside{
+		position: static;
 		overflow: hidden; /* clearfix */
 		float: none;
 		width: 100%;
 		padding: .5em;
 		font-size: .9em;
-
-		background: $default-colour;
-		color: $contrast-colour;
 	}
 
 	aside .filter{
