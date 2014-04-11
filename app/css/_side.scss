@@ -40,8 +40,10 @@ aside h2{
 	border-top-right-radius: $lineThickness;
 }
 
-.filter-select:hover{
+.filter-select:hover,
+.filter-select:active{
 	background: lighten($default-colour, 90%);
+	color: $default-colour;
 }
 
 .categories li a{
@@ -84,11 +86,6 @@ aside h2{
 
 	aside .filter-select{
 		font-size: .8em;
-	}
-
-	aside .filter-select:hover,
-	aside .filter-select:active{
-		color: $default-colour;
 	}
 
 	aside .categories li{
