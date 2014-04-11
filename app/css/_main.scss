@@ -65,9 +65,14 @@ main{
 .items li .details-desc{ font-weight: 500; line-height: 1.3em; }
 .items li .details-price{ font-weight: 700; }
 
+.items li .details-price-currency,
+.item-list .details-price-currency{
+	color: #60A04C;
+}
+
 .item-grid{
 	position: relative;
-	width: (100%/5);
+	width: (100%/4);
 	float: left;
 	padding: 0 .5em .5em 0;
 }
@@ -212,27 +217,23 @@ main{
 	border-color: $default-colour;
 }
 
-.item-list .details-price-currency{
-	color: #60A04C;
-}
-
 // loop this in sass yo
 
 @media all and (max-width: 1200px){
-	.item-grid{ width: (100%/5); }
-}
-
-@media all and (max-width: 1000px){
 	.item-grid{ width: (100%/4); }
 }
 
-@media all and (max-width: 800px){
+@media all and (max-width: 1000px){
 	.item-grid{ width: (100%/3); }
+}
+
+@media all and (max-width: 800px){
+	.item-grid{ width: (100%/2); }
 }
 
 @media all and (max-width: 600px){
 	main{ width: 100%; }
-	.item-grid{ width: (100%/3); }
+	.item-grid{ width: (100%/2); }
 }
 
 @media all and (max-width: 500px){
