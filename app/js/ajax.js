@@ -72,7 +72,7 @@ var ajax = function(inputOptions, callback){
 
 		options.debug && console.log('XMLHttpRequest created');
 
-		xhr.open(options.request, options.url, options.async);
+		xhr.open(options.request, options.url+"?data="+options.data, options.async);
 
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -101,7 +101,7 @@ var ajax = function(inputOptions, callback){
 
 		});
 
-		xhr.send("data="+options.data);
+		xhr.send(null);
 		options.debug && console.log('Data sent: ', options.data);
 
 	}
