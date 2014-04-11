@@ -9,6 +9,8 @@
 $contrast-colour: darken(white, 5%);
 $default-colour: lighten(black, 8%);
 
+$gold: #DAAC3B;
+
 /* alt colours */
 /*
 $default-colour: darken(white, 5%);
@@ -33,11 +35,6 @@ button, input, select{
 a{
 	text-decoration: none;
 	color: inherit;
-}
-
-html, body{
-	height: 100%;
-	width: 100%;
 }
 
 body{

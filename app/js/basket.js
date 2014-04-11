@@ -45,8 +45,11 @@ function updateBasket(){
 	basket.innerHTML = "";
 
 	var basketItems = basketStorage.item;
+	var basketItemsAmount = basketItems.length;
 
-	changeCheckoutItemAmount(basketItems.length);
+	changeCheckoutItemAmount(basketItemsAmount);
+
+	var totalPrice = 0;
 
 	for(var b in basketItems){
 		var basketItem = basketItems[b];
@@ -58,17 +61,24 @@ function updateBasket(){
 			var basketAmount = getBasketItemAmount(item.id);
 			var basketPrice = item.price.value * basketAmount;
 
+			var basketTotalEl = document.querySelector('.basket-checkout .total .value');
+			
+			totalPrice += basketPrice;
+			basketTotalEl.innerHTML = item.price.currency+totalPrice;
+
 			var basketPrice = item.price.currency + basketPrice;
 
 			if(basketAmount){
-				basketAmount = "x"+basketAmount;
+				basketAmount = "× <span class='details-stock-amount'>"+basketAmount+"</span>";
 			}else{
 				basketAmount = "Oops, try refreshing?";
 			}
 
 			basket.innerHTML +=  
 			"<li class='item-list'>" +
-				"<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				"<span class='remove-item'><button class='remove-item-button'>x</button></span>"+
+				// "<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				"<img src='http://placekitten.com/48/48' alt='Image of "+item.name+"'>" +
 				"<div class='details'>" +
 					"<h1 class='details-title'>" +
 						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
@@ -76,9 +86,9 @@ function updateBasket(){
 					"<p class='details-desc'>"+item.desc+"</p>" +
 				"</div>" +
 				"<div class='more-details'>" +
-					"<p class='details-stock'>"+basketAmount+"</p>" +
+					"<p class='details-stock'><span class='details-price-currency'>"+item.price.currency+"</span>"+item.price.value+" "+basketAmount+"</p>" +
 					"<p class='details-price'>" +
-						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+basketPrice+"</a>" +
+						"<span href='#"+item.name+"' title='More details on "+item.name+"?'>"+basketPrice+"</span>" +
 					"</p>" +
 				"</div>" +
 			"</li>";
@@ -86,6 +96,9 @@ function updateBasket(){
 		});
 
 	}
+	
+	var basketAmountEl = document.querySelector('.basket-checkout .amount .value');
+	basketAmountEl.innerHTML = basketItemsAmount;
 
 }
 

@@ -3,11 +3,8 @@
 .basket{
 	z-index: 1337;
 	position: fixed;
-	margin-top: 20px;
-	right: 0;
-	height: 100%;
+	right: 0; bottom: 0; top: 12.5%;
 	width: 50%;
-	max-height: 2000px;
 	overflow: hidden; /* clearfix */
 	
 	color: $contrast-colour;
@@ -32,7 +29,7 @@
 
 .basket-top{
 	overflow: hidden; /* overflow */
-	padding: 1em .5em;
+	padding: 1em;
 }
 
 .basket-title{
@@ -43,29 +40,41 @@
 	font-weight: 700;
 }
 
-.basket-close{
-	float: right;
-	width: 20%;
+.basket button{
 	padding: .5em .25em;
 
 	font-size: .9em;
-	color: $contrast-colour;
 
-	border: $lineThickness solid $contrast-colour;
+	border: $lineThickness solid;
 	border-radius: $lineThickness;
 
 	transition: background .15s, color .15s;
 }
 
-.basket-close:hover{
+.basket button:hover{
 	color: $default-colour;
-	
-	background: $contrast-colour;
 
 	cursor: pointer;
 }
 
-.basket-items:empty::after {
+button.basket-close{
+	float: right;
+	width: 20%;
+	
+	color: $contrast-colour;
+}
+
+.basket-close:hover{	
+	background: $contrast-colour;
+}
+
+.basket-items{
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 76.5%;
+}
+
+.basket-items:empty::after{
 	display: inline-block;
 	content: 'Stop looking here... Go buy something.';
 	padding: .5em;
@@ -76,22 +85,116 @@
 }
 
 .basket .item-list{
-	padding: .75em;
+	padding: .75em 1.25em;
 	margin-bottom: 0;
 
 	font-size: .85em;
 	
 	border: none;
-	border-top: $lineThickness solid transparentize($contrast-colour, .9);
+	border-top: $lineThickness solid darken($contrast-colour, 75%);
 }
 
-.basket .item-list:hover{ background: transparentize($contrast-colour, .9); }
+.basket .item-list:hover{ background: darken($contrast-colour, 75%); }
 
-.basket .item-list img{ width: 10%; }
-.basket .item-list .details{ width: 60%; }
+.basket .item-list img{
+	margin: .75em 0;
+	width: 10%;
+}
+
+.basket .item-list .details{ width: 52.5%; }
 
 .basket .item-list .details-title{
 	padding: .25em 0;
 	
 	font-weight: 600;
+}
+
+.basket .item-list .details-price{
+	font-weight: 600;
+	color: $gold;
+}
+
+.remove-item{
+	float: left;
+	width: 7.5%;
+	padding: 1.5em 0;
+}
+
+button.remove-item-button{
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	line-height: 8px;
+	
+	font-weight: 900;
+	color: darken($contrast-colour, 75%);
+	
+	border-radius: 50%;
+}
+
+.basket .item-list:hover button.remove-item-button{ color: #A73131; }
+
+button.remove-item-button:hover{
+	background: #CF3737;
+	border-color: #CF3737;
+	color: $default-colour;
+}
+
+.basket .item-list .details-stock-amount{
+	padding: 0 3px;
+	border: 1px solid darken($contrast-colour, 50%);
+	border-radius: 2px;
+}
+
+.basket-checkout{
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	overflow: hidden;
+	padding: 1em;
+	margin-right: 15px;
+
+	background: $default-colour;
+	box-shadow: -25px -15px 40px $default-colour;
+}
+
+.basket-checkout h2{
+	font-size: 1.5em;
+}
+
+.basket-checkout-details,
+.basket-checkout-button{
+	float: left;
+	width: 50%;
+}
+
+.basket-checkout-details{
+	padding-left: 1em;
+}
+
+.basket-checkout-details p{
+	padding: .25em 0;
+	line-height: 1.5em;
+
+	font-weight: 600;
+}
+
+.basket-checkout-details span{
+	float: right;
+	
+	font-weight: 700;
+	font-size: 1.5em;
+	font-style: italic;
+	color: $gold;
+}
+
+button.basket-checkout-button{
+	padding: 1em;
+	
+	font-size: 1.5em;
+	font-weight: 600;
+	color: $gold;
+}
+
+button.basket-checkout-button:hover{	
+	background: $gold;
 }

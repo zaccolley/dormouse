@@ -64,6 +64,13 @@
 		<ul class="basket-items">
 			<!-- Basket items go here -->
 		</ul>
+		<div class="basket-checkout">
+			<button class="basket-checkout-button">Checkout</button>
+			<div class="basket-checkout-details">
+				<p class="amount">Amount of items: <span class="value">0</span></p>
+				<p class="total">Total: <span class="value">0</span></p>
+			</div>
+		</div>
 	</section>
 
 	<aside>
