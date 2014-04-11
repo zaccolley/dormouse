@@ -65,7 +65,7 @@ function searchToggle(){
 
 function headerHeightFix(){
 	var header = document.querySelector('header');
-	var headerSize = header.offsetHeight+'px';
+	var headerSize = header.offsetHeight-1+'px';
 	document.body.style.marginTop = headerSize;
 }
 

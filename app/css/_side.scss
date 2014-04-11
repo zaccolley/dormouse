@@ -8,7 +8,8 @@ aside{
 
 .filter{ margin-bottom: 1.5em; }
 
-.filter-title, .filter-select{
+.filter-title,
+.filter-select{
 	padding: .5em 0;
 	width: 100%;
 }
@@ -23,14 +24,14 @@ aside h2{
 .filter-select{
 	color: inherit;
 
-	border: $lineThickness solid $default-colour;
+	border: $lineThickness solid;
 	border-bottom: none;
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
 }
 
 .filter-select:hover{
-	background: lighten(black, 90%);
+	background: lighten($default-colour, 90%);
 }
 
 .categories li a{
@@ -47,8 +48,55 @@ aside h2{
 .categories li a:hover{ opacity: .6; }
 
 @media all and (max-width: 600px){
+
 	aside{
+		overflow: hidden; /* clearfix */
 		float: none;
 		width: 100%;
+		padding: .5em;
+		font-size: .9em;
+
+		background: $default-colour;
+		color: $contrast-colour;
 	}
+
+	aside .filter{
+		overflow: hidden; /* clearfix */
+		margin-bottom: .5em;
+		padding-bottom: .5em;
+
+		border-bottom: $lineThickness/2 solid;
+	}
+
+	aside .filter h2,
+	aside .filter-select{
+		float: left;
+		width: 50%;
+	}
+
+	aside .filter-select{
+		font-size: .8em;
+	}
+
+	aside .filter-select:hover,
+	aside .filter-select:active{
+		color: $default-colour;
+	}
+
+	aside .categories li{
+		display: inline-block;
+		padding-right: .5em;		
+		padding-bottom: .5em;		
+	}
+
+	aside .categories li a{
+		padding: .5em;
+		font-size: .9em;
+
+		color: $default-colour;
+
+		background: $contrast-colour;
+		border-radius: 3px;
+	}
+
 }

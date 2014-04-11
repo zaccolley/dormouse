@@ -238,8 +238,15 @@ main{
 }
 
 @media all and (max-width: 600px){
-	main{ width: 100%; }
+
+	main{
+		width: 100%;
+		padding: .25em;
+		font-size: .8em;
+	}
+
 	.item-grid{ width: (100%/2); }
+
 }
 
 @media all and (max-width: 500px){
@@ -247,5 +254,10 @@ main{
 }
 
 @media all and (max-width: 400px){
-	.item-grid{ width: (100%/1); }
+
+	.item-grid{
+		width: (100%/1);
+		padding: 0 0 .5em;
+	}
+
 }
