@@ -124,23 +124,24 @@ function changeCheckoutItemAmount(amount){
 
 	if(amount > 0){
 		checkoutItemAmount.innerHTML = amount;
+
 		if(amount < 20){
 			var enclosedNumbers = "⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇";
-			document.title = enclosedNumbers.charAt(amount-1) + ' ' + dormouse.title;
+			document.title =  dormouse.title+' - Basket: '+enclosedNumbers.charAt(amount-1);
 		}else{
-			document.title = '('+amount+') ' + dormouse.title;
+			document.title =  dormouse.title+' - Basket: ('+amount+')';
 		}
 		checkoutItemAmount.title = "You have "+amount+" items, nice! :¬)";
+
+		if(amount > 1000){
+			checkoutItemAmount.innerHTML = '999+';
+			checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
+		}
+
 	}else{
 		checkoutItemAmount.innerHTML = 0;
 		document.title = dormouse.title;
 		checkoutItemAmount.title = "There's nothing here!";
-	}
-
-	if(amount >= 1000){
-		document.title = '('+amount+') ' + dormouse.title;
-		checkoutItemAmount.innerHTML = '999+';
-		checkoutItemAmount.title = "So many items! You have "+amount+" items. :¬O";
 	}
 }
 
