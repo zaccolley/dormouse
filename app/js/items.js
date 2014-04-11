@@ -3,20 +3,34 @@
 function addItems(items){
 	var preparedData = JSON.stringify({ item: items });
 
-	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
-		updateItems();
+	ajax({ url: 'data/item', request: 'POST', data: preparedData }, function(data){
+		getItems();
 	});	
 }
 
-function initUpdateItemsListeners(){
+function deleteItems(itemId){
+	ajax({ url: 'data/item/'+itemId, request: 'DELETE' }, function(data){
+		getItems();
+	});	
+}
+
+function updateItems(itemId, itemData){
+	var preparedData = JSON.stringify({ item: itemData });
+
+	ajax({ url: 'data/item/'+itemId, request: 'PATCH', data: preparedData }, function(data){
+		getItems();
+	});	
+}
+
+function initGetItemsListeners(){
 	var filterList = document.querySelector('.filter-select');
 	var searchBox = document.querySelector('.search-query');
 
-	filterList.addEventListener('change', function(){ updateItems(); });
-	searchBox.addEventListener('keyup', function(){ updateItems(); });
+	filterList.addEventListener('change', function(){ getItems(); });
+	searchBox.addEventListener('keyup', function(){ getItems(); });
 }
 
-function updateItems(){
+function getItems(){
 
 	var filterList = document.querySelector('.filter-select');
 	var searchBox = document.querySelector('.search-query');
@@ -38,7 +52,6 @@ function updateItems(){
 	}
 
 	if(dataToSend.search || dataToSend.filter){
-		options.request = 'POST';
 		options.data = JSON.stringify(dataToSend);
 	}
 

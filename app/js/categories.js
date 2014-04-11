@@ -3,35 +3,54 @@
 function addCategories(categories){
 	var preparedData = JSON.stringify({ category: categories });
 
-	ajax({ url: 'data/add.php', request: 'POST', data: preparedData }, function(data){
-		updateCategories();
+	ajax({ url: 'data/category', request: 'POST', data: preparedData }, function(data){
+		getCategories();
 	});	
 }
 
-function updateCategories(){
-	var catList = document.querySelector('.categories');
+function deleteCategories(catId){
+	ajax({ url: 'data/category/'+catId, request: 'DELETE' }, function(data){
+		getCategories();
+	});	
+}
 
+function patchCategories(catId, catName){
+	var preparedData = JSON.stringify({ category: catName });
+
+	ajax({ url: 'data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
+		getCategories();
+	});	
+}
+
+function getCategories(){
 	ajax({ url: 'data/category' }, function(json){
-		var data = json.output;
-		var output = '';
-		
-		// if we have some data
-		if(data && data != ''){
-		
-			data.categories.forEach(function(category){
-				var catName = category.name;
-				output += "<li><a href='#"+catName.toLowerCase()+"'>"+catName+"</a></li>";
-			});
+		populateCategories(json);
+	});
+}
 
-			if(data.errors && data.errors != ''){
-				output += "<div class='error-message'>"+data.errors+"</p></div>";
-			}
+function populateCategories(json){
+	var data = json.output;
+	var output = '';
+	
+	var catList = document.querySelector('.categories');
+	
+	// if we have some data
+	if(data && data != ''){
+	
+		data.categories.forEach(function(category){
+			var catName = category.name;
+			var catId = category.id;
 
-		}else{
-			output += "<li><em>Oops&hellip; Can't find any categories!</em> <a href='./' class='no-cats-action'>Try refreshing?</a></li>";
+			output += "<li><a id='cat-"+catId+"' href='#"+catName.toLowerCase()+"'>"+catName+"</a></li>";
+		});
+
+		if(data.errors && data.errors != ''){
+			output += "<div class='error-message'>"+data.errors+"</p></div>";
 		}
 
-		catList.innerHTML = output;
-	});
+	}else{
+		output += "<li><em>Oops&hellip; Can't find any categories!</em> <a href='./' class='no-cats-action'>Try refreshing?</a></li>";
+	}
 
+	catList.innerHTML = output;
 }

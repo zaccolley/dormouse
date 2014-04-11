@@ -38,4 +38,72 @@
 
 	}
 
+	function addCategories($categories = null){
+
+		require('db.php');
+
+		$output = array("result" => array(), "errors" => array());
+
+		if($categories){
+
+			foreach($categories as $category){
+				$sth = $dbh->query("INSERT INTO category (cat_name) VALUES ('".$category."')");
+			}
+
+			array_push($output["result"], "Successfully added ".$catId);
+
+			$dbh = null;
+
+		}else{
+			array_push($output["errors"], "No categories to add");
+		}
+
+		return $output;
+
+	}
+
+	function updateCategories($catId = null, $catName = null){
+
+		require('db.php');
+
+		$output = array("result" => array(), "errors" => array());
+
+		if($catId && $catName){
+
+			$sth = $dbh->query("UPDATE category SET cat_name = '".$catName."' WHERE cat_id =".$catId);
+
+			array_push($output["result"], "Successfully updated ".$catId);
+
+			$dbh = null;
+
+		}else{
+			array_push($output["errors"], "No id or name given to update");
+		}
+
+		return $output;
+
+	}
+
+	function deleteCategories($catId = null){
+
+		require('db.php');
+
+		$output = array("result" => array(), "errors" => array());
+
+		if($catId){
+
+			$sth = $dbh->query("DELETE FROM category WHERE cat_id =".$catId);
+
+			array_push($output["result"], "Successfully deleted ".$catId);
+
+			$dbh = null;
+
+		}else{
+			array_push($output["errors"], "No categories to delete");
+		}
+
+		return $output;
+
+	}
+
 ?>

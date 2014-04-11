@@ -43,8 +43,8 @@ function headerHeightFix(){
 }
 
 function updateAll(){
-	updateCategories();
-	updateItems();
+	getCategories();
+	getItems();
 	updateBasket();
 }
 
@@ -52,7 +52,7 @@ function initAll(){
 	initDisplayOption();
 	initBasket();
 	initIconSwap();
-	initUpdateItemsListeners();
+	initGetItemsListeners();
 }
 
 // to swap any text with dirty icons
