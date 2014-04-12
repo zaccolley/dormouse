@@ -17,7 +17,10 @@
 }
 
 @media all and (max-width:600px){
-	.basket{ width: 80%; }
+	.basket{
+		font-size: .85em;
+		width: 90%;
+	}
 }
 
 .basket-closed .basket{
@@ -57,7 +60,7 @@ main{
 	}
 
 	main{
-		transform: translateX(-75%);
+		transform: translateX(-90%);
 	}
 
 }
@@ -75,23 +78,6 @@ main{
 	font-weight: 700;
 }
 
-.basket button{
-	padding: .5em .25em;
-
-	font-size: .9em;
-
-	border: $lineThickness solid;
-	border-radius: $lineThickness;
-
-	transition: background .15s, color .15s;
-}
-
-.basket button:hover{
-	color: $default-colour;
-
-	cursor: pointer;
-}
-
 button.basket-close{
 	float: right;
 	width: 20%;
@@ -99,7 +85,9 @@ button.basket-close{
 	color: $contrast-colour;
 }
 
-.basket-close:hover{	
+button.basket-close:hover{	
+	color: $default-colour;
+	
 	background: $contrast-colour;
 }
 
@@ -221,5 +209,7 @@ button.basket-checkout-button{
 }
 
 button.basket-checkout-button:hover{	
+	color: $default-colour;
+	
 	background: $gold;
 }

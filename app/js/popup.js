@@ -18,7 +18,7 @@ function populatePopUp(json){
 
 	var popup =  document.querySelector('.popup');
 
-	var img = document.querySelector('.popup__img');
+	var img = document.querySelector('.popup__img img');
 	if(item.img != 0){
 		img.setAttribute('src', "images/"+item.id+".jpg");
 		img.setAttribute('alt', "Image of '"+item.name+"'");

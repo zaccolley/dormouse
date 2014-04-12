@@ -67,7 +67,13 @@ aside h2{
 		float: none;
 		width: 100%;
 		padding: .5em;
+		
 		font-size: .9em;
+
+		border-radius: 0;
+
+		opacity: 1;
+		transform: translateX(-100%);
 	}
 
 	aside .filter{

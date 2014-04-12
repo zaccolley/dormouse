@@ -60,6 +60,23 @@ body{
 	filter: grayscale(1);
 }
 
+button{
+	padding: .5em .25em;
+
+	font-size: .9em;
+
+	border: $lineThickness solid;
+	border-radius: $lineThickness;
+
+	transition: background .15s, color .15s;
+}
+
+button:hover{
+	color: $default-colour;
+
+	cursor: pointer;
+}
+
 @import 'popup';
 @import 'basket';
 @import 'header';

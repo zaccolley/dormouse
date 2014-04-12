@@ -21,10 +21,10 @@
 }
 
 .popup section{
-	position: absolute;
-	top: 20%; right: 1em;
+	position: fixed;
+	top: 10%; right: 1em;
 	width: 70%;
-	padding: 1em;
+	min-height: 350px;
 	margin: auto;
 	overflow: hidden; /* clearfix */
 	
@@ -39,11 +39,14 @@
 }
 
 .popup .popup_tools{
+	position: absolute;
+	bottom: 0; top: 0; right: 0;
 	float: right;
-	width: 10%;
-	padding-left: 1em;
+	width: 20%;
+	padding: 1em;
 
-	border-left: $lineThickness solid $default-colour;
+	background: $default-colour;
+	color: $contrast-colour;
 }
 
 .popup .popup_close, .popup .add{
@@ -51,39 +54,43 @@
 }
 
 .popup .popup_close{
-	display: block;
-	height: 2em;
-	width: 2em;
 	margin: 0 auto;
 
-	font-size: 2em;
+	font-size: 1.5em;
 	color: $contrast-colour;
-
-	background: $default-colour;
-	border-top-right-radius: $lineThickness;
-	border-top-left-radius: $lineThickness;
 
 	transition: background .15s;
 	transform-origin: center;
 }
 
 .popup .popup_close:hover{
-	background: transparentize($default-colour, .1);
+	color: $default-colour;
+	background: $contrast-colour;
 
 	cursor: pointer;
 }
 
-.popup .popup__img{	
-	max-height: 100%;
-	max-width: 45%;
+.popup .popup__img{
+	position: absolute;
+	top: 0; bottom: 0; right: 20%;
+	float: left;
+	width: 45%;
+}
 
-	border: 10px solid $default-colour;
-	border-top-right-radius: $lineThickness;
+.popup .popup__img img{
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+	margin: auto;
+
+	max-height: 90%;
+	max-width: 90%;
+
+	border: 5px solid $default-colour;
 }
 
 .popup .details{
-	width: 45%;
-	padding: 0 1em;
+	width: 35%;
+	padding: 1em;
 
 	color: $default-colour;
 }
@@ -116,7 +123,7 @@
 
 .popup .add{
 	overflow: hidden; /* clearfix */
-	margin-top: 10em;
+	margin-top: 2em;
 }
 
 .popup .add h2{
@@ -127,13 +134,13 @@
 
 .popup .add input{
 	width: 100%;
-	margin-top: .5em;
+	margin: .5em 0;
 
 	font-size: .8em;
 	text-align: center;
 
-	background: lighten($default-colour, 80%);
-	border: $lineThickness solid $default-colour;
+	background: lighten($contrast-colour, 90%);
+	border-bottom: $lineThickness solid $contrast-colour;
 }
 
 .popup .add input[type="text"]{
@@ -142,16 +149,63 @@
 	font-size: 2em;
 }
 
-.popup .add input[type="submit"]{
-	padding: .75em;
+.popup .add button{
+	padding: 1em;
+	width: 100%;
 
-	color: $contrast-colour;
+	font-size: 1.75em;
+	font-weight: 700;
+	color: #85BB41;
 
-	background: $default-colour;
+	border-width: $lineThickness*2;
 }
 
-.popup .add input[type="submit"]:hover{
-	opacity: .9;
+.popup .add button:hover{
+	color: $default-colour;
+	
+	background: #85BB41;
+}
 
-	cursor: pointer;
+@media (max-width: 1000px){
+
+	.popup section{ font-size: .85em; }
+
+	.popup .add button{ padding: .75em; }
+
+	.popup .add{ margin-top: 6em; }
+
+}
+
+@media (max-width: 700px){
+
+	.popup section{ font-size: .7em; }
+
+	.popup .add button{ padding: .5em; }
+
+	.popup .add{ margin-top: 10em; }
+
+}
+
+@media (max-width: 600px){
+
+	.popup section{
+		top: 2.5%; bottom: 2.5%;
+		right: 0; left: 0;
+		width: 95%;
+	}
+
+	.popup .add{ margin-top: 12em; }
+
+	.popup .popup_tools{ width: 30%; }
+
+	.popup .details,
+	.popup .popup__img{ width: 70%; }
+
+	.popup .popup__img{ position: static; }
+	
+	.popup .popup__img img{ 
+		position: static;
+		margin: 2.5em 1.25em;
+	}
+
 }

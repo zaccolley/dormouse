@@ -15,18 +15,17 @@
 
 	<div class="popup popup--hidden">
 		<section>
-			<img class="popup__img" src="#" alt="None">
-
 			<div class="details"></div>
+			<div class="popup__img">
+				<img src="#" alt="None">
+			</div>
 			
 			<div class="popup_tools">
-				<button class="popup_close">
-					<i class="fa fa-times"></i>
-				</button>			
+				<button class="popup_close"><i class="fa fa-times"></i> Close</button>			
 				<div class="add">
 					<h2>Add to basket</h2>
-					<input type="text">
-					<input type="submit" value="Add">
+					<input type="text" value="1" placeholder="#">
+					<button>Add</button>
 				</div>
 			</div>
 		</section>
