@@ -53,11 +53,12 @@ body{
 
 .content-container{
 	transition: filter .25s;
-	transition: -webkit-filter .25s;
+	-webkit-transition: -webkit-filter .15s;
 }
 
 .content-container.blurred{
-	filter: grayscale(1);
+	filter: grayscale(1) blur(1px);
+	box-shadow: inset 0 0 50px red;
 }
 
 button{
