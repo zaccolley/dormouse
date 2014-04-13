@@ -10,7 +10,6 @@
 	$meta = array(
 		'title' => "ebae",
 		'description' => "Where you can buy things",
-		'keywords' => "shop, fun, wow, this, should, be, an, array",
 		'currency' => "§"
 	);
 

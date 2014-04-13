@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="description" content="<?php echo $meta['description']; ?>">
-	<meta name="keywords" content="<?php echo $meta['keywords']; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<title><?php echo $meta['title']; ?></title>
@@ -34,7 +33,7 @@
 	<div class="content-container">
 
 	<header>
-		<h1 class="logo"><a href="./" title="<?php echo $meta['title']; ?>"><?php echo $meta['title']; ?></a></h1>
+		<h1 class="logo"><a href="./" title="<?php echo $meta['description']; ?>"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
 			<input type="text" name="query" class="search-query">
 		</div>
