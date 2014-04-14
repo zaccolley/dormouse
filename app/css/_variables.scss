@@ -1,0 +1,22 @@
+/* _variables.scss */
+
+// colours
+
+/* default */
+$contrast-colour: darken(white, 5%);
+$default-colour: lighten(black, 8%);
+
+$gold: #DAAC3B;
+
+/* alt colours */
+/*
+$default-colour: darken(white, 5%);
+$contrast-colour: lighten(black, 8%);
+*/
+
+$lineThickness: 2px;
+
+// fonts
+
+@import 'fonts';
+$openSans: 'Open Sans', Helvetica, Arial, sans-serif;

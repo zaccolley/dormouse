@@ -1,0 +1,225 @@
+/* _items.scss */
+
+.items li:hover{
+	opacity: .9;
+	
+	cursor: pointer;
+}
+
+.items li img,
+.items li .details-placeholder-img{
+	background: lighten($default-colour, 50%);
+}
+
+.items li .details-placeholder-img{
+	// yin-yang background from: http://lea.verou.me/css3patterns/#yin-yang
+	background: 
+		radial-gradient(circle at 50% 59%, $contrast-colour 3%, $default-colour 4%, $default-colour 11%, transparent 12%, transparent) 25px 0,
+		radial-gradient(circle at 50% 41%, $default-colour 3%, $contrast-colour 4%, $contrast-colour 11%, transparent 12%, transparent) 25px 0,
+		radial-gradient(circle at 50% 59%, $contrast-colour 3%, $default-colour 4%, $default-colour 11%, transparent 12%, transparent) 0 25px,
+		radial-gradient(circle at 50% 41%, $default-colour 3%, $contrast-colour 4%, $contrast-colour 11%, transparent 12%, transparent) 0 25px,
+		radial-gradient(circle at 100% 50%, $contrast-colour 16%, transparent 17%),
+		radial-gradient(circle at 0% 50%, $default-colour 16%, transparent 17%),
+		radial-gradient(circle at 100% 50%, $contrast-colour 16%, transparent 17%) 25px 25px,
+		radial-gradient(circle at 0% 50%, $default-colour 16%, transparent 17%) 25px 25px;
+	background-color: darken($contrast-colour, 20%);
+	background-size: 50px 50px;
+}
+
+.items li:hover img{
+	filter: grayscale(1);
+}
+
+.items li .details-title{ font-weight: 600; }
+.items li .details-desc{ font-weight: 500; line-height: 1.3em; }
+.items li .details-price{ font-weight: 700; }
+
+.items li .details-price-currency,
+.item-list .details-price-currency{
+	color: #60A04C;
+	font-size: .9em;
+	margin-right: .15em;
+}
+
+.item-grid{
+	position: relative;
+	width: (100%/4);
+	float: left;
+	padding: 0 .5em .5em 0;
+}
+
+.item-grid img,
+.item-grid .details-placeholder-img{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 150px;
+	
+	background: lighten($default-colour, 5%);
+	border: $lineThickness solid $default-colour;
+	border-top-left-radius: $lineThickness;
+	border-top-right-radius: $lineThickness;
+}
+
+.item-grid .details,
+.item-grid .more-details{
+	overflow: hidden; /* clearfix */
+	width: 100%;
+	padding: 0 .5em;
+}
+
+.item-grid .details{
+	color: $contrast-colour;
+
+	background: $default-colour;
+}
+
+.item-grid .details-title{
+	padding: .75em 0 .5em;
+	overflow: hidden; /* clearfix */
+
+	font-size: .9em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	
+	border-bottom: $lineThickness solid transparentize($contrast-colour, .9);
+}
+
+.item-grid .details-desc{
+	height: 4em;
+	padding: .75em 0;
+	overflow-y: auto;
+	
+	font-size: .85em;
+}
+
+.item-grid .more-details{
+	background: lighten($default-colour, 90%);
+	background: darken($contrast-colour, 10%);
+	border: $lineThickness solid $default-colour;
+}
+
+.item-grid .details-stock,
+.item-grid .details-price{
+	white-space: nowrap;
+	text-overflow: ellipsis; 
+	overflow: hidden;
+
+	float: left;
+}
+
+.item-grid .details-stock{
+	width: 33.33%;
+	padding: 1em 0;
+}
+
+.item-grid .details-price{
+	width: 66.66%;
+	padding: .75em 0;
+	
+	font-size: 1.25em;
+	text-align: right;
+}
+
+.item-grid .details-cat{
+	position: absolute;
+	top: $lineThickness; left: $lineThickness;
+	padding: .5em;
+	
+	font-size: .75em;
+
+	border-bottom-right-radius: $lineThickness;
+	background: transparentize($contrast-colour, .5);
+
+	opacity: 0;
+}
+
+.item-grid:hover .details-cat{
+	opacity: 1;
+}
+
+.item-list{
+	overflow: hidden; /* clearfix */
+	margin-bottom: 1em;
+
+	border-bottom: $lineThickness solid $default-colour;
+	border-top-left-radius: $lineThickness;
+	border-top-right-radius: $lineThickness;
+}
+
+.item-list:hover{
+	background: transparentize($default-colour, .9);
+
+	cursor: pointer;
+}
+
+.item-list img,
+.item-list .details-placeholder-img{
+	float: left;
+	width: 15%;
+}
+
+.item-list .details-placeholder-img{ height: 100px; }
+
+.item-list .details{
+	float: left;
+	width: 55%;
+	padding: .5em 1em;
+}
+
+.item-list .details-title{
+	padding-bottom: .25em;
+}
+
+.item-list .more-details{
+	padding: .5em 1em;
+	float: left;
+	width: 30%;
+}
+
+.item-list .details-cat, .item-list .details-price, .item-list .details-stock{
+	text-align: right;
+	padding: .25em 0;
+}
+
+.item-list .details-cat{
+	font-size: .75em;
+}
+
+.item-list .details-price a{
+	font-weight: 700;
+	font-size: 1.25em;
+}
+
+
+
+@media all and (max-width: 1200px){
+	.item-grid{ width: (100%/4); }
+}
+
+@media all and (max-width: 1000px){
+	.item-grid{ width: (100%/3); }
+}
+
+@media all and (max-width: 800px){
+	.item-grid{ width: (100%/2); }
+}
+
+@media all and (max-width: 600px){
+
+	.item-grid{ width: (100%/2); }
+
+}
+
+@media all and (max-width: 500px){
+	.item-grid{ width: (100%/2); }
+}
+
+@media all and (max-width: 400px){
+
+	.item-grid{
+		width: (100%/1);
+		padding: 0 0 .5em;
+	}
+
+}
