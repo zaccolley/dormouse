@@ -21,7 +21,6 @@ function initBasketRemoveItemListener(){
 	basketPanel.addEventListener('click', function(e){
 
 		if(e.target != e.currentTarget && e.target.classList.contains('remove-item-button')){
-			console.log(true);
 			var clickedElm = e.target;
 
 			while(clickedElm.id.indexOf('item-') == -1){
@@ -130,40 +129,31 @@ function updateBasket(){
 
 }
 
-function addToBasket(items){
-	var basketItems = JSON.parse(localStorage.getItem('basketItems'));
+function alterBasketItem(itemId, amount){
+	var basket = JSON.parse(localStorage.getItem('basketItems'));
+	var items = basket.item;
 
-	basketItems.item.push(items);
+	var newItem = { "id": itemId, "amount": amount };
 
-	localStorage.setItem('basketItems', JSON.stringify(basketItems));
+	var newItemIndex = items.indexOf(findById(items, itemId));
 
-	updateBasket();
-}
+	// is item in basket
+	if(newItemIndex != -1){
 
-function changeBasketItemAmount(itemId, amount){
-	var basketItems = JSON.parse(localStorage.getItem('basketItems'));
-
-	var items = basketItems.item;
-	var newBasket = { 'item': [] };
-
-	for(var i = 0; i <= items.length; i++){
-		var item = items[i];
-
-		if(item){
-			if(item.id == itemId){
-
-				if(amount > 0){
-					var newItem = { 'id': +item.id, 'amount': +amount };
-
-					newBasket.item.push(newItem);
-				}
-
-			}else{
-				newBasket.item.push(item);
-			}
+		if(amount > 0){
+			// alter amount
+			items.splice(newItemIndex, 1, newItem);
+		}else{
+			// remove from basket
+			items.splice(newItemIndex, 1);
 		}
 
+	}else{
+		// isn't in the basket - add to basket
+		items.push(newItem);
 	}
+
+	var newBasket = { "item": items };
 
 	localStorage.setItem('basketItems', JSON.stringify(newBasket));
 
@@ -171,23 +161,7 @@ function changeBasketItemAmount(itemId, amount){
 }
 
 function removeFromBasket(itemId){
-	var basketItems = JSON.parse(localStorage.getItem('basketItems'));
-
-	var items = basketItems.item;
-	var newBasket = { 'item': [] };
-
-	for(var i = 0; i <= items.length; i++){
-		var item = items[i];
-
-		if(item && item.id !== itemId){
-			newBasket.item.push(item);
-		}
-
-	}
-
-	localStorage.setItem('basketItems', JSON.stringify(newBasket));
-
-	updateBasket();
+	alterBasketItem(itemId, 0);
 }
 
 function getBasketItemAmount(id){
