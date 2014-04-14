@@ -31,21 +31,6 @@ aside h2{
 	font-weight: 700;
 }
 
-.filter-select{
-	color: inherit;
-
-	border: $lineThickness solid;
-	border-bottom: none;
-	border-top-left-radius: $lineThickness;
-	border-top-right-radius: $lineThickness;
-}
-
-.filter-select:hover,
-.filter-select:active{
-	background: lighten($default-colour, 90%);
-	color: $default-colour;
-}
-
 .categories li a{
 	display: block;
 	padding: .5em 0;

@@ -81,6 +81,7 @@ function initAll(){
 	initIconSwap();
 	initGetItemsListeners();
 	initSearchIconListener();
+	initAddToBasketButtonListener();
 }
 
 // to swap any text with dirty icons

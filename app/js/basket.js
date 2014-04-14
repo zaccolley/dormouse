@@ -28,7 +28,10 @@ function initBasketRemoveItemListener(){
     		}
 
     		itemId = +clickedElm.id.substring(5);
-    		removeFromBasket(itemId);
+
+    		clickedElm.classList.add('removed-item');
+    		
+    		setTimeout(function(){ removeFromBasket(itemId); }, 500);
 
 		}	
 
@@ -67,6 +70,8 @@ function updateBasket(){
 
 	// reset
 	basket.innerHTML = "";
+	var basketTotalEl = document.querySelector('.basket-checkout .total .value');
+	basketTotalEl.innerHTML = "0.00";
 
 	var basketItems = basketStorage.item;
 	var basketItemsAmount = basketItems.length;
@@ -74,6 +79,7 @@ function updateBasket(){
 	changeCheckoutItemAmount(basketItemsAmount);
 
 	var totalPrice = 0;
+
 
 	for(var b in basketItems){
 		var basketItem = basketItems[b];
@@ -150,7 +156,9 @@ function alterBasketItem(itemId, amount){
 
 	}else{
 		// isn't in the basket - add to basket
-		items.push(newItem);
+		if(amount > 0){
+			items.push(newItem);
+		}
 	}
 
 	var newBasket = { "item": items };

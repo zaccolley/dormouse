@@ -66,8 +66,6 @@
 .popup .popup_close:hover{
 	color: $default-colour;
 	background: $contrast-colour;
-
-	cursor: pointer;
 }
 
 .popup .popup__img{
@@ -85,7 +83,8 @@
 	max-height: 90%;
 	max-width: 90%;
 
-	border: 5px solid $default-colour;
+	border: $lineThickness*2 solid $default-colour;
+	border-radius: $lineThickness*2;
 }
 
 .popup .details{
@@ -132,21 +131,16 @@
 	text-align: center;
 }
 
-.popup .add input{
+.popup .add .amount{
 	width: 100%;
-	margin: .5em 0;
-
-	font-size: .8em;
-	text-align: center;
-
-	background: lighten($contrast-colour, 90%);
-	border-bottom: $lineThickness solid $contrast-colour;
-}
-
-.popup .add input[type="text"]{
+	margin: 0;
 	padding: .25em;
 
-	font-size: 2em;
+	font-size: 1.75em;
+	
+	background: #85BB41;
+	border: $lineThickness*2 solid #85BB41;
+	border-bottom: 0;
 }
 
 .popup .add button{
@@ -157,7 +151,12 @@
 	font-weight: 700;
 	color: #85BB41;
 
-	border-width: $lineThickness*2;
+	border: $lineThickness*2 solid #85BB41;
+	border-top: 0;
+
+	border-radius: 0;
+	border-bottom-right-radius: $lineThickness*2;
+	border-bottom-left-radius: $lineThickness*2;
 }
 
 .popup .add button:hover{

@@ -18,6 +18,8 @@ function populatePopUp(json){
 
 	var popup =  document.querySelector('.popup');
 
+	popup.id = item.id;
+
 	var img = document.querySelector('.popup__img img');
 	if(item.img != 0){
 		img.setAttribute('src', "images/"+item.id+".jpg");
@@ -58,8 +60,22 @@ function closePopUp(){
 		if(e.target == e.currentTarget || e.target.className == 'popup_close' || e.target.parentNode.className == 'popup_close'){
 			popup.classList.add('popup--hidden');
 
+			popup.querySelector('.popup_tools .amount').selectedIndex = 0;
+
 			var content = document.querySelector('.content-container');
 			content.classList.remove('blurred');
 		}
 	});
+}
+
+function initAddToBasketButtonListener(){
+	var popup = document.querySelector('.popup');
+	var addButton = popup.querySelector('.popup_tools .add button');
+	var addAmount = popup.querySelector('.popup_tools .add .amount');
+
+	addButton.addEventListener('click', function(){
+		var amount = +addAmount.value + getBasketItemAmount(popup.id);
+		alterBasketItem(popup.id, amount);
+	});
+
 }

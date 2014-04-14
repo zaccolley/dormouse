@@ -65,17 +65,32 @@ button{
 	padding: .5em .25em;
 
 	font-size: .9em;
+	color: $contrast-colour;
 
-	border: $lineThickness solid;
+	border: $lineThickness solid $contrast-colour;
 	border-radius: $lineThickness;
 
-	transition: background .15s, color .15s;
+	transition: background .15s, color .15s, border .15s;
 }
 
 button:hover{
 	color: $default-colour;
 
 	cursor: pointer;
+}
+
+select{
+	color: $default-colour;
+	
+	background: $contrast-colour;
+
+	border-top-left-radius: $lineThickness;
+	border-top-right-radius: $lineThickness;
+}
+
+select:hover,
+select:active{
+	background: lighten($contrast-colour, 80%);
 }
 
 @import 'popup';
