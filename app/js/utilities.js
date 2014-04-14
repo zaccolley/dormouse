@@ -1,3 +1,13 @@
+// found at: http://jsfiddle.net/rwaldron/j3vST/
+
+function findById(source, id){
+    return source.filter(function(obj){
+        // coerce both obj.id and id to numbers 
+        // for val & type comparison
+        return +obj.id === +id;
+    })[0];
+}
+
 // found at: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
 
 Number.prototype.formatMoney = function(c, d, t){
