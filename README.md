@@ -31,5 +31,7 @@ data/category/item | error | list items in category | error | error
 
 #### references:
 
++ [css reset: http://meyerweb.com/eric/tools/css/reset/](http://meyerweb.com/eric/tools/css/reset/)
++ [findById: http://jsfiddle.net/rwaldron/j3vST/](http://jsfiddle.net/rwaldron/j3vST/)
 + [formatMoney: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript](http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript)
 + [Yin-Yang background: http://lea.verou.me/css3patterns/#yin-yang](http://lea.verou.me/css3patterns/#yin-yang)
