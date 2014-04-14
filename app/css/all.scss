@@ -3,8 +3,6 @@
 @import 'reset';
 @import 'variables';
 
-*::after, *::before, *{ box-sizing: border-box; }
-
 *::selection{
 	background: $default-colour;
 	color: $contrast-colour;
@@ -75,6 +73,7 @@ select:active{
 	background: lighten($contrast-colour, 80%);
 }
 
+@import 'alert';
 @import 'popup';
 @import 'basket';
 @import 'header';

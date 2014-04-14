@@ -74,8 +74,14 @@ function initAddToBasketButtonListener(){
 	var addAmount = popup.querySelector('.popup_tools .add .amount');
 
 	addButton.addEventListener('click', function(){
-		var amount = +addAmount.value + getBasketItemAmount(popup.id);
+		var amountToAdd = +addAmount.value;
+		var basketAmount = getBasketItemAmount(popup.id);
+
+		var amount = amountToAdd + basketAmount;
 		alterBasketItem(popup.id, amount);
+
+		alertMessage('Added '+amountToAdd+'! ('+amount+' in the basket)', 'success');
+
 	});
 
 }

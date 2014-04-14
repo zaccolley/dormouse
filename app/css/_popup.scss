@@ -1,7 +1,7 @@
 /* _popup.scss */
 
 .popup{
-	z-index: 999999;
+	z-index: 3000;
 	position: fixed;
 	top:0; right:0; bottom:0; left:0;
 	
@@ -22,7 +22,7 @@
 
 .popup section{
 	position: fixed;
-	top: 10%; right: 1em;
+	top: 15%; right: 1em;
 	width: 70%;
 	min-height: 350px;
 	margin: auto;
@@ -188,7 +188,7 @@
 @media (max-width: 600px){
 
 	.popup section{
-		top: 2.5%; bottom: 2.5%;
+		bottom: 2.5%;
 		right: 0; left: 0;
 		width: 95%;
 	}

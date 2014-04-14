@@ -1,9 +1,9 @@
 /* _basket.scss */
 
 .basket{
-	z-index: 1337;
+	z-index: 1000;
 	position: fixed;
-	right: 0; bottom: 0; top: 12.5%;
+	right: 0; bottom: 0; top: 15%;
 	width: 50%;
 	overflow: hidden; /* clearfix */
 	
@@ -18,8 +18,9 @@
 
 @media all and (max-width:600px){
 	.basket{
-		font-size: .85em;
 		width: 90%;
+
+		font-size: .85em;
 	}
 }
 

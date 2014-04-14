@@ -12,6 +12,11 @@
 </head>
 <body class="basket-closed">
 
+	<div class="alert">
+		<i class="alert__icon fa fa-info"></i>
+		<p class="alert__message">This is an alert</p>
+	</div>
+
 	<div class="popup popup--hidden">
 		<section>
 			<div class="details"></div>
