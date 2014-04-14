@@ -1,5 +1,14 @@
 /* _items.scss */
 
+.items li{ animation: fadeIn .5s; }
+
+@keyframes fadeIn{
+	0%, 25%{
+		opacity: 0;
+		transform: translateY(15%);
+	}
+}
+
 .items li:hover{
 	opacity: .9;
 	
@@ -146,6 +155,8 @@
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
 }
+
+main .item-list:last-child{ border: 0; }
 
 .item-list:hover{
 	background: transparentize($default-colour, .9);

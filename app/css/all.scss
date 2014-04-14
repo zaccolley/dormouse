@@ -1,27 +1,7 @@
 /* all.scss */
 
 @import 'reset';
-@import 'fonts';
-
-/* -- colours -- */
-
-/* default */
-$contrast-colour: darken(white, 5%);
-$default-colour: lighten(black, 8%);
-
-$gold: #DAAC3B;
-
-/* alt colours */
-/*
-$default-colour: darken(white, 5%);
-$contrast-colour: lighten(black, 8%);
-*/
-
-$lineThickness: 2px;
-
-/* -- fonts -- */
-
-$openSans: 'Open Sans', Helvetica, Arial, sans-serif;
+@import 'variables';
 
 *::after, *::before, *{ box-sizing: border-box; }
 
@@ -43,6 +23,8 @@ a{
 }
 
 body{
+	overflow-y: scroll;
+
 	font-family: $openSans;
 	color: $default-colour;
 	
@@ -97,4 +79,5 @@ select:active{
 @import 'basket';
 @import 'header';
 @import 'main';
+@import 'items';
 @import 'side';
