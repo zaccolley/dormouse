@@ -35,7 +35,7 @@ function getItems(){
 	var filterList = document.querySelector('.filter-select');
 	var searchBox = document.querySelector('.search-query');
 
-	var searchQuery = searchBox.value;
+	var searchQuery = searchBox.value.trim();
 	var filterType = filterList.value;
 
 	var options = {};
