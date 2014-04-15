@@ -3,7 +3,8 @@
 (function(){
 
 	dormouse = {	
-		title: document.title
+		title: document.title,
+		category: 0
 	};
 
 	closePopUp();
@@ -33,6 +34,8 @@
 	localStorage.setItem('basketItems', JSON.stringify(basketItems));
 
 	updateBasket();
+
+	routeUrl();
 
 })();
 

@@ -3,7 +3,7 @@
 function getPopUpData(itemId){
 	var options = {};
 
-	options.url = 'data/item/'+itemId;
+	options.url = '/data/item/'+itemId;
 
 	ajax(options, function(data){
 		populatePopUp(data);
@@ -22,7 +22,7 @@ function populatePopUp(json){
 
 	var img = document.querySelector('.popup__img img');
 	if(item.img != 0){
-		img.setAttribute('src', "images/"+item.id+".jpg");
+		img.setAttribute('src', "/images/"+item.id+".jpg");
 		img.setAttribute('alt', "Image of '"+item.name+"'");
 	}else{	
 		img.setAttribute('src', "http://placekitten.com/200/200");
@@ -64,6 +64,7 @@ function closePopUp(){
 
 			var content = document.querySelector('.content-container');
 			content.classList.remove('blurred');
+
 		}
 	});
 }

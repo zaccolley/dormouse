@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<title><?php echo $meta['title']; ?></title>
-	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="/css/style.min.css">
 
 </head>
 <body class="basket-closed">
@@ -141,6 +141,6 @@
 
 	</div>
 
-	<script src="js/script.min.js"></script>
+	<script src="/js/script.min.js"></script>
 </body>
 </html>

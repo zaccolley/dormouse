@@ -3,13 +3,13 @@
 function addCategories(categories){
 	var preparedData = JSON.stringify({ category: categories });
 
-	ajax({ url: 'data/category', request: 'POST', data: preparedData }, function(data){
+	ajax({ url: '/data/category', request: 'POST', data: preparedData }, function(data){
 		getCategories();
 	});	
 }
 
 function deleteCategories(catId){
-	ajax({ url: 'data/category/'+catId, request: 'DELETE' }, function(data){
+	ajax({ url: '/data/category/'+catId, request: 'DELETE' }, function(data){
 		getCategories();
 	});	
 }
@@ -17,13 +17,13 @@ function deleteCategories(catId){
 function patchCategories(catId, catName){
 	var preparedData = JSON.stringify({ category: catName });
 
-	ajax({ url: 'data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
+	ajax({ url: '/data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
 		getCategories();
 	});	
 }
 
 function getCategories(){
-	ajax({ url: 'data/category' }, function(json){
+	ajax({ url: '/data/category' }, function(json){
 		populateCategories(json);
 	});
 }
@@ -41,7 +41,7 @@ function populateCategories(json){
 			var catName = category.name;
 			var catId = category.id;
 
-			output += "<li><a id='cat-"+catId+"' href='#"+catName.toLowerCase()+"'>"+catName+"</a></li>";
+			output += "<li><a id='cat-"+catId+"' href='/category/"+catId+"#"+catName+"'>"+catName+"</a></li>";
 		});
 
 		if(data.errors && data.errors != ''){
@@ -53,4 +53,35 @@ function populateCategories(json){
 	}
 
 	catList.innerHTML = output;
+
+	categoriesListeners();
+
+}
+
+function categoriesListeners(){
+	var categories = document.querySelector('.categories');
+
+	categories.addEventListener('click', function(e){
+
+		if(e.target != e.currentTarget){
+			var clickedElm = e.target;
+
+			while(clickedElm.id.indexOf('cat-') == -1){
+        		clickedElm = clickedElm.parentNode;
+    		}
+
+    		catId = clickedElm.id.substring(4);
+
+    		var url = clickedElm.href;
+
+    		history.pushState(null, "", url);
+    		
+    		routeUrl();
+
+			e.preventDefault();
+		}
+
+
+	}, false);
+	
 }
