@@ -93,7 +93,11 @@ var ajax = function(inputOptions, callback){
 				options.debug && console.log('Status:', xhr.status, '('+xhr.statusText+')', 'at "'+options.url+'"');     
 				if(xhr.status == 200){
 					options.debug && console.log('Success');
-					var response = JSON.parse(xhr.response);
+					try{
+						var response = JSON.parse(xhr.response);
+					}catch(e){
+						var response = xhr.response;
+					}
 
 					callback(response);
 				}
