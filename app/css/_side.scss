@@ -31,13 +31,30 @@ aside h2{
 	font-weight: 700;
 }
 
-.categories .category--active::before{
-	content: '> ';
-}
-
 .categories li a{
 	display: block;
 	padding: .5em 0;
+	
+	border: $lineThickness solid transparent;
+	border-radius: 3px;
+	
+	transition: padding .15s, border .15s, background .15s;
+}
+
+.categories .category--active{
+	padding-left: .5em;
+	border-color: $teal;
+}
+
+@media (max-width: 600px){
+	.categories .category--active{
+		padding: .5em;
+		
+		color: $contrast-colour;
+		
+		background: $default-colour;
+		border: 1px solid;
+	}
 }
 
 .categories li em{ font-style: italic; }
@@ -96,7 +113,6 @@ aside h2{
 		color: $default-colour;
 
 		background: $contrast-colour;
-		border-radius: 3px;
 	}
 
 }
