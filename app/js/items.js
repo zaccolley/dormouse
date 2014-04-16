@@ -3,13 +3,13 @@
 function addItems(items){
 	var preparedData = JSON.stringify({ item: items });
 
-	ajax({ url: '/data/item', request: 'POST', data: preparedData }, function(data){
+	ajax({ url: dormouse.url+'/data/item', request: 'POST', data: preparedData }, function(data){
 		getItems();
 	});	
 }
 
 function deleteItems(itemId){
-	ajax({ url: '/data/item/'+itemId, request: 'DELETE' }, function(data){
+	ajax({ url: dormouse.url+'/data/item/'+itemId, request: 'DELETE' }, function(data){
 		getItems();
 	});	
 }
@@ -17,7 +17,7 @@ function deleteItems(itemId){
 function updateItems(itemId, itemData){
 	var preparedData = JSON.stringify({ item: itemData });
 
-	ajax({ url: 'data/item/'+itemId, request: 'PATCH', data: preparedData }, function(data){
+	ajax({ url: dormouse.url+'/data/item/'+itemId, request: 'PATCH', data: preparedData }, function(data){
 		getItems();
 	});	
 }
@@ -41,9 +41,9 @@ function getItems(){
 	var options = {};
 
 	if(dormouse.category){
-		options.url = '/data/category/'+dormouse.category+'/item';
+		options.url = dormouse.url+'/data/category/'+dormouse.category+'/item';
 	}else{
-		options.url = '/data/item';
+		options.url = dormouse.url+'/data/item';
 	}
 
 	var dataToSend = {};
@@ -93,7 +93,7 @@ function populateItems(json){
 
 			// if the item has an img
 			if(item.img != 0){
-				output += "<img src='/images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
+				output += "<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
 			}else{
 				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'></div>";
 			}
@@ -148,7 +148,7 @@ function itemListeners(){
     		itemId = clickedElm.id.substring(5);
     		getPopUpData(itemId);
 
-    		history.pushState(null, "", "/item/"+itemId);
+    		history.pushState(null, "", dormouse.url+"/item/"+itemId);
 
 		}	
 

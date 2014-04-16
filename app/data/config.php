@@ -8,6 +8,7 @@
 	// meta & config
 
 	$meta = array(
+		'url' => "http://localhost/dormouse/dist",
 		'title' => "ebae",
 		'description' => "Where you can buy things",
 		'currency' => "§"

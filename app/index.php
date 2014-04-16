@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<title><?php echo $meta['title']; ?></title>
-	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="stylesheet" href="<?php echo $meta['url']; ?>/css/style.min.css">
 
 </head>
 <body class="basket-closed">
@@ -71,7 +71,7 @@
 	<div class="content-container">
 
 	<header>
-		<h1 class="logo"><a href="./" title="<?php echo $meta['description']; ?>"><?php echo $meta['title']; ?></a></h1>
+		<h1 class="logo"><a href="<?php echo $meta['url']; ?>" title="<?php echo $meta['description']; ?>"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
 			<input type="text" name="query" class="search-query">
 		</div>
@@ -151,6 +151,6 @@
 
 	</div>
 
-	<script src="/js/script.min.js"></script>
+	<script src="<?php echo $meta['url']; ?>/js/script.min.js"></script>
 </body>
 </html>

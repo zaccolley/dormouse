@@ -1,5 +1,6 @@
 RewriteEngine On
  
+RewriteCond %{REQUEST_URI} !^(css|javascript|images)
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
  

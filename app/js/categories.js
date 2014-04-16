@@ -3,13 +3,13 @@
 function addCategories(categories){
 	var preparedData = JSON.stringify({ category: categories });
 
-	ajax({ url: '/data/category', request: 'POST', data: preparedData }, function(data){
+	ajax({ url: 'data/category', request: 'POST', data: preparedData }, function(data){
 		getCategories();
 	});	
 }
 
 function deleteCategories(catId){
-	ajax({ url: '/data/category/'+catId, request: 'DELETE' }, function(data){
+	ajax({ url: 'data/category/'+catId, request: 'DELETE' }, function(data){
 		getCategories();
 	});	
 }
@@ -17,13 +17,13 @@ function deleteCategories(catId){
 function patchCategories(catId, catName){
 	var preparedData = JSON.stringify({ category: catName });
 
-	ajax({ url: '/data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
+	ajax({ url: 'data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
 		getCategories();
 	});	
 }
 
 function getCategories(){
-	ajax({ url: '/data/category' }, function(json){
+	ajax({ url: dormouse.url+'/data/category' }, function(json){
 		populateCategories(json);
 	});
 }
@@ -36,12 +36,12 @@ function populateCategories(json){
 	
 	// if we have some data
 	if(data && data != ''){
-	
+
 		data.categories.forEach(function(category){
 			var catName = category.name;
 			var catId = category.id;
 
-			output += "<li><a id='cat-"+catId+"' href='/category/"+catId+"#"+catName+"'>"+catName+"</a></li>";
+			output += "<li><a id='cat-"+catId+"' href='"+dormouse.url+"/category/"+catId+"'>"+catName+"</a></li>";
 		});
 
 		if(data.errors && data.errors != ''){
