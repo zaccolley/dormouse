@@ -12,29 +12,6 @@
 	initAll();
 	updateAll();
 
-	headerHeightFix();
-
-	var basketItems = {
-		'item': [
-			{
-				'id': 1,
-				'amount': 5,
-			},
-			{
-				'id': 2,
-				'amount': 2,
-			},
-			{
-				'id': 3,
-				'amount': 7,
-			}
-		]
-	};
-
-	localStorage.setItem('basketItems', JSON.stringify(basketItems));
-
-	updateBasket();
-
 	routeUrl();
 
 })();
