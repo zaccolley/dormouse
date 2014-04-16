@@ -42,7 +42,7 @@ header{
 	font-size: 1.5em;
 	font-weight: 700;
 
-	transition: opacity .15s;
+	transition: opacity .25s;
 }
 
 .logo a:hover{
@@ -50,12 +50,24 @@ header{
 }
 
 .logo__img{
-	text-indent: -9999px;
+	text-indent: -5000px;
 	
 	background: no-repeat;
-	background-image: url('../../images/logo.png');
+	background-image: url('../images/logo.png');
 	background-size: contain;
-	background-position: left center;
+	background-position: 15px center;
+
+	box-shadow: inset 10px 10px 5px -5px lighten($contrast-colour, 1%);
+	
+	transition: text-indent .25s, background .25s;
+}
+
+.logo__img:hover{
+	text-indent: 0px;
+
+	background-position: 15px -100px;
+
+	opacity: 1;
 }
 
 .search{
@@ -205,6 +217,14 @@ header{
 		width: 100%;
 	
 		text-align: center;
+	}
+
+	.logo__img{
+		background-position: center;
+	}
+
+	.logo__img:hover{
+		background-position: center -100px;
 	}
 
 	.bits{

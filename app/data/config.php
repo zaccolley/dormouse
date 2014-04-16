@@ -9,7 +9,7 @@
 
 	$meta = array(
 		'url' => "http://localhost/dormouse/dist",
-		'title' => "ebae",
+		'title' => "eBae",
 		'description' => "Where you can buy things",
 		'currency' => "§"
 	);

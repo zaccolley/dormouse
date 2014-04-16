@@ -73,7 +73,7 @@
 	<div class="content-container">
 
 	<header>
-		<h1 class="logo"><a href="<?php echo $meta['url']; ?>" title="<?php echo $meta['description']; ?>"><?php echo $meta['title']; ?></a></h1>
+		<h1 class="logo logo__img"><a href="<?php echo $meta['url']; ?>" title="<?php echo $meta['description']; ?>"><?php echo $meta['title']; ?></a></h1>
 		<div class="search">
 			<input type="text" name="query" class="search-query">
 		</div>
