@@ -84,7 +84,7 @@ function updateBasket(){
 	for(var b in basketItems){
 		var basketItem = basketItems[b];
 
-		ajax({ url: '/data/item/'+basketItem.id }, function(json){
+		ajax({ url: dormouse.url+'/data/item/'+basketItem.id }, function(json){
 			var data = json.output;
 			var item = data.items[0];
 
@@ -110,7 +110,7 @@ function updateBasket(){
 			basket.innerHTML +=  
 			"<li class='item-list' id='item-"+item.id+"'>" +
 				"<span class='remove-item'><button class='remove-item-button'>x</button></span>"+
-				// "<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				// "<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
 				"<img src='http://placekitten.com/48/48' alt='Image of "+item.name+"'>" +
 				"<div class='details'>" +
 					"<h1 class='details-title'>" +

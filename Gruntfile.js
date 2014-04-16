@@ -70,7 +70,7 @@ module.exports = function(grunt) {
                 [{
                     expand: true,
                     cwd: 'app/',
-                    src: ['index.php', 'css/font-awesome/fonts/*', 'data/*', 'data/.htaccess'],
+                    src: ['.htaccess', 'index.php', 'css/font-awesome/fonts/*', 'data/*', 'data/.htaccess'],
                     dest: 'dist/',
                     filter: 'isFile'
                 }]

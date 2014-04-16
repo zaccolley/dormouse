@@ -4,6 +4,7 @@
 
 	dormouse = {	
 		title: document.title,
+		url: 'http://localhost/dormouse/dist',
 		category: 0
 	};
 

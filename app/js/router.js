@@ -1,5 +1,5 @@
 function getUrlPath(){
-	return document.location.pathname.substring(1).split('/');
+	return document.location.href.substring(dormouse.url.length+1).split('/');
 }
 
 function routeUrl(){
@@ -16,29 +16,32 @@ function routeUrl(){
 			dormouse.category = resourceValue;
 			getItems();
 
-			var categoryEls = document.querySelectorAll('.categories li a');
-			var clickedCategoryEl = document.querySelector('.categories #cat-'+resourceValue);
-			
-			if(categoryEls){
-				for(var i = 0; i < categoryEls.length; i++){
-					categoryEls[i].classList.remove('category--active');
-				}
-			}
-
-			if(clickedCategoryEl){
-				clickedCategoryEl.classList.add('category--active');
-			}
-
+			highlightCategory(resourceValue);
 		}
 		else if(resourceType === 'item'){
     		getPopUpData(resourceValue);
 		}
 		else{
-			history.pushState(null, "", "/");
+			history.pushState(null, "", dormouse.url);
 		}
 
 	}else{
-		history.pushState(null, "", "/");
+		history.pushState(null, "", dormouse.url);
 	}
 
+}
+
+function highlightCategory(resourceValue){
+	var categoryEls = document.querySelectorAll('.categories li a');
+	var clickedCategoryEl = document.querySelector('.categories #cat-'+resourceValue);
+	
+	if(categoryEls){
+		for(var i = 0; i < categoryEls.length; i++){
+			categoryEls[i].classList.remove('category--active');
+		}
+	}
+
+	if(clickedCategoryEl){
+		clickedCategoryEl.classList.add('category--active');
+	}
 }

@@ -15,7 +15,7 @@ run `grunt`
 
 this watches any changes to files and automatically builds
 
-run `php -S localhost:9001` for the server
+navigate to [`localhost/dormouse/dist`](http://localhost/dormouse/dist) for the live copy
 
 
 ### data api:
