@@ -63,17 +63,6 @@ module.exports = function(grunt) {
             all: ["app/**/*.html"]
         },
 
-        imagemin: {
-            dynamic: {
-                files: [{
-                    expand: true,
-                    cwd: 'app/images/',
-                    src: ['*.{png,jpg,gif}'],
-                    dest: 'dist/images'
-                }]
-            }   
-        },
-
         copy: {
             main: {
             // index, font awesome fonts, data
@@ -124,15 +113,8 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false
                 }
-            },
-
-            images: {
-                files: ['app/images/*.{png,jpg,gif}'],
-                tasks: ['imagemin'],
-                options: {
-                    spawn: false
-                }
             }
+            
         },
 
     });
@@ -150,9 +132,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html');
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    // image compression
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-
      // copy files
     grunt.loadNpmTasks('grunt-contrib-copy');
 
@@ -160,8 +139,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // command line usage
-    grunt.registerTask('build', ['concat', 'uglify', 'sass', 'autoprefixer', 'csso', 'imagemin', 'copy']); // 'grunt build'
-    grunt.registerTask('image-compress', ['imagemin']); // 'grunt image-compress'
+    grunt.registerTask('build', ['concat', 'uglify', 'sass', 'autoprefixer', 'csso', 'copy']); // 'grunt build'
     grunt.registerTask('lint', ['jshint', 'htmllint']); // 'grunt lint'
     grunt.registerTask('default', ['build', 'watch']); // 'grunt'
 
