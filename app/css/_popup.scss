@@ -7,17 +7,15 @@
 	
 	background: transparentize($default-colour, .5);
 	
-	transition: transform .25s, opacity .25s, background .25s .25s;
+	transition: transform .25s, background .25s .25s;
 	transform-origin: center;
 }
 
 .popup--hidden{
 	background: transparent;
 	
-	opacity: 0;
-	
-	transition: transform 0 .25s, opacity .25s, background .25s;
-	transform: scale(0) translateY(25%);
+	transition: transform .25s .25s, background .25s;
+	transform: scale(0);
 }
 
 .popup section{
