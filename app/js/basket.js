@@ -84,7 +84,7 @@ function updateBasket(){
 	for(var b in basketItems){
 		var basketItem = basketItems[b];
 
-		ajax({ url: 'data/item/'+basketItem.id }, function(json){
+		ajax({ url: '/data/item/'+basketItem.id }, function(json){
 			var data = json.output;
 			var item = data.items[0];
 

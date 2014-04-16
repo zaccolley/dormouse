@@ -3,13 +3,13 @@
 function addItems(items){
 	var preparedData = JSON.stringify({ item: items });
 
-	ajax({ url: 'data/item', request: 'POST', data: preparedData }, function(data){
+	ajax({ url: '/data/item', request: 'POST', data: preparedData }, function(data){
 		getItems();
 	});	
 }
 
 function deleteItems(itemId){
-	ajax({ url: 'data/item/'+itemId, request: 'DELETE' }, function(data){
+	ajax({ url: '/data/item/'+itemId, request: 'DELETE' }, function(data){
 		getItems();
 	});	
 }
@@ -35,11 +35,16 @@ function getItems(){
 	var filterList = document.querySelector('.filter-select');
 	var searchBox = document.querySelector('.search-query');
 
-	var searchQuery = searchBox.value;
+	var searchQuery = searchBox.value.trim();
 	var filterType = filterList.value;
 
 	var options = {};
-	options.url = 'data/item';
+
+	if(dormouse.category){
+		options.url = '/data/category/'+dormouse.category+'/item';
+	}else{
+		options.url = '/data/item';
+	}
 
 	var dataToSend = {};
 
@@ -88,7 +93,7 @@ function populateItems(json){
 
 			// if the item has an img
 			if(item.img != 0){
-				output += "<img src='images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
+				output += "<img src='/images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
 			}else{
 				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'></div>";
 			}
@@ -142,6 +147,8 @@ function itemListeners(){
 
     		itemId = clickedElm.id.substring(5);
     		getPopUpData(itemId);
+
+    		history.pushState(null, "", "/item/"+itemId);
 
 		}	
 

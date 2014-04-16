@@ -3,7 +3,8 @@
 (function(){
 
 	dormouse = {	
-		title: document.title
+		title: document.title,
+		category: 0
 	};
 
 	closePopUp();
@@ -11,28 +12,7 @@
 	initAll();
 	updateAll();
 
-	headerHeightFix();
-
-	var basketItems = {
-		'item': [
-			{
-				'id': 1,
-				'amount': 5,
-			},
-			{
-				'id': 2,
-				'amount': 2,
-			},
-			{
-				'id': 3,
-				'amount': 7,
-			}
-		]
-	};
-
-	localStorage.setItem('basketItems', JSON.stringify(basketItems));
-
-	updateBasket();
+	routeUrl();
 
 })();
 
@@ -69,6 +49,11 @@ function headerHeightFix(){
 	document.body.style.marginTop = headerSize;
 }
 
+function initHeaderHeightFix(){
+	headerHeightFix();
+	window.addEventListener('resize', headerHeightFix);
+}
+
 function updateAll(){
 	getCategories();
 	getItems();
@@ -82,6 +67,7 @@ function initAll(){
 	initGetItemsListeners();
 	initSearchIconListener();
 	initAddToBasketButtonListener();
+	initHeaderHeightFix();
 }
 
 // to swap any text with dirty icons

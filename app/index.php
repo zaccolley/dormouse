@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<title><?php echo $meta['title']; ?></title>
-	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="/css/style.min.css">
 
 </head>
 <body class="basket-closed">
@@ -131,6 +131,16 @@
 			<!-- Categories are added here -->
 		</ul>
 
+		<div class="admin">
+
+			<h2>Admin</h2>
+
+			<button>Edit categories</button>
+			<button>Add item</button>
+			<button>Change details</button>
+			
+		</div>
+
 	</aside>
 
 	<main>
@@ -141,6 +151,6 @@
 
 	</div>
 
-	<script src="js/script.min.js"></script>
+	<script src="/js/script.min.js"></script>
 </body>
 </html>
