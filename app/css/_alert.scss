@@ -34,7 +34,7 @@
 
 .alert--info{ background-color: #799DE9; }
 .alert--error{ background-color: #DA5E5E; }
-.alert--success{ background-color: #85BB41; }
+.alert--success{ background-color: $dark-green; }
 
 @keyframes alertIn{
 

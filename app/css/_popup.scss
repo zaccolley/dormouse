@@ -138,8 +138,8 @@
 
 	font-size: 1.75em;
 	
-	background: #85BB41;
-	border: $lineThickness*2 solid #85BB41;
+	background: $dark-green;
+	border: $lineThickness*2 solid $dark-green;
 	border-bottom: 0;
 }
 
@@ -149,9 +149,9 @@
 
 	font-size: 1.75em;
 	font-weight: 700;
-	color: #85BB41;
+	color: $dark-green;
 
-	border: $lineThickness*2 solid #85BB41;
+	border: $lineThickness*2 solid $dark-green;
 	border-top: 0;
 
 	border-radius: 0;
@@ -162,7 +162,7 @@
 .popup .add button:hover{
 	color: $default-colour;
 	
-	background: #85BB41;
+	background: $dark-green;
 }
 
 @media (max-width: 1000px){
