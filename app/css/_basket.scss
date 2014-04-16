@@ -94,8 +94,31 @@ button.basket-close:hover{
 
 .basket-items{
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 	height: 70%;
+}
+
+.basket-items:empty::before,
+.basket-items:empty::after{	
+	display: block;
+	padding: .25em .5em;	
+	
+	font-weight: 100;
+	font-style: italic;
+	font-size: 5em;
+	color: #B2B2DB;
+
+	animation: emptyFade .5s;
+}
+
+.basket-items:empty::before{ content: 'Nothing here...'; }
+.basket-items:empty::after{ content: 'Go buy something!'; }
+
+@keyframes emptyFade{
+	from{
+		opacity: 0;
+		transform: translateY(-15%);
+	}
 }
 
 .basket .item-list{
@@ -108,8 +131,8 @@ button.basket-close:hover{
 	border: none;
 	border-top: $lineThickness solid darken($contrast-colour, 75%);
 
-	transition: transform .5s, opacity .5s, padding-top .5s, padding-bottom .5s, border-top .5s .25s, max-height .5s .25s;
-	transform-origin: center;
+	transition: all .25s;
+	transform-origin: top;
 }
 
 .basket .item-list:hover{ background: darken($contrast-colour, 75%); }
@@ -121,7 +144,7 @@ button.basket-close:hover{
 	
 	border-top: 0;
 
-	transform: scale(0);
+	transform: scaleY(0);
 	
 	opacity: 0;
 }
@@ -198,7 +221,16 @@ button.remove-item-button:hover{
 
 	background: lighten($default-colour, 1%);
 	box-shadow: -25px -15px 40px lighten($default-colour, 1%);
+
+	transition: opacity .5s, transform .5s;
 }
+
+
+.basket-items:empty + .basket-checkout{
+	opacity: 0;
+	transform: translateY(100%);
+}
+
 
 .basket-checkout h2{
 	font-size: 1.5em;

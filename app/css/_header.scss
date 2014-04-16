@@ -96,6 +96,8 @@ header{
 	border: none;
 }
 
+.search-submit:hover{ background: none; }
+
 .bits{
 	float: left;
 	width: 55%;
@@ -112,6 +114,12 @@ header{
 	
 	font-size: 1.25em;
 	text-align: center;
+}
+
+.search-submit:hover,
+.display-option:hover,
+.checkout:hover{
+	opacity: .9;
 }
 
 #list-display-option, #grid-display-option{ display: none; }
