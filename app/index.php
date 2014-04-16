@@ -131,6 +131,16 @@
 			<!-- Categories are added here -->
 		</ul>
 
+		<div class="admin">
+
+			<h2>Admin</h2>
+
+			<button>Edit categories</button>
+			<button>Add item</button>
+			<button>Change details</button>
+			
+		</div>
+
 	</aside>
 
 	<main>
