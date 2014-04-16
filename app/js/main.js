@@ -15,7 +15,14 @@
 
 	routeUrl();
 
+	removeNoScript();
+
 })();
+
+function removeNoScript(){
+	var noscript = document.querySelector('noscript')
+	noscript.parentNode.removeChild(noscript);
+}
 
 function initSearchIconListener(){
 	var searchLabel = document.querySelector('.search-submit');

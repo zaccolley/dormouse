@@ -12,6 +12,8 @@
 </head>
 <body class="basket-closed">
 
+	<?php include('noscript.html'); ?>
+
 	<div class="alert">
 		<i class="alert__icon fa fa-info"></i>
 		<p class="alert__message">This is an alert</p>
@@ -79,7 +81,7 @@
 			<button type="submit" class="search-submit icon-swap" title="Search some terms">Search</button>
 			
 			<input type="radio" name="display-option" id="list-display-option" checked>
-			<label id="list-display-option-label" for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>
+			<label style="display:none;"  id="list-display-option-label" for="list-display-option" title="Display items in a list" class="display-option icon-swap">List</label>
 
 			<input type="radio" name="display-option" id="grid-display-option">
 			<label id="grid-display-option-label" for="grid-display-option" title="Display items in a grid" class="display-option icon-swap">Grid</label>

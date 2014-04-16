@@ -3,6 +3,21 @@
 @import 'reset';
 @import 'variables';
 
+noscript{
+	overflow: hidden;
+	width: 70%;
+	padding-top: 100px;
+	float: right;
+	
+	font-family: monospace;
+}
+
+noscript a{ color: blue; border-bottom: 1px solid; }
+
+noscript hr{ border: 0; border-bottom: 1px solid; }
+
+noscript hr, noscript p, noscript pre{ margin: 1em 0; }
+
 *::selection{
 	background: $default-colour;
 	color: $contrast-colour;
