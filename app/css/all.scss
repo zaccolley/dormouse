@@ -55,6 +55,7 @@ button{
 
 button:hover{
 	color: $default-colour;
+	background-color: $contrast-colour;
 
 	cursor: pointer;
 }

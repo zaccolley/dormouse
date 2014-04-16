@@ -65,6 +65,13 @@ function closePopUp(){
 			var content = document.querySelector('.content-container');
 			content.classList.remove('blurred');
 
+			if(dormouse.category){
+    			history.pushState(null, "", "/category/"+dormouse.category);
+			}else{
+    			history.pushState(null, "", "/");
+			}
+
+
 		}
 	});
 }
