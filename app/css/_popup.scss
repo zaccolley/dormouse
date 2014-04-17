@@ -15,7 +15,7 @@
 	background: transparent;
 	
 	transition: transform .25s .25s, background .25s;
-	transform: scale(0);
+	transform: translateX(100%);
 }
 
 .popup section{
