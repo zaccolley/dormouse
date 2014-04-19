@@ -44,7 +44,7 @@ function populatePopUp(json){
 
 function displayPopUp(){
 	var content = document.querySelector('.content-container');
-	content.classList.add('blurred');
+	content.classList.add('content-container--blurred');
 
 	var popup = document.querySelector('.popup');
 	popup.classList.remove('popup--hidden');
@@ -63,7 +63,7 @@ function closePopUp(){
 			popup.querySelector('.popup_tools .amount').selectedIndex = 0;
 
 			var content = document.querySelector('.content-container');
-			content.classList.remove('blurred');
+			content.classList.remove('content-container--blurred');
 
 			if(dormouse.category){
     			history.pushState(null, "", dormouse.url+"/category/"+dormouse.category);

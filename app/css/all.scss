@@ -46,8 +46,8 @@ body{
 	background-attachment: fixed;
 }
 
-.content-container.blurred{
-	filter: blur(1px);
+.content-container--blurred{
+	filter: blur(3px);
 }
 
 button{
