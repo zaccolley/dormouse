@@ -14,10 +14,13 @@
 
 	opacity: 0;
 	transform: scale(0);
+
+	transition: opacity .25s, transform .25s;
 }
 
 .alert--show{
-	animation: alertIn 2.5s;
+	opacity: 1;
+	transform: none;
 }
 
 .alert__icon,
@@ -34,18 +37,5 @@
 
 .alert--info{ background-color: #799DE9; }
 .alert--error{ background-color: #DA5E5E; }
+.alert--warning{ background-color: #D2D842; }
 .alert--success{ background-color: $dark-green; }
-
-@keyframes alertIn{
-
-	5%, 75%{
-		opacity: 1;
-		transform: none;
-	}
-
-	100%{
-		opacity: 0;
-		transform: translateY(-15%);
-	}
-
-}

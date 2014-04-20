@@ -5,16 +5,21 @@ function alertMessage(message, type){
 
 	alertMessage.innerHTML = message;
 
-	alert.classList.add('alert--show');
+	if(!alert.classList.contains('alert--show')){
+		alert.classList.add('alert--show');
+	}
 
-	if(type === 'info' || type === 'error' || type === 'success'){
+	if(type === 'info' || type === 'error' || type === 'warning' || type === 'success'){
 		alert.classList.add('alert--'+type);
 	}else{
 		alert.classList.remove('alert--error');
+		alert.classList.remove('alert--warning');
 		alert.classList.remove('alert--info');
 		alert.classList.remove('alert--success');
 	}
 
-	setTimeout(function(){ alert.classList.remove('alert--show'); }, 5000);
+	if(alert.classList.contains('alert--show')){
+		setTimeout(function(){ alert.classList.remove('alert--show'); }, 5000);
+	}
 
 }
