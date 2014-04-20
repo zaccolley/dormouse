@@ -26,7 +26,7 @@ CREATE TABLE item(
 	item_id INT NOT NULL AUTO_INCREMENT,
 	item_name VARCHAR(50) NOT NULL,
 	item_desc VARCHAR(255),
-	item_price INT NOT NULL,
+	item_price DECIMAL(10, 2) NOT NULL,
 	item_stock INT,
 	item_img BOOLEAN,
 	cat_id INT NOT NULL,
