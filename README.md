@@ -36,4 +36,5 @@ data/category/item | error | list items in category | error | error
 + [formatMoney: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript](http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript)
 + [Yin-Yang background: http://lea.verou.me/css3patterns/#yin-yang](http://lea.verou.me/css3patterns/#yin-yang)
 + [Font Awesome: http://fortawesome.github.io/Font-Awesome/](http://fortawesome.github.io/Font-Awesome/)
++ Open Sans
 
