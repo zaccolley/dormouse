@@ -74,8 +74,8 @@ function initAll(){
 	initIconSwap();
 	initGetItemsListeners();
 	initSearchIconListener();
-	initAddToBasketButtonListener();
 	initHeaderHeightFix();
+	initAddItemButton();
 }
 
 // to swap any text with dirty icons

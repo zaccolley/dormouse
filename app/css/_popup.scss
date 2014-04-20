@@ -19,7 +19,7 @@
 }
 
 .popup section{
-	position: fixed;
+	position: absolute;
 	top: 15%; right: 1em;
 	width: 70%;
 	min-height: 350px;
@@ -141,7 +141,7 @@
 	border-bottom: 0;
 }
 
-.popup .add button{
+.popup .add .add-button{
 	padding: 1em;
 	width: 100%;
 
@@ -157,17 +157,24 @@
 	border-bottom-left-radius: $lineThickness*2;
 }
 
-.popup .add button:hover{
+.popup .add .add-button:hover{
 	color: $default-colour;
 	
 	background: $dark-green;
+}
+
+.popup_tools .edit-button{
+	width: 100%;
+	margin-top: .5em;
+
+	font-size: 1.25em;
 }
 
 @media (max-width: 1000px){
 
 	.popup section{ font-size: .85em; }
 
-	.popup .add button{ padding: .75em; }
+	.popup .add .add-button{ padding: .75em; }
 
 	.popup .add{ margin-top: 6em; }
 
@@ -177,7 +184,7 @@
 
 	.popup section{ font-size: .7em; }
 
-	.popup .add button{ padding: .5em; }
+	.popup .add .add-button{ padding: .5em; }
 
 	.popup .add{ margin-top: 10em; }
 

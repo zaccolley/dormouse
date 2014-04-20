@@ -1,6 +1,14 @@
 // items
 
 function addItems(items){
+	/*
+
+	items must be in the format:
+
+		{ "name":"Item name", "desc":"Item description", "price":50, "stock":10, "img":"false", "cat":5 }
+
+	*/
+
 	var preparedData = JSON.stringify({ item: items });
 
 	ajax({ url: dormouse.url+'/data/item', request: 'POST', data: preparedData }, function(data){
