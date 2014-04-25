@@ -1,7 +1,9 @@
 // basket
 
 function initBasket(){
-	localStorage.setItem('basketItems', JSON.stringify({ 'item': [] }));
+	if(!localStorage.getItem('basketItems') || dormouse.debugBasket){
+		localStorage.setItem('basketItems', JSON.stringify({ 'item': [] }));
+	}
 
 	initBasketButtonsListeners();
 	initBasketRemoveItemListener();

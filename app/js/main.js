@@ -5,7 +5,8 @@
 	dormouse = {	
 		title: document.title,
 		url: 'http://localhost/dormouse/dist',
-		category: 0
+		category: 0,
+		debugBasket: false
 	};
 
 	closePopUp();
