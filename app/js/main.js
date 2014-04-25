@@ -2,14 +2,6 @@
 
 (function(){
 
-	dormouse = {	
-		title: document.title,
-		url: 'http://localhost/dormouse/dist',
-		category: 0,
-		debugBasket: true,
-		defaultDisplayOption: 'grid' // grid or list
-	};
-
 	closePopUp();
 
 	initAll();

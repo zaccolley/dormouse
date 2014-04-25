@@ -16,57 +16,27 @@
 
 	<div class="alert">
 		<i class="alert__icon fa fa-info"></i>
-		<p class="alert__message">This is an alert</p>
+		<p class="alert__message">
+			<!-- Alert text -->
+		</p>
 	</div>
 
 	<div class="popup popup--hidden">
 		<section>
-			<div class="details"></div>
+			<div class="details">
+				<!-- Item details -->
+			</div>
 			<div class="popup__img">
+				<!-- Image of placeholder -->
 			</div>
 			
 			<div class="popup_tools">
 				<button class="popup_close"><i class="fa fa-times"></i> Close</button>			
 				<div class="add">
-					<h2 class="add-title">Add to basket</h2>
-
-					<select name="amount" class="amount">
-						<option value="1" selected>01</option>
-						<option value="2">02</option>
-						<option value="3">03</option>
-						<option value="4">04</option>
-						<option value="5">05</option>
-						<option value="6">06</option>
-						<option value="7">07</option>
-						<option value="8">08</option>
-						<option value="9">09</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
-						<option value="15">15</option>
-						<option value="16">16</option>
-						<option value="17">17</option>
-						<option value="18">18</option>
-						<option value="19">19</option>
-						<option value="20">20</option>
-						<option value="21">21</option>
-						<option value="22">22</option>
-						<option value="23">23</option>
-						<option value="24">24</option>
-						<option value="25">25</option>
-						<option value="26">26</option>
-						<option value="27">27</option>
-						<option value="28">28</option>
-						<option value="29">29</option>
-						<option value="30">30</option>
-					</select>
-
-					<button>Add</button>
+					<!-- Add button -->
 				</div>
 				<div class="popup_tools--admin">
-					<button class="edit-button">Edit</button>
+					<!-- Admin buttons -->
 				</div>
 			</div>
 		</section>
@@ -102,7 +72,7 @@
 			<button class="basket-close">Close</button>
 		</div>
 		<ul class="basket-items">
-			<!-- Basket items go here -->
+			<!-- Basket items -->
 		</ul>
 		<div class="basket-checkout">
 			<button class="basket-checkout-button">Checkout</button>
@@ -132,7 +102,7 @@
 		<h2>Categories</h2>
 
 		<ul class="categories">			
-			<!-- Categories are added here -->
+			<!-- Categories -->
 		</ul>
 
 		<div class="admin">
@@ -149,12 +119,26 @@
 
 	<main>
 		<ul class="items">
-			<!-- Items are added here -->
+			<!-- Items  -->
 		</ul>
 	</main>
 
 	</div>
 
+	<script>
+		// config options
+		(function(){
+
+			dormouse = {	
+				title: '<?php echo $meta['title']; ?>',
+				url: '<?php echo $meta['url']; ?>',
+				category: 0,
+				debugBasket: true,
+				defaultDisplayOption: 'grid' // grid or list
+			};
+
+		})();
+	</script>
 	<script src="<?php echo $meta['url']; ?>/js/script.min.js"></script>
 </body>
 </html>
