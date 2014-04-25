@@ -154,7 +154,7 @@ function itemListeners(){
     		}
 
     		itemId = clickedElm.id.substring(5);
-    		getPopUpData(itemId);
+    		getPopUpData(itemId, "default");
 
     		history.pushState(null, "", dormouse.url+"/item/"+itemId);
 

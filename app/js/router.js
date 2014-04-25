@@ -19,7 +19,7 @@ function routeUrl(){
 			highlightCategory(resourceValue);
 		}
 		else if(resourceType === 'item'){
-    		getPopUpData(resourceValue);
+    		getPopUpData(resourceValue, "default");
 		}
 		else{
 			history.pushState(null, "", dormouse.url);
