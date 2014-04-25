@@ -87,9 +87,6 @@
 }
 
 .popup__img .alter-img{
-	max-height: 50%;
-	max-width: 90%;
-
 	border-style: dashed;
 	background-clip: content-box;
 
@@ -105,6 +102,7 @@
 .popup__img .placeholder-img p{
 	display: block;
 	padding: 1em;
+	height: 100%;
 	
 	font-weight: 600;
 	font-size: 3em;
@@ -121,6 +119,16 @@
 	color: $default-colour;
 }
 
+.popup select.details-cat,
+.popup textarea.details-desc,
+.popup textarea.details-title{
+	margin: .5em 0 .75em;
+	max-width: 100%;
+	
+	background: none;
+	border: $lineThickness solid;
+}
+
 .popup .details-title{
 	font-weight: 700;
 	font-size: 2em; 
@@ -130,11 +138,24 @@
 	padding: 1em 0;
 }
 
+.popup textarea.details-desc{
+	padding: .5em;
+	
+	font: inherit;
+	
+	background: none;
+}
+
 .popup .details-price{
 	padding: .5em 0;
 
 	font-weight: 900;
 	font-size: 2em;
+}
+
+.popup input.details-price{
+	max-width: 100%;
+	border-bottom: $lineThickness solid;
 }
 
 .popup .details-stock{
@@ -147,10 +168,7 @@
 	font-style: italic;
 }
 
-.popup select.details-cat {
-	margin: 1em 0;
-	
-	border: 2px solid;
+.popup select.details-cat{
 	border-bottom: 0;
 }
 

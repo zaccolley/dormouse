@@ -88,9 +88,9 @@ function populatePopUp(json, type){
 	else if(type == "edit"){
 
 		detailsOutput =
-			"<label>Name: </label><input required type='text'class='details-title' placeholder='Enter your item name' value='"+item.name+"'>
+			"<label>Name: </label><textarea required class='details-title' placeholder='Enter your item name'>"+item.name+"</textarea>
 			<label>Category: </label><select required class='details-cat'><option>Select your category</option></select>
-			<label>Description: </label><textarea required class='details-desc' placeholder='Description for your item goes here' value='"+item.desc+"'></textarea>
+			<label>Description: </label><textarea required class='details-desc' placeholder='Description for your item goes here'>"+item.desc+"</textarea>
 			<label>Price: <span class='details-price-currency'>("+item.price.currency+")</span></label><input required class='details-price' inputmode='numeric' placeholder='0.00' value="+price+">";
 		
 		imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Update image</p></div>";
@@ -106,7 +106,7 @@ function populatePopUp(json, type){
 		imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Add image</p></div>";
 
 		detailsOutput +=
-			"<label>Name: </label><input autofocus required type='text'class='details-title' placeholder='Enter your item name'>
+			"<label>Name: </label><textarea autofocus required class='details-title' placeholder='Enter your item name'></textarea>
 			<label>Category: </label><select required class='details-cat'><option>Select your category</option></select>
 			<label>Description: </label><textarea required class='details-desc' placeholder='Description for your item goes here'></textarea>
 			<label>Price: </label><input required class='details-price' inputmode='numeric' placeholder='0.00'>";
@@ -244,9 +244,9 @@ function initSaveItemButtonListener(){
 
 			var itemId = popup.id;
 
-			var name = ""+popup.querySelector('input.details-title').value.trim();
+			var name = ""+popup.querySelector('textarea.details-title').value.trim();
 			var catId = +popup.querySelector('select.details-cat').value;
-			var desc = ""+popup.querySelector('textarea.details-desc').value;
+			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
 			var price = +popup.querySelector('input.details-price').value.trim();
 			var stock = +addAmount.value;
 
@@ -295,9 +295,9 @@ function initAddItemButtonListener(){
 	if(addButton){
 
 		addButton.addEventListener('click', function(){
-			var name = ""+popup.querySelector('input.details-title').value.trim();
+			var name = ""+popup.querySelector('textarea.details-title').value.trim();
 			var catId = +popup.querySelector('select.details-cat').value;
-			var desc = ""+popup.querySelector('textarea.details-desc').value;
+			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
 			var price = +popup.querySelector('input.details-price').value.trim();
 			var stock = +addAmount.value;
 
