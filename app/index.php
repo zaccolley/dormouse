@@ -23,7 +23,6 @@
 		<section>
 			<div class="details"></div>
 			<div class="popup__img">
-				<img src="#" alt="None">
 			</div>
 			
 			<div class="popup_tools">

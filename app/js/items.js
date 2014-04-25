@@ -103,7 +103,7 @@ function populateItems(json){
 			if(item.img != 0){
 				output += "<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
 			}else{
-				output += "<div class='details-placeholder-img' title='Placeholder image of "+item.name+"'></div>";
+				output += "<div class='placeholder-img' title='Placeholder image of "+item.name+"'></div>";
 			}
 
 			var price = +item.price.value;
