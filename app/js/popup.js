@@ -219,11 +219,12 @@ function initEditItemButtonListener(){
 
 		editButton.addEventListener('click', function(){
 			hidePopUp();
+				
+			alertMessage('Time to edit!', 'info');
 
 			setTimeout(function(){
 				getPopUpData(popup.id, "edit");
 	
-				alertMessage('Time to edit!', 'info');
 			}, 550);
 
 		});
