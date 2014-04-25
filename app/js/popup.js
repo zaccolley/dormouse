@@ -12,7 +12,6 @@ function getPopUpData(itemId, type){
 function populatePopUp(json, type){
 	var data = json.output;
 	var item = data.items[0];
-	console.log(item);
 
 	var popup =  document.querySelector('.popup');
 	var popupTools =  document.querySelector('.popup_tools');
@@ -260,7 +259,7 @@ function initSaveItemButtonListener(){
 			var name = ""+popup.querySelector('textarea.details-title').value.trim();
 			var catId = +popup.querySelector('select.details-cat').value;
 			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
-			var price = +popup.querySelector('input.details-price').value.trim().replace(',','');
+			var price = +replaceAll(",", "", popup.querySelector('input.details-price').value.trim());
 			var stock = +addAmount.value;
 
 			var item = {
@@ -311,7 +310,7 @@ function initAddItemButtonListener(){
 			var name = ""+popup.querySelector('textarea.details-title').value.trim();
 			var catId = +popup.querySelector('select.details-cat').value;
 			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
-			var price = +popup.querySelector('input.details-price').value.trim().replace(',','');
+			var price = +replaceAll(",", "", popup.querySelector('input.details-price').value.trim());
 			var stock = +addAmount.value;
 
 			var item = {
