@@ -88,7 +88,10 @@
 
 .popup__img .alter-img{
 	border-style: dashed;
+	
 	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
 
 	transition: opacity .25s;
 }

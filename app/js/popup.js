@@ -94,7 +94,15 @@ function populatePopUp(json, type){
 			<label>Description: </label><textarea required class='details-desc' placeholder='Description for your item goes here'>"+item.desc+"</textarea>
 			<label>Price: <span class='details-price-currency'>("+item.price.currency+")</span></label><input required class='details-price' inputmode='numeric' placeholder='0.00' value="+price+">";
 		
-		imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Update image</p></div>";
+		if(item.img != 0){
+			imgContainer.innerHTML = "<div style='background-image: url("+dormouse.url+"/images/"+item.id+".jpg)''
+										   class='placeholder-img alter-img'
+										   title='Placeholder image of '"+item.name+"'>
+												<p>Update image</p>
+									  </div>";
+		}else{	
+			imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Update image</p></div>";
+		}
 
 		addOutput = "<h2 class='add-title'>Stock to update</h2>";
 		addOutput += "<input class='amount' type='number' inputmode='numeric' min='1' value='"+item.stock+"'>";
@@ -252,7 +260,7 @@ function initSaveItemButtonListener(){
 			var name = ""+popup.querySelector('textarea.details-title').value.trim();
 			var catId = +popup.querySelector('select.details-cat').value;
 			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
-			var price = +popup.querySelector('input.details-price').value.trim();
+			var price = +popup.querySelector('input.details-price').value.trim().replace(',','');
 			var stock = +addAmount.value;
 
 			var item = {
@@ -303,7 +311,7 @@ function initAddItemButtonListener(){
 			var name = ""+popup.querySelector('textarea.details-title').value.trim();
 			var catId = +popup.querySelector('select.details-cat').value;
 			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
-			var price = +popup.querySelector('input.details-price').value.trim();
+			var price = +popup.querySelector('input.details-price').value.trim().replace(',','');
 			var stock = +addAmount.value;
 
 			var item = {
