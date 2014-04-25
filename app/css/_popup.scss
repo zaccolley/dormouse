@@ -147,6 +147,13 @@
 	font-style: italic;
 }
 
+.popup select.details-cat {
+	margin: 1em 0;
+	
+	border: 2px solid;
+	border-bottom: 0;
+}
+
 .popup .add{
 	overflow: hidden; /* clearfix */
 	margin-top: 2em;
@@ -167,7 +174,6 @@
 	
 	background: $dark-green;
 	border: $lineThickness*2 solid $dark-green;
-	border-bottom: 0;
 }
 
 .popup .add .add-button{
@@ -192,7 +198,7 @@
 	background: $dark-green;
 }
 
-.popup_tools .edit-button{
+.popup_tools .admin-button{
 	width: 100%;
 	margin-top: .5em;
 
