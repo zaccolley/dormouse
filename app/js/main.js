@@ -6,7 +6,8 @@
 		title: document.title,
 		url: 'http://localhost/dormouse/dist',
 		category: 0,
-		debugBasket: false
+		debugBasket: false,
+		defaultDisplayOption: 'grid' // grid or list
 	};
 
 	closePopUp();
@@ -115,14 +116,21 @@ function initIconSwap(){
 function initDisplayOption(){
 	var displayOptions = document.querySelectorAll('.display-option');
 
+	if(!localStorage.getItem('displayOption')){
+		localStorage.setItem('displayOption', dormouse.defaultDisplayOption);
+	}
+
+	var displayOption = localStorage.getItem('displayOption');
+
 	// hide the first display option
-	document.getElementById('list-display-option-label').style.display = 'none';
+	document.getElementById(displayOption+'-display-option-label').style.display = 'none';
+	document.getElementById(displayOption+'-display-option').checked = true;
 
 	for(var j in displayOptions){
 		var displayOption = displayOptions[j];
 
 		if(displayOption.hasOwnProperty('innerHTML')){
-			displayOption.addEventListener('click', displayOptionToggle, false);
+			displayOption.addEventListener('click', displayOptionToggle);
 		}
 	}
 
@@ -145,16 +153,11 @@ function displayOptionToggle(){
 				displayOptionType = 'list';
 				displayOption.style.display = '';
 			}
+			localStorage.setItem('displayOption', displayOptionType);
 		}
 	}
 
-	for(var l in items){
-		var item = items[l];
-
-		if(item.hasOwnProperty('innerHTML')){
-			item.className = 'item-'+displayOptionType;
-		}
-	}
+	getItems();
 
 }
 	
