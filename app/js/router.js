@@ -26,7 +26,12 @@ function routeUrl(){
 		}
 
 	}else{
+		dormouse.category = 0;
 		history.pushState(null, "", dormouse.url);
+
+		getItems();
+		
+		highlightCategory(0);
 	}
 
 }

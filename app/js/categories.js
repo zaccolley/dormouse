@@ -73,8 +73,12 @@ function categoriesListeners(){
     		catId = clickedElm.id.substring(4);
 
     		var url = clickedElm.href;
-
-    		history.pushState(null, "", url);
+    		
+    		if(url == document.location.href){
+    			history.pushState(null, "", dormouse.url);
+    		}else{
+    			history.pushState(null, "", url);
+    		}
     		
     		routeUrl();
 
