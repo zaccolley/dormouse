@@ -6,7 +6,7 @@
 		title: document.title,
 		url: 'http://localhost/dormouse/dist',
 		category: 0,
-		debugBasket: false,
+		debugBasket: true,
 		defaultDisplayOption: 'grid' // grid or list
 	};
 
