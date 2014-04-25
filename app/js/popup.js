@@ -255,36 +255,11 @@ function initSaveItemButtonListener(){
 		saveButton.addEventListener('click', function(){
 
 			var itemId = popup.id;
+			var item = {};
 
-			var name = ""+popup.querySelector('textarea.details-title').value.trim();
-			var catId = +popup.querySelector('select.details-cat').value;
-			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
-			var price = +replaceAll(",", "", popup.querySelector('input.details-price').value.trim());
-			var stock = +addAmount.value;
-
-			var item = {
-				"name": name,
-				"desc": desc,
-				"price": price,
-				"stock": stock,
-				"img": "false",
-				"cat": catId
-			};
-
-			if(!name || name == ''){
-				alertMessage('Oops - Enter a name', 'warning');
-			}
-			else if(!desc || desc == ''){
-				alertMessage('Oops - Enter a description', 'warning');
-			}
-			else if(!price || price == '' || isNaN(price)){
-				alertMessage('Price must be a number', 'error');
-			}
-			else if(isNaN(catId)){
-				alertMessage('Oops - Pick a category', 'warning');
-			}else{
+			if(item = dataValidation(popup, addAmount)){
 				hidePopUp();
-				alertMessage('Updated "'+name+'"!', 'success');
+				alertMessage('Updated "'+item.name+'"!', 'success');
 				
 				updateItems(itemId, [item]);
 
@@ -307,38 +282,14 @@ function initAddItemButtonListener(){
 	if(addButton){
 
 		addButton.addEventListener('click', function(){
-			var name = ""+popup.querySelector('textarea.details-title').value.trim();
-			var catId = +popup.querySelector('select.details-cat').value;
-			var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
-			var price = +replaceAll(",", "", popup.querySelector('input.details-price').value.trim());
-			var stock = +addAmount.value;
 
-			var item = {
-				"name": name,
-				"desc": desc,
-				"price": price,
-				"stock": stock,
-				"img": "false",
-				"cat": catId
-			};
-
-			if(!name || name == ''){
-				alertMessage('Oops - Enter a name', 'warning');
-			}
-			else if(!desc || desc == ''){
-				alertMessage('Oops - Enter a description', 'warning');
-			}
-			else if(!price || price == '' || isNaN(price)){
-				alertMessage('Price must be a number', 'error');
-			}
-			else if(isNaN(catId)){
-				alertMessage('Oops - Pick a category', 'warning');
-			}else{
+			var item = {};
+			if(item = dataValidation(popup, addAmount)){
 
 				addItems([item]);
 
 				hidePopUp();
-				alertMessage('Added "'+name+'"" to system', 'success');
+				alertMessage('Added "'+item.name+'"" to system', 'success');
 
 			}
 
@@ -346,4 +297,48 @@ function initAddItemButtonListener(){
 
 	}
 
+}
+
+function dataValidation(popup, addAmount){
+	var name = ""+popup.querySelector('textarea.details-title').value.trim();
+	var catId = +popup.querySelector('select.details-cat').value;
+	var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
+	var price = +replaceAll(",", "", popup.querySelector('input.details-price').value.trim());
+	var stock = +addAmount.value;
+
+	var item = {
+		"name": name,
+		"desc": desc,
+		"price": price,
+		"stock": stock,
+		"img": "false",
+		"cat": catId
+	};
+
+	if(!name || name == ''){
+		alertMessage('Oops - Enter a name', 'warning');
+	}
+	else if(!desc || desc == ''){
+		alertMessage('Oops - Enter a description', 'warning');
+	}
+	else if(!price || price == '' || isNaN(price)){
+		alertMessage('Price must be a number', 'error');
+	}
+	else if(isNaN(catId)){
+		alertMessage('Oops - Pick a category', 'warning');
+	}
+	else if(catId <= 0){
+		alertMessage('Oops - Pick a valid category', 'warning');
+	}
+	else if(isNaN(stock)){
+		alertMessage('Stock must be a number', 'error');
+	}
+	else if(stock < 0){
+		alertMessage('Stock can\'t be negative', 'error');
+	}
+	else{
+		return item;
+	}
+
+	return false;
 }
