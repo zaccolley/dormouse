@@ -12,6 +12,7 @@ function getPopUpData(itemId, type){
 function populatePopUp(json, type){
 	var data = json.output;
 	var item = data.items[0];
+	console.log(item);
 
 	var popup =  document.querySelector('.popup');
 	var popupTools =  document.querySelector('.popup_tools');
@@ -129,7 +130,11 @@ function populatePopUp(json, type){
 				var catName = ""+category.name;
 				var catId = category.id;
 
-				output += "<option value='"+catId+"'>"+catName+"</option>";
+				if(catId == item.cat.id && type == "edit"){
+					output += "<option selected value='"+catId+"'>"+catName+"</option>";
+				}else{
+					output += "<option value='"+catId+"'>"+catName+"</option>";
+				}
 			});
 
 			var detailsCats = document.querySelector('.popup .details-cat');
