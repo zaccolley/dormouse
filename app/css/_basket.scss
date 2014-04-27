@@ -189,14 +189,14 @@ button.remove-item-button{
 }
 
 .basket .item-list:hover button.remove-item-button{
-	color: #A73131; 
-	border-color: #A73131; 
+	color: $red; 
+	border-color: $red; 
 	border-style: solid; 
 }
 
 button.remove-item-button:hover{
-	background: #CF3737;
-	border-color: #CF3737;
+	background: $red;
+	border-color: $red;
 	color: $default-colour;
 }
 

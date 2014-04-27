@@ -35,7 +35,7 @@
 	border-right: 1px solid;
 }
 
-.alert--info{ background-color: #799DE9; }
-.alert--error{ background-color: #DA5E5E; }
-.alert--warning{ background-color: #D2D842; }
+.alert--info{ background-color: $blue; }
+.alert--error{ background-color: $red; }
+.alert--warning{ background-color: $yellow; }
 .alert--success{ background-color: $dark-green; }
