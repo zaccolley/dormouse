@@ -3,13 +3,25 @@
 function addCategories(categories){
 	var preparedData = JSON.stringify({ category: categories });
 
-	ajax({ url: 'data/category', request: 'POST', data: preparedData }, function(data){
+	ajax({ url: dormouse.url+'/data/category', request: 'POST', data: preparedData }, function(data){
 		getCategories();
 	});	
 }
 
 function deleteCategories(catId){
-	ajax({ url: 'data/category/'+catId, request: 'DELETE' }, function(data){
+	ajax({ url: dormouse.url+'/data/category/'+catId, request: 'DELETE' }, function(data){
+
+		if(data.output.errors){
+			var errorOutput = "Something went wrong database side";
+
+			// 23 000 means 'Integrity constraint violation', foreign key stuff
+			if(data.output.errors[0][0] == "23000"){
+				errorOutput = "Can't delete category with items in.";
+			}
+
+			alertMessage(errorOutput, "error");
+		}
+
 		getCategories();
 	});	
 }
@@ -17,7 +29,7 @@ function deleteCategories(catId){
 function patchCategories(catId, catName){
 	var preparedData = JSON.stringify({ category: catName });
 
-	ajax({ url: 'data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
+	ajax({ url: dormouse.url+'/data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
 		getCategories();
 	});	
 }
