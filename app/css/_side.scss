@@ -47,13 +47,15 @@ aside h2{
 	display: block;
 	padding: .5em 0;
 	margin-bottom: .25em;
-	
-	color: $teal;
 
 	border: $lineThickness solid transparent;
 	border-radius: 3px;
 	
-	transition: padding .15s, border .15s, background .15s;
+	transition: padding .15s, color .15s, border .15s, background .15s;
+}
+
+.categories li .category--editable{
+	color: $contrast-colour;
 }
 
 .categories li .category--editable:hover{
@@ -62,7 +64,14 @@ aside h2{
 
 .categories .category--active{
 	padding-left: .5em;
-	border-color: $teal;
+}
+
+@for $i from 1 through 10{
+	.categories li:nth-child(#{$i}) .category--active{
+		$category-active-colour: hsl($i * 45, 70%, 55%);
+		color: $category-active-colour;
+		border-color: $category-active-colour;
+	}
 }
 
 .categories li .admin-button{
@@ -109,7 +118,7 @@ aside h2{
 
 .categories li.add-new-category{
 	padding-right: 2px;
-	padding-top: .5em;
+	padding-top: .75em;
 	margin-top: .5em;
 
 	border-top: $lineThickness dashed lighten($default-colour, 15%);

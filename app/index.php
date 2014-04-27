@@ -90,10 +90,10 @@
 			<h2 class="filter-title">Filter items</h2>
 
 			<select class="filter-select" name="filter">
-				<option value="name-asc">Name ascending</option>
-				<option value="name-desc">Name descending</option>
-				<option value="price-asc">Price ascending</option>
-				<option value="price-desc">Price descending</option>
+				<option value="name-asc">(A-Z) Name ascending</option>
+				<option value="name-desc">(Z-A) Name descending</option>
+				<option value="price-asc">(£-) Price ascending</option>
+				<option value="price-desc">(£+) Price descending</option>
 			</select>
 
 
