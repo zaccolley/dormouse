@@ -15,9 +15,15 @@
 		$sql .= " ORDER BY cat_name ASC";
 
 		$rows = $dbh->query($sql);
-		$dbh = null;
 
 		$count = $rows->rowCount();
+
+		if(!$rows){
+			array_push($output["result"], "Error");
+			array_push($output["errors"], $dbh->errorInfo());
+		}
+		
+		$dbh = null;
 
 		if($count){
 
@@ -50,7 +56,12 @@
 				$sth = $dbh->query("INSERT INTO category (cat_name) VALUES ('".$category."')");
 			}
 
-			array_push($output["result"], "Successfully added ".$catId);
+			if(!$sth){
+				array_push($output["result"], "Error");
+				array_push($output["errors"], $dbh->errorInfo());
+			}else{
+				array_push($output["result"], "Successfully added ".$catId);
+			}
 
 			$dbh = null;
 
@@ -72,7 +83,12 @@
 
 			$sth = $dbh->query("UPDATE category SET cat_name = '".$catName."' WHERE cat_id =".$catId);
 
-			array_push($output["result"], "Successfully updated ".$catId);
+			if(!$sth){
+				array_push($output["result"], "Error");
+				array_push($output["errors"], $dbh->errorInfo());
+			}else{
+				array_push($output["result"], "Successfully updated ".$catId);
+			}
 
 			$dbh = null;
 
@@ -94,7 +110,12 @@
 
 			$sth = $dbh->query("DELETE FROM category WHERE cat_id =".$catId);
 
-			array_push($output["result"], "Successfully deleted ".$catId);
+			if(!$sth){
+				array_push($output["result"], "Error");
+				array_push($output["errors"], $dbh->errorInfo());
+			}else{
+				array_push($output["result"], "Successfully deleted ".$catId);
+			}
 
 			$dbh = null;
 

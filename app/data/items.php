@@ -48,6 +48,12 @@
 		}
 
 		$rows = $dbh->query($sql);
+
+		if(!$rows){
+			array_push($output["result"], "Error");
+			array_push($output["errors"], $dbh->errorInfo());
+		}
+
 		$dbh = null;
 
 		$count = $rows->rowCount();
@@ -101,6 +107,13 @@
 				
 					$sth = $dbh->query($sql);
 
+					if(!$sth){
+						array_push($output["result"], "Error");
+						array_push($output["errors"], $dbh->errorInfo());
+					}else{
+						array_push($output["result"], "Successfully added ".$itemId);
+					}
+
 				}else{
 					array_push($output["errors"], "Missing field");
 				}
@@ -127,7 +140,12 @@
 
 			$sth = $dbh->query("DELETE FROM item WHERE item_id =".$itemId);
 
-			array_push($output["result"], "Successfully deleted ".$itemId);
+			if(!$sth){
+				array_push($output["result"], "Error");
+				array_push($output["errors"], $dbh->errorInfo());
+			}else{
+				array_push($output["result"], "Successfully deleted ".$itemId);
+			}
 
 			$dbh = null;
 
@@ -158,7 +176,12 @@
 
 			$sth = $dbh->query($sql);
 
-			array_push($output["result"], "Successfully updated ".$itemId);
+			if(!$sth){
+				array_push($output["result"], "Error");
+				array_push($output["errors"], $dbh->errorInfo());
+			}else{
+				array_push($output["result"], "Successfully updated ".$itemId);
+			}
 
 			$dbh = null;
 
