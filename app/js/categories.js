@@ -5,6 +5,7 @@ function addCategories(categories){
 
 	ajax({ url: dormouse.url+'/data/category', request: 'POST', data: preparedData }, function(data){
 		getCategories();
+		getItems();
 	});	
 }
 
@@ -31,6 +32,7 @@ function patchCategories(catId, catName){
 
 	ajax({ url: dormouse.url+'/data/category/'+catId, request: 'PATCH', data: preparedData }, function(data){
 		getCategories();
+		getItems();
 	});	
 }
 
