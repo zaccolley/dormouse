@@ -109,7 +109,7 @@
 
 			<h2>Admin</h2>
 
-			<button>Edit categories</button>
+			<button class="admin-edit-categories">Edit categories</button>
 			<button class="admin-add-item">Add item</button>
 			<button>Change details</button>
 			

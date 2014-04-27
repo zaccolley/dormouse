@@ -69,7 +69,7 @@ function initAll(){
 	initGetItemsListeners();
 	initSearchIconListener();
 	initHeaderHeightFix();
-	initAddItemButton();
+	initAdminButtons();
 }
 
 // to swap any text with dirty icons

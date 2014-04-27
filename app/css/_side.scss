@@ -31,19 +31,99 @@ aside h2{
 	font-weight: 700;
 }
 
+.categories{
+	overflow: hidden;
+}
+
+.categories li{ animation: fadeIn .5s; }
+
+@keyframes fadeIn{
+	0%, 25%{
+		opacity: 0;
+	}
+}
+
 .categories li a{
 	display: block;
 	padding: .5em 0;
+	margin-bottom: .25em;
 	
+	color: $teal;
+
 	border: $lineThickness solid transparent;
 	border-radius: 3px;
 	
 	transition: padding .15s, border .15s, background .15s;
 }
 
+.categories li .category--editable:hover{
+	opacity: 1;
+}
+
 .categories .category--active{
 	padding-left: .5em;
 	border-color: $teal;
+}
+
+.categories li .admin-button{
+	float: right;
+	padding: .25em;
+	margin: -.25em 0;
+	
+	font-size: .75em;
+	font-weight: 500;
+	font-style: italic;
+	
+	border: 1px solid;
+	border-radius: $lineThickness;
+}
+
+.categories li .admin-button:hover{
+	color: $default-colour;
+
+	cursor: pointer;
+}
+
+.categories li .add-category{
+	width: 25%;
+	margin: .25em 0;
+	
+	border-color: $green;
+	color: $green;
+}
+
+.categories li .add-category:hover{
+	border-color: $green;
+	background: $green;
+}
+
+.categories li .delete-category{
+	border-color: $red;
+	color: $red;
+}
+
+.categories li .delete-category:hover{
+	border-color: $red;
+	background: $red;
+}
+
+.categories li.add-new-category{
+	padding-right: 2px;
+	padding-top: .5em;
+	margin-top: .5em;
+
+	border-top: $lineThickness dashed lighten($default-colour, 15%);
+}
+
+.categories li.add-new-category input{
+	float: left;
+	width: 70%;
+	padding: .25em 0;
+
+	font-size: .9em;
+	
+	color: $green;
+	border-bottom: 1px solid;
 }
 
 @media (max-width: 600px){
