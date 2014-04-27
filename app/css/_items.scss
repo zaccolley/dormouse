@@ -1,8 +1,8 @@
 /* _items.scss */
 
-.items li{ animation: fadeIn .5s; }
+.items li{ animation: slideFadeIn .5s; }
 
-@keyframes fadeIn{
+@keyframes slideFadeIn{
 	0%, 25%{
 		opacity: 0;
 		transform: translateY(15%);

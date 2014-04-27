@@ -8,7 +8,7 @@ aside{
 	padding: 1em;
 	float: left;
 	width: 25%;
-	height: 100%;
+	overflow-y: auto;
 
 	color: $contrast-colour;
 	
