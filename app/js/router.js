@@ -1,5 +1,13 @@
 function getUrlPath(){
-	return document.location.href.substring(dormouse.url.length+1).split('/');
+	var url = document.location.href.substring(dormouse.url.length+1);
+	
+	var hashIndex = url.indexOf('#');
+
+	if(hashIndex != -1){
+		url = url.substring(0, hashIndex);
+	}
+
+	return url.split('/');
 }
 
 function routeUrl(){
