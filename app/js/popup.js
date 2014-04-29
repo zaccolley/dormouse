@@ -104,9 +104,10 @@ function populatePopUp(json, type){
 		}
 
 		addOutput = "<h2 class='add-title'>Stock to update</h2>";
-		addOutput += "<input class='amount' type='number' inputmode='numeric' min='1' value='"+item.stock+"'>";
+		addOutput += "<input class='amount amount--edit' type='number' inputmode='numeric' min='1' value='"+item.stock+"'>";
 
 		adminSectionOutput = '<button class="admin-button admin-button--save">Save</button>';
+		adminSectionOutput += '<button class="admin-button admin-button--delete">Delete</button>';
 
 	}
 	else if(type == "add"){
@@ -159,6 +160,7 @@ function populatePopUp(json, type){
 	initAddToBasketButtonListener();
 	initEditItemButtonListener();
 	initSaveItemButtonListener();
+	initDeleteItemButtonListener();
 	initAddItemButtonListener();
 
 }
@@ -268,6 +270,28 @@ function initSaveItemButtonListener(){
 				}, 550);
 			}
 
+		});
+
+	}
+}
+
+function initDeleteItemButtonListener(){
+
+	var popup = document.querySelector('.popup');
+	var deleteButton = popup.querySelector('.popup_tools .admin-button--delete');
+
+	if(deleteButton){
+
+		deleteButton.addEventListener('click', function(){
+
+			var itemId = popup.id;
+			
+			hidePopUp();
+			
+			deleteItems(itemId);
+			
+			alertMessage('Item deleted', 'success');
+			
 		});
 
 	}

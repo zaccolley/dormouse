@@ -197,6 +197,14 @@
 	border: $lineThickness*2 solid $dark-green;
 }
 
+.popup .add .amount--edit{
+	color: $contrast-colour;
+	
+	background: none;
+	border: 0;
+	border-bottom: $lineThickness*2 solid;
+}
+
 .popup .add .add-button{
 	padding: 1em;
 	width: 100%;
@@ -219,12 +227,15 @@
 	background: $dark-green;
 }
 
-.popup_tools .admin-button{
+.popup_tools--admin .admin-button{
 	width: 100%;
 	margin-top: .5em;
 
 	font-size: 1.25em;
 }
+
+.popup_tools--admin .admin-button--save{ border-color: $green; }
+.popup_tools--admin .admin-button--delete{ border-color: $red; }
 
 @media (max-width: 1000px){
 
@@ -232,7 +243,7 @@
 
 	.popup .add .add-button{ padding: .75em; }
 
-	.popup .add{ margin-top: 6em; }
+	.popup .add{ margin-top: 4em; }
 
 }
 
