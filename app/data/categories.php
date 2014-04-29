@@ -53,6 +53,8 @@
 		if($categories){
 
 			foreach($categories as $category){
+				$category = addslashes($category);
+				
 				$sth = $dbh->query("INSERT INTO category (cat_name) VALUES ('".$category."')");
 			}
 
@@ -80,6 +82,7 @@
 		$output = array("result" => array(), "errors" => array());
 
 		if($catId && $catName){
+			$catName = addslashes($catName);
 
 			$sth = $dbh->query("UPDATE category SET cat_name = '".$catName."' WHERE cat_id =".$catId);
 

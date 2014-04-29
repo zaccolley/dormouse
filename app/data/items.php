@@ -95,8 +95,8 @@
 
 				if($item->name && $item->desc && $item->price && $item->stock && $item->img && $item->cat){
 
-					$name = $item->name;
-					$desc = $item->desc;
+					$name = addslashes($item->name);
+					$desc = addslashes($item->desc);
 					$price = $item->price;
 					$stock = $item->stock;
 					$img = $item->img;
