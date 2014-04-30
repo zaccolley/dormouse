@@ -19,6 +19,10 @@ main{
 	border-radius: $lineThickness;
 }
 
+.categories .error-message{
+	font-size: 1em;
+}
+
 .error-message em{ font-style: italic; }
 
 .error-message a{

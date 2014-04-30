@@ -31,12 +31,17 @@ function populatePopUp(json, type){
 	var detailsOutput = "";
 	var adminSectionOutput = "";
 
-	popup.id = item.id;
-
 	if(type == "default" || type == "edit"){
 
-		var price = +item.price.value;
-		price = price.formatMoney(2);
+		if(item){
+
+			popup.id = item.id;
+
+			var price = +item.price.value;
+			price = price.formatMoney(2);
+		
+		}
+
 	}
 
 	if(type == "default"){
@@ -112,7 +117,7 @@ function populatePopUp(json, type){
 	}
 	else if(type == "add"){
 
-		imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Add image</p></div>";
+		imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image'><p>Add image</p></div>";
 
 		detailsOutput +=
 			"<label>Name: </label><textarea autofocus required class='details-title' placeholder='Enter your item name'></textarea>
@@ -131,14 +136,19 @@ function populatePopUp(json, type){
 
 		ajax({ url: dormouse.url+'/data/category' }, function(json){
 			var categories = json.output.categories;
+			console.log(categories);
 
 			var output = "<option value='#'>Select your category</option>"; 
+
+			if(!categories.length){
+				var output = "<option value='#'>You need to add categories</option>"; 
+			}
 
 			categories.forEach(function(category){
 				var catName = ""+category.name;
 				var catId = category.id;
 
-				if(catId == item.cat.id && type == "edit"){
+				if(item && catId == item.cat.id && type == "edit"){
 					output += "<option selected value='"+catId+"'>"+catName+"</option>";
 				}else{
 					output += "<option value='"+catId+"'>"+catName+"</option>";
