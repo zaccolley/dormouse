@@ -18,7 +18,7 @@
 	$sql = "SHOW DATABASES LIKE '".$config['dbname']."'";
 	$dbexists = $dbh->query($sql)->rowCount();
 
-	if(!$dbexists):
+	if($dbexists):
 ?>
 
 <body class="basket-closed">
@@ -32,7 +32,7 @@
 		</p>
 	</div>
 
-	<div class="popup popup--hidden">
+	<div class="popup popup--hidden" id="0">
 		<section>
 			<div class="details">
 				<!-- Item details -->
@@ -164,7 +164,7 @@
 		</p>
 	</div>
 
-	<form class="install__form" action="<?php echo $meta['url']; ?>">
+	<form class="install__form" action="<?php echo $meta['url']; ?>/createdb.php">
 
 		<h1>🐭 - dormouse</h1>
 		<h2>e-comm framework</h2>

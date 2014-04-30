@@ -1,37 +1,44 @@
 <?php
 
-	function create(){
+	include('data/config.php');
 
-		$dbh = new PDO('mysql:host='.$config['host'].';', 'root');
+	$dbh = new PDO('mysql:host='.$config['host'].';', 'root');
 
-		createUser($dbh);
-		createDb($dbh);
+	createUser($dbh, $config);
+	createDb($dbh, $config);
 
-		$dbh = new PDO('mysql:host='.$config['host'].';'.
-					   'dbname='.$config['dbname'],
-					   $config['user'], $config['pass']);
+	$dbh = new PDO('mysql:host='.$config['host'].';'.
+				   'dbname='.$config['dbname'],
+				   $config['user'], $config['pass']);
 
-		createTables($dbh);
+	createTables($dbh, $config);
 
-		$dbh = null; // kill db connection
-	}
+	$dbh = null; // kill db connection
 
-	function createUser($dbh){
+	function createUser($dbh, $config){
 		$sql = "DROP USER '".$config['user']."'@'".$config['host']."';
 				CREATE USER '".$config['user']."'@'".$config['host']."' IDENTIFIED BY '".$config['pass']."';
 				GRANT ALL PRIVILEGES ON * . * TO '".$config['user']."'@'".$config['host']."';
 				FLUSH PRIVILEGES;";
 
-		$dbh->query($sql);
-	}	
+		$res = $dbh->query($sql);
 
-	function createDb($dbh){
-		$sql = "CREATE DATABASE hedgerows;";
-
-		$dbh->query($sql);
+		if(!$res){
+			print_r( $dbh->errorInfo() );
+		}
 	}
 
-	function createTables($dbh){
+	function createDb($dbh, $config){
+		$sql = "CREATE DATABASE ".$config['dbname'];
+
+		$res = $dbh->query($sql);
+
+		if(!$res){
+			print_r( $dbh->errorInfo() );
+		}
+	}
+
+	function createTables($dbh, $config){
 		$sql = "CREATE TABLE category(
 					cat_id INT NOT NULL AUTO_INCREMENT,
 					cat_name VARCHAR(50) NOT NULL,
@@ -50,7 +57,11 @@
 					FOREIGN KEY (cat_id) REFERENCES category(cat_id)
 				);";
 
-		$dbh->query($sql);
+		$res = $dbh->query($sql);
+
+		if(!$res){
+			print_r( $dbh->errorInfo() );
+		}
 	}
 
 ?>
