@@ -99,10 +99,9 @@ function populatePopUp(json, type){
 			<label>Price: <span class='details-price-currency'>("+item.price.currency+")</span></label><input required class='details-price' inputmode='numeric' placeholder='0.00' value="+price+">";
 		
 		if(item.img != 0){
-			imgContainer.innerHTML = "<div style='background-image: url("+dormouse.url+"/images/"+item.id+".jpg)''
-										   class='placeholder-img alter-img'
-										   title='Placeholder image of '"+item.name+"'>
-												<p>Update image</p>
+			imgContainer.innerHTML = "<div class='alter-img'>
+										<p>Update image</p>
+										<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Placeholder image of '"+item.name+"'>
 									  </div>";
 		}else{	
 			imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Update image</p></div>";
@@ -117,7 +116,8 @@ function populatePopUp(json, type){
 	}
 	else if(type == "add"){
 
-		imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image'><p>Add image</p></div>";
+		imgContainer.innerHTML = '<input class="hidden-file-input" type="file" id="fileElem" accept="image/*">';
+		imgContainer.innerHTML += "<div class='alter-img' title='Placeholder image'><p>Add image</p></div>";
 
 		detailsOutput +=
 			"<label>Name: </label><textarea autofocus required class='details-title' placeholder='Enter your item name'></textarea>
@@ -126,7 +126,7 @@ function populatePopUp(json, type){
 			<label>Price: </label><input required class='details-price' inputmode='numeric' placeholder='0.00'>";
 
 		addOutput = "<h2 class='add-title'>Stock to add</h2>";
-		addOutput += "<input class='amount' type='number' inputmode='numeric' min='1' value='1'>";
+		addOutput += "<input class='amount amount--edit' type='number' inputmode='numeric' min='1' value='1'>";
 		
 		adminSectionOutput = '<button class="admin-button admin-button--add">Add</button>';
 
@@ -136,7 +136,6 @@ function populatePopUp(json, type){
 
 		ajax({ url: dormouse.url+'/data/category' }, function(json){
 			var categories = json.output.categories;
-			console.log(categories);
 
 			var output = "<option value='#'>Select your category</option>"; 
 
@@ -172,6 +171,7 @@ function populatePopUp(json, type){
 	initSaveItemButtonListener();
 	initDeleteItemButtonListener();
 	initAddItemButtonListener();
+	initFileUploadListeners();
 
 }
 
@@ -210,6 +210,73 @@ function hidePopUp(){
 	}else{
 		history.pushState(null, "", dormouse.url);
 	}
+}
+
+function initFileUploadListeners(){
+	var hiddenFileInput = document.querySelector('.hidden-file-input');
+	var alterImgButton = document.querySelector('.alter-img');
+
+	if(hiddenFileInput){
+
+		hiddenFileInput.addEventListener('change', function(e){
+			handleFiles(e.target.files);
+		}, false);
+
+	}
+
+	if(alterImgButton){
+
+		alterImgButton.addEventListener('click', function(e){
+
+			if(hiddenFileInput){
+				hiddenFileInput.click();
+			}
+
+			e.preventDefault();
+		}, false);
+
+	}
+
+	var dropbox = alterImgButton;
+	
+	if(dropbox){
+		dropbox.addEventListener("dragenter", dragenter, false);
+		dropbox.addEventListener("dragover", dragover, false);
+		dropbox.addEventListener("dragleave", dragleave, false);
+		dropbox.addEventListener("drop", drop, false);
+	}
+
+	function dragleave(e){
+		alterImgButton.classList.remove("alter-img--dragging");
+
+		e.stopPropagation();
+		e.preventDefault();
+	}
+
+	function dragenter(e){
+		e.stopPropagation();
+		e.preventDefault();
+	}
+
+	function dragover(e){
+		alterImgButton.classList.add("alter-img--dragging");
+
+		e.stopPropagation();
+		e.preventDefault();
+	}
+
+	function drop(e){
+		alterImgButton.classList.remove("alter-img--dragging");
+
+		e.stopPropagation();
+		e.preventDefault();
+
+		var dt = e.dataTransfer;
+		var files = dt.files;
+
+		handleFiles(files);
+	}
+
 }
 
 function initAddToBasketButtonListener(){

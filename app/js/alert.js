@@ -20,7 +20,7 @@ function alertMessage(message, type){
 	}
 
 	if(alert.classList.contains('alert--show')){
-		setTimeout(function(){ alert.classList.remove('alert--show'); }, 1000);
+		setTimeout(function(){ alert.classList.remove('alert--show'); }, 1500);
 	}
 
 }

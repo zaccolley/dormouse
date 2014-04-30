@@ -37,4 +37,5 @@ data/category/item | error | list items in category | error | error
 + [Yin-Yang background: http://lea.verou.me/css3patterns/#yin-yang](http://lea.verou.me/css3patterns/#yin-yang)
 + [Font Awesome: http://fortawesome.github.io/Font-Awesome/](http://fortawesome.github.io/Font-Awesome/)
 + Open Sans
++ Image file input: https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications
 

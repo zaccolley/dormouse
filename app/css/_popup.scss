@@ -74,6 +74,7 @@
 }
 
 .popup__img img,
+.popup__img .alter-img,
 .popup__img .placeholder-img{
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
@@ -86,14 +87,10 @@
 	border-radius: $lineThickness*2;
 }
 
-.popup__img .alter-img{
-	border-style: dashed;
-	
+.popup__img .alter-img{	
 	background-clip: content-box;
-	background-size: cover;
-	background-position: center;
 
-	transition: opacity .25s;
+	transition: opacity .25s, transform .5s;
 }
 
 .popup__img .alter-img:hover{
@@ -102,17 +99,55 @@
 	cursor: pointer;
 }
 
-.popup__img .placeholder-img p{
+.popup__img .alter-img p{
 	display: block;
-	padding: 1em;
+	padding: .5em;
 	height: 100%;
 	
 	font-weight: 600;
-	font-size: 3em;
+	font-size: 2em;
 	color: $contrast-colour;
 	background: transparentize($default-colour, .1);
 	text-align: center;
-	text-shadow: 2px 0 5px $default-colour, -2px 0 5px $default-colour, 0 2px 5px $default-colour, 0 -2px 5px $default-colour;
+}
+
+.popup__img .alter-img--dragging{
+	border-style: dashed;
+
+	transform: scale(.95);
+}
+
+.popup__img .alter-img--dragging p{ 
+	color: $default-colour;
+	background: transparentize($contrast-colour, .1);
+}
+
+.popup__img .alter-img--dragging p::after {
+	content: 'YEAAH! Drop that sucker!';
+	display: block;
+	margin-top: 1em;
+
+	color: lighten($default-colour, 25%);
+}
+.popup__img .hidden-file-input{ display: none; }
+
+.popup__img .injected-img{
+	transform-origin: center;
+	animation: popInImg .25s;
+}
+
+@keyframes popInImg{
+	0%{
+		opacity: 0;
+		transform: scale(0);
+	}
+	70%{
+		opacity: 1;
+		transform: scale(1.1);
+	}
+	100%{
+		transform: scale(1);
+	}
 }
 
 .popup .details{
