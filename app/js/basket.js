@@ -112,8 +112,8 @@ function updateBasket(){
 			basket.innerHTML +=  
 			"<li class='item-list' id='item-"+item.id+"'>" +
 				"<span class='remove-item'><button class='remove-item-button'>x</button></span>"+
-				// "<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
-				"<img src='http://placekitten.com/48/48' alt='Image of "+item.name+"'>" +
+				"<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Image of "+item.name+"'>" +
+				// "<img src='http://placekitten.com/48/48' alt='Image of "+item.name+"'>" +
 				"<div class='details'>" +
 					"<h1 class='details-title'>" +
 						"<a href='#"+item.name+"' title='More details on "+item.name+"?'>"+item.name+"</a>" +
