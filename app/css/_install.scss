@@ -56,12 +56,12 @@
 .install__form input,
 .install__form textarea{
 	font-size: .85em;
+	color: $contrast-colour;
 }
 
 .install__form input:focus,
 .install__form textarea:focus{
 	background: $default-colour;
-	color: $contrast-colour;
 }
 
 .install__form textarea{
@@ -74,6 +74,15 @@
 .install__form input[type="text"],
 .install__form textarea{
 	border-bottom: $lineThickness solid $contrast-colour;
+}
+
+.install__form input[type="checkbox"]{
+	display: inline-block;
+	margin: 0;
+	margin-left: 50px;
+	width: auto;
+	
+	transform: scale(2);
 }
 
 .install__form button{

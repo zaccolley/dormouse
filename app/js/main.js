@@ -2,12 +2,17 @@
 
 (function(){
 
-	closePopUp();
+	if(!dormouse.install){
+		closePopUp();
 
-	initAll();
-	updateAll();
+		initAll();
+		updateAll();
 
-	routeUrl();
+		routeUrl();
+	}else{
+		installDb();
+		initSubmitButtonListener();
+	}
 
 	removeNoScript();
 

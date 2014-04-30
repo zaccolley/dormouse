@@ -164,19 +164,19 @@
 		</p>
 	</div>
 
-	<form class="install__form" action="<?php echo $meta['url']; ?>/createdb.php">
+	<form class="install__form" action="<?php echo $meta['url']; ?>">
 
-		<h1>🐭 - dormouse</h1>
+		<h1>dormouse 🐭</h1>
 		<h2>e-comm framework</h2>
 
 		<label for="shop-name">Shop Name</label>
-		<input name="shop-name" id="shop-name" type="text" autofocus placeholder="eBae">
+		<input name="shop-name" id="shop-name" required type="text" autofocus placeholder="eBae">
 
 		<label for="shop-desc">Shop description</label>
-		<textarea name="shop-desc" id="shop-desc" placeholder="This is an amazing shop. I love it. <3"></textarea>
+		<textarea name="shop-desc" id="shop-desc"  required placeholder="This is an amazing shop. I love it. <3"></textarea>
 
 		<label for="shop-currency">Shop currency</label>
-		<select name="shop-currency" id="shop-currency">
+		<select name="shop-currency" id="shop-currency" required>
 			<option value="£">£ - Pound</option>
 			<option value="€">€ - Euro</option>
 			<option value="$">$ - Dollar</option>
@@ -186,10 +186,31 @@
 			<option value="฿">฿ - Bitcoin</option>
 			<option value="§">§ - Simoleons</option>
 		</select>
+	
+		<label for="shop-dummydata">
+			Dummy data?
+			<input type="checkbox" name="shop-dummydata" id="shop-dummydata" checked>
+		</label>
 
 		<button type="submit">Ok, LETS GO!</button>
 	</form>
 	
+	<script>
+		// config options
+		(function(){
+
+			dormouse = {
+				install: true,
+				title: '<?php echo $meta['title']; ?>',
+				url: '<?php echo $meta['url']; ?>',
+				category: 0,
+				debugBasket: true,
+				defaultDisplayOption: 'grid' // grid or list
+			};
+
+		})();
+	</script>
+	<script src="<?php echo $meta['url']; ?>/js/script.min.js"></script>
 </body>
 <?php endif // if the database exists?>
 </html>
