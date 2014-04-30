@@ -10,6 +10,17 @@
 	<link rel="stylesheet" href="<?php echo $meta['url']; ?>/css/style.min.css">
 
 </head>
+
+<?php
+
+	$dbh = new PDO('mysql:host='.$config['host'].';', 'root');
+
+	$sql = "SHOW DATABASES LIKE '".$config['dbname']."'";
+	$dbexists = $dbh->query($sql)->rowCount();
+
+	if(!$dbexists):
+?>
+
 <body class="basket-closed">
 
 	<?php include('noscript.html'); ?>
@@ -141,4 +152,44 @@
 	</script>
 	<script src="<?php echo $meta['url']; ?>/js/script.min.js"></script>
 </body>
+<?php else: ?>
+<body class="install">
+
+	<?php include('noscript.html'); ?>
+
+	<div class="alert">
+		<i class="alert__icon fa fa-info"></i>
+		<p class="alert__message">
+			<!-- Alert text -->
+		</p>
+	</div>
+
+	<form class="install__form" action="<?php echo $meta['url']; ?>">
+
+		<h1>🐭 - dormouse</h1>
+		<h2>e-comm framework</h2>
+
+		<label for="shop-name">Shop Name</label>
+		<input name="shop-name" id="shop-name" type="text" autofocus placeholder="eBae">
+
+		<label for="shop-desc">Shop description</label>
+		<textarea name="shop-desc" id="shop-desc" placeholder="This is an amazing shop. I love it. <3"></textarea>
+
+		<label for="shop-currency">Shop currency</label>
+		<select name="shop-currency" id="shop-currency">
+			<option value="£">£ - Pound</option>
+			<option value="€">€ - Euro</option>
+			<option value="$">$ - Dollar</option>
+			<option value="ƒ">ƒ - Florin</option>
+			<option value="¥">¥ - Yen</option>
+			<option value="₩">₩ - Won</option>
+			<option value="฿">฿ - Bitcoin</option>
+			<option value="§">§ - Simoleons</option>
+		</select>
+
+		<button type="submit">Ok, LETS GO!</button>
+	</form>
+	
+</body>
+<?php endif // if the database exists?>
 </html>

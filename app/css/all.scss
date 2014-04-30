@@ -83,6 +83,7 @@ select:active{
 	background: lighten($contrast-colour, 80%);
 }
 
+@import 'install';
 @import 'alert';
 @import 'placeholder-img';
 @import 'popup';

@@ -1,0 +1,93 @@
+/* _install.scss */
+
+.install h1{
+	margin-bottom: .25em;
+
+	font-size: 2em;
+	color: $gold;
+}
+
+.install h2{
+	margin-bottom: 1.5em;
+
+	color: lighten($default-colour, 25%);
+	font-size: 1.25em;
+}
+
+
+@media (max-width: 400px){ .install{ font-size: .85em; } }
+
+.install__form{
+	width: 70%;
+	margin: .5em auto;
+	padding: 1em;
+	
+	color: $contrast-colour;
+	font-size: 1.5em;
+
+	background: $default-colour;
+	border-radius: $lineThickness*4;
+}
+
+@media (max-width: 800px){ .install__form{ width: 85%; } }
+@media (max-width: 400px){ .install__form{ width: 95%; } }
+
+.install__form label,
+.install__form select,
+.install__form input,
+.install__form textarea{
+	display: block;
+	width: 100%;
+	margin-bottom: 1em;
+	padding: .25em;
+
+	font: inherit;
+
+	outline: none;
+}
+
+.install__form label{
+	padding: 0 0 .5em;
+	margin-top: 1em;
+
+	border-bottom: $lineThickness dashed lighten($default-colour, 15%);
+}
+
+.install__form input,
+.install__form textarea{
+	font-size: .85em;
+}
+
+.install__form input:focus,
+.install__form textarea:focus{
+	background: $default-colour;
+	color: $contrast-colour;
+}
+
+.install__form textarea{
+	max-width: 100%;
+
+	background: none;
+	border: 0;
+}
+
+.install__form input[type="text"],
+.install__form textarea{
+	border-bottom: $lineThickness solid $contrast-colour;
+}
+
+.install__form button{
+	width: 100%;
+	font-size: 1.5em;
+	margin-top: 1em;
+
+	color: $green;
+
+	border: $lineThickness*4 solid $green;
+	border-radius: $lineThickness*4;
+}
+
+.install__form button:hover{
+	color: $default-colour;
+	background: $green;
+}
