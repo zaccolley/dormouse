@@ -47,9 +47,42 @@ function handleFiles(files){
 	reader.readAsDataURL(file);
 }
 
-function sendFiles() {
-	var imgs = document.querySelectorAll(".injected-img");
-	var img = imgs[0];
+function sendFiles(){
 
-	console.log(img, img.file);
+	ajax({ url: dormouse.url+'/data/item' }, function(data){
+		var items = data.output.items;
+
+		var tempNo = 0;
+
+		for(var i = 0; i < items.length; i++){
+			var item = items[i];
+
+			if(item.id > tempNo){
+				tempNo = item.id;
+			}
+
+		}
+
+		var latestId = +tempNo;
+
+		var img = document.querySelector(".injected-img");
+
+		var imgData = new FormData();
+
+	    imgData.append('image', img.file);
+	    imgData.append('id', latestId);
+	
+		alertMessage('Uploading image', 'info');
+
+		ajax({ url: dormouse.url+'/fileupload.php', request: 'POST', data: imgData, formData: true }, function(data){
+			console.log(data);
+			if(data){
+				alertMessage('Uploaded image', 'success');
+			}else{
+				alertMessage('Error uploading image', 'error');
+			}
+		});
+
+	});
+	
 }

@@ -57,7 +57,7 @@ function populatePopUp(json, type){
 			var img = document.createElement('img');
 			imgContainer.appendChild(img);
 
-			img.setAttribute('src', dormouse.url+"/images/"+item.id+".jpg");
+			img.setAttribute('src', dormouse.url+"/images/"+item.id);
 			img.setAttribute('alt', "Image of '"+item.name+"'");
 		}else{	
 			imgContainer.innerHTML = "<div class='placeholder-img' title='Placeholder image of '"+item.name+"'></div>";
@@ -101,7 +101,7 @@ function populatePopUp(json, type){
 		if(item.img != 0){
 			imgContainer.innerHTML = "<div class='alter-img'>
 										<p>Update image</p>
-										<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Placeholder image of '"+item.name+"'>
+										<img src='"+dormouse.url+"/images/"+item.id+"' alt='Placeholder image of '"+item.name+"'>
 									  </div>";
 		}else{	
 			imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Update image</p></div>";
@@ -389,6 +389,10 @@ function initAddItemButtonListener(){
 
 				addItems([item]);
 
+				if(item.img){
+					sendFiles();
+				}
+
 				hidePopUp();
 				alertMessage('Added "'+item.name+'"" to system', 'success');
 
@@ -406,13 +410,19 @@ function dataValidation(popup, addAmount){
 	var desc = ""+popup.querySelector('textarea.details-desc').value.trim();
 	var price = +replaceAll(",", "", popup.querySelector('input.details-price').value.trim());
 	var stock = +addAmount.value;
+	var img = document.querySelector(".popup__img img");
+
+	console.log(img);
+	console.log(!!img);
+
+	sendFiles();
 
 	var item = {
 		"name": name,
 		"desc": desc,
 		"price": price,
 		"stock": stock,
-		"img": "false",
+		"img": !!img,
 		"cat": catId
 	};
 

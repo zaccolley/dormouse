@@ -101,7 +101,7 @@ function populateItems(json){
 
 			// if the item has an img
 			if(item.img != 0){
-				output += "<img src='"+dormouse.url+"/images/"+item.id+".jpg' alt='Image of "+item.name+"'>";
+				output += "<img src='"+dormouse.url+"/images/"+item.id+"' alt='Image of "+item.name+"'>";
 			}else{
 				output += "<div class='placeholder-img' title='Placeholder image of "+item.name+"'></div>";
 			}

@@ -34,6 +34,7 @@ var ajax = function(inputOptions, callback){
 		async: true,
 		dataType: 'json',
 		data: null,
+		formData: false,
 		debug: false
 	}
 
@@ -49,6 +50,7 @@ var ajax = function(inputOptions, callback){
 			case 'dataType': options.dataType = optionValue; break;
 			case 'data': options.data = optionValue; break;
 			case 'debug': options.debug = optionValue; break;
+			case 'formData': options.formData = optionValue; break;
 			default: options.debug && console.log('Invalid option supplied');
 		}
 
@@ -72,12 +74,19 @@ var ajax = function(inputOptions, callback){
 
 		options.debug && console.log('XMLHttpRequest created');
 
-		xhr.open(options.request, options.url+"?data="+options.data, options.async);
+		if(options.formData){
+			xhr.open(options.request, options.url, options.async);
+		}else{
+			xhr.open(options.request, options.url+"?data="+options.data, options.async);
+		}
 
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		if(!options.formData){
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		}
+
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
-		if(options.dataType && options.async){
+		if(options.dataType && options.async && !options.formData){
 			xhr.responseType = options.dataType;
 		}
 
@@ -105,7 +114,12 @@ var ajax = function(inputOptions, callback){
 
 		});
 
-		xhr.send(null);
+		if(options.formData){
+			xhr.send(options.data);
+		}else{
+			xhr.send(null);
+		}
+
 		options.debug && console.log('Data sent: ', options.data);
 
 	}
