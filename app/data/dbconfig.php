@@ -1,7 +1,7 @@
 <?php	
 	
 	$config = array(
-		'host' => '127.0.0.1',
+		'host' => 'localhost',
 		'dbname' => 'hedgerows',
 		'user' => 'dormouse',
 		'pass' => 'hazel'
