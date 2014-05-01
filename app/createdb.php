@@ -1,5 +1,7 @@
 <?php
 
+	// this file creates the database
+
 	include('data/config.php');
 
 	$dbh = new PDO('mysql:host='.$config['host'].';', 'root');
@@ -13,7 +15,7 @@
 				   $config['user'], $config['pass']);
 
 	createTables($dbh, $config);
-	dummyData($dbh, $config);
+	dummyData($dbh, $config); // dummy data
 
 	$dbh = null; // kill db connection
 

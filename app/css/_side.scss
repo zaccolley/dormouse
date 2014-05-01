@@ -66,8 +66,11 @@ aside h2{
 	padding-left: .5em;
 }
 
+// woah sass loop - got some rainbow coloured categories
 @for $i from 1 through 10{
+	// nth-child picks each one individually
 	.categories li:nth-child(#{$i}) .category--active{
+		// hsl is lovely because you can keep the tone of a colour and just change the hue
 		$category-active-colour: hsl($i * 45, 70%, 55%);
 		color: $category-active-colour;
 		border-color: $category-active-colour;

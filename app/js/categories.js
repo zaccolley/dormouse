@@ -112,6 +112,7 @@ function categorySelect(e){
 		var url = clickedElm.href;
 		
 		if(url == document.location.href){
+			// this changes the page history
 			history.pushState(null, "", dormouse.url);
 		}else{
 			history.pushState(null, "", url);

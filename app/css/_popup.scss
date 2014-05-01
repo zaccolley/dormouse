@@ -1,7 +1,7 @@
 /* _popup.scss */
 
 .popup{
-	z-index: 3000;
+	z-index: 3000; // keeps popup above everything else
 	position: fixed;
 	top:0; right:0; bottom:0; left:0;
 	
@@ -88,7 +88,7 @@
 }
 
 .popup__img .alter-img{	
-	background-clip: content-box;
+	background-clip: content-box; // stops the border going into the border
 
 	transition: opacity .25s, transform .5s;
 }
@@ -122,7 +122,8 @@
 	background: transparentize($contrast-colour, .1);
 }
 
-.popup__img .alter-img--dragging p::after {
+// another pseudo element only styled when dragging over the element
+.popup__img .alter-img--dragging p::after{
 	content: 'YEAAH! Drop that sucker!';
 	display: block;
 	margin-top: 1em;

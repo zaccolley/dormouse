@@ -1,5 +1,7 @@
 // main
 
+
+// on load
 (function(){
 
 	if(!dormouse.install){
@@ -14,6 +16,7 @@
 		initSubmitButtonListener();
 	}
 
+	// removes the no script from the DOM
 	removeNoScript();
 
 })();

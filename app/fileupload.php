@@ -1,5 +1,7 @@
 <?php
 
+	// this file is for uploading images
+
 	$id = $_POST["id"];
 
 	$path = "images/".$id;

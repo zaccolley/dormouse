@@ -2,6 +2,7 @@
 
 .items li{ animation: slideFadeIn .5s; }
 
+// this is nice dont have to use JS to trigger entry animation
 @keyframes slideFadeIn{
 	0%, 25%{
 		opacity: 0;
@@ -36,7 +37,7 @@
 
 .item-grid{
 	position: relative;
-	width: (100%/4);
+	width: (100%/4); // 4 items
 	float: left;
 	padding: 0 .5em .5em 0;
 }
@@ -75,7 +76,7 @@
 	overflow: hidden; /* clearfix */
 
 	font-size: .9em;
-	white-space: nowrap;
+	white-space: nowrap; // these two properties truncate and add an ellipsis dynamically!
 	text-overflow: ellipsis;
 	
 	border-bottom: $lineThickness solid transparentize($contrast-colour, .9);
@@ -84,7 +85,7 @@
 .item-grid .details-desc{
 	height: 4em;
 	padding: .75em 0;
-	overflow-y: auto;
+	overflow-y: auto; // scroll it scroll it
 	
 	font-size: .85em;
 }
@@ -188,6 +189,8 @@ main .item-list:last-child{ border: 0; }
 	font-weight: 700;
 	font-size: 1.25em;
 }
+
+// all deez media queries are to handle the grid items for different screen sizes
 
 @media all and (max-width: 2000px){
 	.item-grid{ width: (100%/6); }

@@ -63,14 +63,13 @@ function sendFiles(){
 
 		}
 
-		var latestId = +tempNo;
+		var latestId = +tempNo+1;
 
 		var img = document.querySelector(".injected-img");
 
 		var imgData = new FormData();
 
 	    imgData.append('image', img.file);
-	    imgData.append('id', latestId);
 	
 		alertMessage('Uploading image', 'info');
 

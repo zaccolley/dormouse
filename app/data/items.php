@@ -1,5 +1,8 @@
 <?php 
+
+	// this file contains the items functions
 	
+	// get ite,s
 	function getItems($itemId = null, $catId = null, $search = null, $filter = null){
 	
 		require('db.php');
@@ -8,14 +11,17 @@
 		
 		$sql = "SELECT * FROM item, category WHERE item.cat_id = category.cat_id";
 
+		// if theres an item to filter by
 		if($itemId){
 			$sql .= " AND item.item_id = '".$itemId."'";
 		}
 
+		// if theres a category to filter by
 		if($catId){
 			$sql .= " AND category.cat_id = '".$catId."'";
 		}
 
+		// if theres search to filter by
 		if($search){
 			$sql .= " AND (item_name LIKE '%".$search."%' OR item_desc LIKE '%".$search."%' OR cat_name LIKE '%".$search."%')";
 		}
@@ -49,6 +55,7 @@
 
 		$rows = $dbh->query($sql);
 
+		// error handling
 		if(!$rows){
 			array_push($output["result"], "Error");
 			array_push($output["errors"], $dbh->errorInfo());
@@ -83,6 +90,7 @@
 
 	}
 
+	// add items
 	function addItems($items = null){
 
 		require('db.php');
@@ -107,6 +115,7 @@
 				
 					$sth = $dbh->query($sql);
 
+					// error handling
 					if(!$sth){
 						array_push($output["result"], "Error");
 						array_push($output["errors"], $dbh->errorInfo());
@@ -130,6 +139,7 @@
 
 	}
 
+	// delete items
 	function deleteItems($itemId = null){
 
 		require('db.php');
@@ -140,6 +150,7 @@
 
 			$sth = $dbh->query("DELETE FROM item WHERE item_id =".$itemId);
 
+			// error handling
 			if(!$sth){
 				array_push($output["result"], "Error");
 				array_push($output["errors"], $dbh->errorInfo());
@@ -157,6 +168,7 @@
 
 	}
 
+	// update items
 	function updateItems($itemId = null, $itemData = null){
 
 		require('db.php');
@@ -176,6 +188,7 @@
 
 			$sth = $dbh->query($sql);
 
+			// error handling
 			if(!$sth){
 				array_push($output["result"], "Error");
 				array_push($output["errors"], $dbh->errorInfo());

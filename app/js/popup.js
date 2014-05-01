@@ -99,10 +99,7 @@ function populatePopUp(json, type){
 			<label>Price: <span class='details-price-currency'>("+item.price.currency+")</span></label><input required class='details-price' inputmode='numeric' placeholder='0.00' value="+price+">";
 		
 		if(item.img != 0){
-			imgContainer.innerHTML = "<div class='alter-img'>
-										<p>Update image</p>
-										<img src='"+dormouse.url+"/images/"+item.id+"' alt='Placeholder image of '"+item.name+"'>
-									  </div>";
+			imgContainer.innerHTML = "<img src='"+dormouse.url+"/images/"+item.id+"' alt='Placeholder image of '"+item.name+"'>";
 		}else{	
 			imgContainer.innerHTML = "<div class='placeholder-img alter-img' title='Placeholder image of '"+item.name+"'><p>Update image</p></div>";
 		}
@@ -411,9 +408,6 @@ function dataValidation(popup, addAmount){
 	var price = +replaceAll(",", "", popup.querySelector('input.details-price').value.trim());
 	var stock = +addAmount.value;
 	var img = document.querySelector(".popup__img img");
-
-	console.log(img);
-	console.log(!!img);
 
 	sendFiles();
 

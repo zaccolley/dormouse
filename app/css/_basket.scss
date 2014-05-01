@@ -94,10 +94,11 @@ button.basket-close:hover{
 
 .basket-items{
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: auto; // these overflows ensure a scrollbar when theres lots of basket items
 	height: 70%;
 }
 
+// pseudo elements that allow for some content to be injected when the element is empty
 .basket-items:empty::before,
 .basket-items:empty::after{	
 	display: block;
@@ -114,10 +115,11 @@ button.basket-close:hover{
 .basket-items:empty::before{ content: 'Nothing here...'; }
 .basket-items:empty::after{ content: 'Go buy something!'; }
 
+// this animation occurs whenever the basket is empty
 @keyframes emptyFade{
 	from{
-		opacity: 0;
-		transform: translateY(-15%);
+		opacity: 0; // fade in
+		transform: translateY(-15%); // slide down
 	}
 }
 
@@ -129,7 +131,7 @@ button.basket-close:hover{
 	font-size: .85em;
 	
 	border: none;
-	border-top: $lineThickness solid darken($contrast-colour, 75%);
+	border-top: $lineThickness solid darken($contrast-colour, 75%); // function to darken colour
 
 	transition: all .25s;
 	transform-origin: top;
@@ -220,17 +222,16 @@ button.remove-item-button:hover{
 	margin-right: 15px;
 
 	background: lighten($default-colour, 1%);
-	box-shadow: -25px -15px 40px lighten($default-colour, 1%);
+	box-shadow: -25px -15px 40px lighten($default-colour, 1%); // box shadow gives gradient over items that overflow
 
 	transition: opacity .5s, transform .5s;
 }
 
-
+// apply these styles to the checkout element next to the empty basket
 .basket-items:empty + .basket-checkout{
 	opacity: 0;
 	transform: translateY(100%);
 }
-
 
 .basket-checkout h2{
 	font-size: 1.5em;

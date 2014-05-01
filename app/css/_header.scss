@@ -1,7 +1,7 @@
 /* _header.scss */
 
 header{
-	z-index: 2000;
+	z-index: 2000; // header is above other content
 	opacity: .95;
 	position: fixed;
 	top: 0;
@@ -27,11 +27,11 @@ header{
 	font-size: 1.25rem;
 	font-weight: 500;
 
-	cursor: pointer;
+	cursor: pointer; // the hand
 }
 
 .logo{
-	padding: 0 1rem;
+	padding: 0 1rem; // rems aren't relative to the containing element
 	width: 25%;
 }
 
@@ -50,7 +50,7 @@ header{
 }
 
 .logo__img{
-	text-indent: -5000px;
+	text-indent: -5000px; // this hides the text
 	
 	background: no-repeat;
 	background-image: url('../images/logo.png');
@@ -82,7 +82,7 @@ header{
 	
 	font-size: inherit;
 	
-	background: transparentize($contrast-colour, .95);
+	background: transparentize($contrast-colour, .95); // this function creates a rgba() version of the colour
 	border-bottom: $lineThickness solid $default-colour;
 	border-top-left-radius: $lineThickness;
 	border-top-right-radius: $lineThickness;
@@ -115,7 +115,7 @@ header{
 	width: 55%;
 	padding: .25em 0;
 	
-	user-select: none;
+	user-select: none; // stops any selection, so highlighting
 }
 
 .search-submit,

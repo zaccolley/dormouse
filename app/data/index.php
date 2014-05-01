@@ -1,6 +1,8 @@
 <?php 
 	
-	header('Content-type: application/json');
+	// this file routes the URIs for the 'api'
+
+	header('Content-type: application/json'); // we're sending back json
 
 	require('db.php');
 
@@ -33,6 +35,7 @@
 
 	$output["request"]["uriParts"] = $uriParts;
 
+	// these are the expected paths that we want to handle
 	$expectedPaths = array(
 
 		"categoryItemSingle" => array("category", "[0-9]+", "item", "[0-9]+"),
@@ -46,10 +49,13 @@
 
 	);
 
+	// resets
 	$search = null;
 	$filter = null;
 	$category = null;
 	$item = null;
+
+	// if any of the modifiers are present store them in vars
 
 	if($data && property_exists($data, "search")){
 		$search = $data->search;
@@ -66,6 +72,8 @@
 	if($data && property_exists($data, "item")){
 		$item = $data->item;
 	}
+
+	// check to see if path is the same as expected path
 
 	foreach($expectedPaths as $expectedPathName => $expectedPath){
 

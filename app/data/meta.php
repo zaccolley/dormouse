@@ -1,5 +1,6 @@
 <?php
 
+	// config for meta
 	$meta = array(
 		'url' => "http://localhost/dormouse/dist",
 		'title' => "eBae",

@@ -13,6 +13,8 @@
 
 <?php
 
+	// here we check whether database exists
+
 	$dbh = new PDO('mysql:host='.$config['host'].';', 'root');
 
 	$sql = "SHOW DATABASES LIKE '".$config['dbname']."'";
@@ -144,7 +146,7 @@
 				title: '<?php echo $meta['title']; ?>',
 				url: '<?php echo $meta['url']; ?>',
 				category: 0,
-				debugBasket: true,
+				debugBasket: false,
 				defaultDisplayOption: 'grid' // grid or list
 			};
 
@@ -184,7 +186,7 @@
 			<option value="¥">¥ - Yen</option>
 			<option value="₩">₩ - Won</option>
 			<option value="฿">฿ - Bitcoin</option>
-			<option value="§">§ - Simoleons</option>
+			<option value="§">§ - Simoleons</option> <!-- rosebud -->
 		</select>
 	
 		<label for="shop-dummydata">

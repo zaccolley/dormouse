@@ -43,7 +43,7 @@
 
 	font: inherit;
 
-	outline: none;
+	outline: none; // removes default outline behaviour
 }
 
 .install__form label{
@@ -76,13 +76,14 @@
 	border-bottom: $lineThickness solid $contrast-colour;
 }
 
+// using selectors with attributes as just as descriptive as a class in this case
 .install__form input[type="checkbox"]{
 	display: inline-block;
 	margin: 0;
 	margin-left: 50px;
 	width: auto;
 	
-	transform: scale(2);
+	transform: scale(2); // without doing a checkbox hack this is nice
 }
 
 .install__form button{

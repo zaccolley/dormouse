@@ -3,6 +3,8 @@
 @import 'reset';
 @import 'variables';
 
+// the no script stuff is to style when JS isn't enabled
+
 noscript{
 	overflow: hidden;
 	width: 70%;
@@ -18,6 +20,7 @@ noscript hr{ border: 0; border-bottom: 1px solid; }
 
 noscript hr, noscript p, noscript pre{ margin: 1em 0; }
 
+// ::selection is for the highlighting
 *::selection{
 	background: $default-colour;
 	color: $contrast-colour;

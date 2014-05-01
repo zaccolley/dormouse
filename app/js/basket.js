@@ -1,6 +1,9 @@
 // basket
 
+// initialize basket buttons
 function initBasket(){
+	// if there isnt any basket items in localstorage start that puppy up
+	// also if its in debug mode it'll delete all the basket each time
 	if(!localStorage.getItem('basketItems') || dormouse.debugBasket){
 		localStorage.setItem('basketItems', JSON.stringify({ 'item': [] }));
 	}
@@ -9,6 +12,7 @@ function initBasket(){
 	initBasketRemoveItemListener();
 }
 
+// initialise basket button
 function initBasketButtonsListeners(){
 	var checkoutLink = document.querySelector('.checkout');
 	checkoutLink.addEventListener('click', toggleBasket, false);
@@ -17,14 +21,18 @@ function initBasketButtonsListeners(){
 	basketCloseButton.addEventListener('click', closeBasket, false);
 }
 
+// initialise the basket remove button
 function initBasketRemoveItemListener(){
 	var basketPanel = document.querySelector('.basket-items');
 
 	basketPanel.addEventListener('click', function(e){
 
+		// this code is bubbling up to find what we're looking for
+
 		if(e.target != e.currentTarget && e.target.classList.contains('remove-item-button')){
 			var clickedElm = e.target;
 
+			// if we find it we escape the loop
 			while(clickedElm.id.indexOf('item-') == -1){
         		clickedElm = clickedElm.parentNode;
     		}
@@ -33,6 +41,7 @@ function initBasketRemoveItemListener(){
 
     		clickedElm.classList.add('removed-item');
     		
+    		// timeout so we can watch that animation wow
     		setTimeout(function(){ removeFromBasket(itemId); }, 500);
 
 		}	
@@ -40,6 +49,7 @@ function initBasketRemoveItemListener(){
 	}, false);
 }
 
+// toggle the basket
 function toggleBasket(){
 	updateBasket();
 
@@ -49,6 +59,7 @@ function toggleBasket(){
 	document.body.classList.toggle('basket-closed');
 }
 
+// close the basket
 function closeBasket(){
 	var checkoutLink = document.querySelector('.checkout');
 
@@ -56,6 +67,7 @@ function closeBasket(){
 	document.body.classList.add('basket-closed');
 }
 
+// open the basket
 function openBasket(){
 	updateBasket();
 
@@ -65,6 +77,7 @@ function openBasket(){
 	document.body.classList.remove('basket-closed');
 }
 
+// update the basket
 function updateBasket(){
 	var basketStorage = JSON.parse(localStorage.getItem('basketItems'));
 
@@ -78,10 +91,11 @@ function updateBasket(){
 	var basketItems = basketStorage.item;
 	var basketItemsAmount = basketItems.length;
 
+	// this update the title and the basket counter
 	changeCheckoutItemAmount(basketItemsAmount);
 
+	// reset
 	var totalPrice = 0;
-
 
 	for(var b in basketItems){
 		var basketItem = basketItems[b];
@@ -100,6 +114,7 @@ function updateBasket(){
 
 			var basketPrice = basketPrice.formatMoney(2);
 
+			// if there isnt a basket amount dont display amount
 			if(basketAmount){
 				basketAmount = "× <span class='details-stock-amount'>"+basketAmount+"</span>";
 			}else{
@@ -187,6 +202,7 @@ function getBasketItemAmount(id){
 	return 0;
 }
 
+// this handles the checkout item amount in the title bar and the little icon by the checkout header icon
 function changeCheckoutItemAmount(amount){
 	var checkoutItemAmount = document.querySelector('.checkout-item-amount');
 
@@ -195,7 +211,7 @@ function changeCheckoutItemAmount(amount){
 
 		if(amount < 20){
 			var enclosedNumbers = "⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇";
-			document.title =  dormouse.title+' - Basket: '+enclosedNumbers.charAt(amount-1);
+			document.title =  dormouse.title+' - Basket: '+enclosedNumbers.charAt(amount-1); // using a string like an array
 		}else{
 			document.title =  dormouse.title+' - Basket: ('+amount+')';
 		}

@@ -9,6 +9,7 @@
 	margin-bottom: .5em;
 }
 
+// hide admin panel on smaller screens
 @media (max-width: 600px){
 	.admin{ display: none; }
 }

@@ -1,5 +1,9 @@
-<?php 
+<?php
 
+	// this file contains the categories functions
+
+
+	// get categories
 	function getCategories($catId = null){
 
 		require('db.php');
@@ -8,6 +12,7 @@
 
 		$sql = "SELECT * FROM category";
 
+		// if a category is specified here we filter
 		if($catId){
 			$sql .= " WHERE cat_id='".$catId."'";
 		}
@@ -18,14 +23,15 @@
 
 		$count = $rows->rowCount();
 
+		// if there are no rows produce an error
 		if(!$rows){
 			array_push($output["result"], "Error");
 			array_push($output["errors"], $dbh->errorInfo());
 		}
 		
-		$dbh = null;
+		$dbh = null; // kill db connection
 
-		if($count){
+		if($count){ // if there was a result
 
 			foreach($rows as $row){
 				$category = array(
@@ -44,6 +50,7 @@
 
 	}
 
+	// add categories
 	function addCategories($categories = null){
 
 		require('db.php');
@@ -52,12 +59,14 @@
 
 		if($categories){
 
+			// loop through categories
 			foreach($categories as $category){
 				$category = addslashes($category);
 				
 				$sth = $dbh->query("INSERT INTO category (cat_name) VALUES ('".$category."')");
 			}
 
+			// if there is no result there is an error
 			if(!$sth){
 				array_push($output["result"], "Error");
 				array_push($output["errors"], $dbh->errorInfo());
@@ -65,7 +74,7 @@
 				array_push($output["result"], "Successfully added ".$catId);
 			}
 
-			$dbh = null;
+			$dbh = null; // kill db connection
 
 		}else{
 			array_push($output["errors"], "No categories to add");
@@ -75,17 +84,20 @@
 
 	}
 
+	// update categories
 	function updateCategories($catId = null, $catName = null){
 
 		require('db.php');
 
 		$output = array("result" => array(), "errors" => array());
 
+		// if both an id and name are supplied
 		if($catId && $catName){
 			$catName = addslashes($catName);
 
 			$sth = $dbh->query("UPDATE category SET cat_name = '".$catName."' WHERE cat_id =".$catId);
 
+			// handle errors
 			if(!$sth){
 				array_push($output["result"], "Error");
 				array_push($output["errors"], $dbh->errorInfo());
@@ -103,6 +115,7 @@
 
 	}
 
+	// delete categories
 	function deleteCategories($catId = null){
 
 		require('db.php');
@@ -113,6 +126,7 @@
 
 			$sth = $dbh->query("DELETE FROM category WHERE cat_id =".$catId);
 
+			// handle errors
 			if(!$sth){
 				array_push($output["result"], "Error");
 				array_push($output["errors"], $dbh->errorInfo());
@@ -120,7 +134,7 @@
 				array_push($output["result"], "Successfully deleted ".$catId);
 			}
 
-			$dbh = null;
+			$dbh = null; // kill db connection
 
 		}else{
 			array_push($output["errors"], "No categories to delete");
