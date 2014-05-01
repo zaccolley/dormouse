@@ -15,7 +15,7 @@
 				   $config['user'], $config['pass']);
 
 	createTables($dbh, $config);
-	dummyData($dbh, $config); // dummy data
+	// dummyData($dbh, $config); // dummy data
 
 	$dbh = null; // kill db connection
 
