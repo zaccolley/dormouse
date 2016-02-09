@@ -2,22 +2,6 @@
 
 e-commerce framework for my WEBSCRP Uni unit
 
-### to run:
-
-+ run `app/create.sql` to create database
-+ [install grunt](http://gruntjs.com/getting-started)
-+ run `grunt build` at root to build
-+ dist/ should be created with the built project
-
-### for dev:
-
-run `grunt`
-
-this watches any changes to files and automatically builds
-
-navigate to [`localhost/dormouse/dist`](http://localhost/dormouse/dist) for the live copy
-
-
 ### data api:
 
 
