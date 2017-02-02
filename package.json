@@ -2,15 +2,15 @@
   "name": "dormouse",
   "version": "0.1.0",
   "devDependencies": {
-    "grunt": "~0.4.4",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-sass": "~0.6.0",
-    "grunt-autoprefixer": "~0.6.3",
-    "grunt-csso": "~0.5.2",
-    "grunt-html": "~0.3.4",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-copy": "~0.5.0"
+    "grunt": "~1.0.1",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-uglify": "~2.0.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-contrib-sass": "~1.0.0",
+    "grunt-autoprefixer": "~3.0.4",
+    "grunt-csso": "~2.2.0",
+    "grunt-html": "~8.3.1",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-copy": "~1.0.0"
   }
 }
