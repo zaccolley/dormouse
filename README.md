@@ -1,5 +1,7 @@
 # 🐭 - dormouse
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zaccolley/dormouse.svg)](https://greenkeeper.io/)
+
 e-commerce framework for my WEBSCRP Uni unit
 
 ### data api:
